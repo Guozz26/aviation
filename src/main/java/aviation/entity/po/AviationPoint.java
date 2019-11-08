@@ -3,25 +3,30 @@ package aviation.entity.po;
 public class AviationPoint {
 	private int pointId;
 	private String pointCity;
-	private String managerId;
-	public AviationPoint(int pointId, String pointCity, String managerId) {
-		super();
+	private int managerId;
+	public int getPointId() {
+		return pointId;
+	}
+	public void setPointId(int pointId) {
 		this.pointId = pointId;
+	}
+	public String getPointCity() {
+		return pointCity;
+	}
+	public void setPointCity(String pointCity) {
 		this.pointCity = pointCity;
+	}
+	public int getManagerId() {
+		return managerId;
+	}
+	public void setManagerId(int managerId) {
 		this.managerId = managerId;
-	}
-	public AviationPoint() {
-		super();
-	}
-	@Override
-	public String toString() {
-		return "AviationPoint [pointId=" + pointId + ", pointCity=" + pointCity + ", managerId=" + managerId + "]";
 	}
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((managerId == null) ? 0 : managerId.hashCode());
+		result = prime * result + managerId;
 		result = prime * result + ((pointCity == null) ? 0 : pointCity.hashCode());
 		result = prime * result + pointId;
 		return result;
@@ -35,10 +40,7 @@ public class AviationPoint {
 		if (getClass() != obj.getClass())
 			return false;
 		AviationPoint other = (AviationPoint) obj;
-		if (managerId == null) {
-			if (other.managerId != null)
-				return false;
-		} else if (!managerId.equals(other.managerId))
+		if (managerId != other.managerId)
 			return false;
 		if (pointCity == null) {
 			if (other.pointCity != null)
@@ -49,24 +51,29 @@ public class AviationPoint {
 			return false;
 		return true;
 	}
-	public int getPointId() {
-		return pointId;
+	@Override
+	public String toString() {
+		return "AviationPoint [pointId=" + pointId + ", pointCity=" + pointCity + ", managerId=" + managerId + "]";
 	}
-	public void setPointId(int pointId) {
+	public AviationPoint(int pointId, String pointCity, int managerId) {
+		super();
 		this.pointId = pointId;
-	}
-	public String getPointCity() {
-		return pointCity;
-	}
-	public void setPointCity(String pointCity) {
 		this.pointCity = pointCity;
-	}
-	public String getManagerId() {
-		return managerId;
-	}
-	public void setManagerId(String managerId) {
 		this.managerId = managerId;
 	}
-	
+	public AviationPoint( String pointCity, int managerId) {
+		super();
+		
+		this.pointCity = pointCity;
+		this.managerId = managerId;
+	}
+	public AviationPoint(int pointId) {
+		super();
+		this.pointId = pointId;
+		
+	}
+	public AviationPoint() {
+		super();
+	}
 	
 }
