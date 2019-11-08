@@ -9,6 +9,8 @@ public class AviationSalesman {
 	private Date salesmanAge;
 	private String salesmanPwd;
 	private int pointId;
+	
+	
 	public AviationSalesman(int salesmanId, String salesmanName, String salesmanSex, Date salesmanAge,
 			String salesmanPwd, int pointId) {
 		super();
@@ -19,6 +21,20 @@ public class AviationSalesman {
 		this.salesmanPwd = salesmanPwd;
 		this.pointId = pointId;
 	}
+	public AviationSalesman(String salesmanName, String salesmanSex, Date salesmanAge,
+			String salesmanPwd, int pointId) {
+		super();
+		this.salesmanName = salesmanName;
+		this.salesmanSex = salesmanSex;
+		this.salesmanAge = salesmanAge;
+		this.salesmanPwd = salesmanPwd;
+		this.pointId = pointId;		
+	}
+	public AviationSalesman(int salesmanId) {
+		super();
+		this.salesmanId = salesmanId;		
+	}
+	
 	public AviationSalesman() {
 		super();
 	}

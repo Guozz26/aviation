@@ -24,20 +24,24 @@ import aviation.entity.po.AviationPoint;
 public class testAviationPointImpl {
            @Autowired          
            private IAviationPointDao avi;
+           //营业点的单个查找测试
            @Test
            public void testFind(){
  	    	  AviationPoint act= avi.findOne(1);
  	    	  System.out.println(act);
  	      }
+           //营业点的单个删除测试
            @Test
            public void testDelect() {
-        	   avi.deleteOne(4);
+        	   avi.deleteOne(3);
            }
+           //营业点的单个插入和修改测试
            @Test
-           public  void saveOrUpdata() {
-        	   AviationPoint  se = new AviationPoint(1, "太原", 1);
-        	   avi.saveOrUpdataOne(se);
+           public void saveOrUpdata() {
+        	   AviationPoint  se = new AviationPoint(20,"上海", 1);
+        	   System.out.println(avi.saveOrUpdataOne(se));
            }
+           //营业点的整体查询测试
            @Test
            public void findAll() {
         	   List<AviationPoint> pages = avi.findAll(0, 5);

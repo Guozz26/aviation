@@ -14,9 +14,9 @@ public interface IAviationPointDao {
 	   //单个查找营业点
        AviationPoint findOne(int pointId);
        //删除营业点的一条信息
-       void  deleteOne(int pointId);
+       int  deleteOne(int pointId);
        //插入和更新营业点的一条信息
-   	   void saveOrUpdataOne(AviationPoint pointId);
+   	   int saveOrUpdataOne(AviationPoint pointId);
    	   //查询所有的营业点
    	   List<AviationPoint> findAll(int offset, int pageSize);
    	   //获取总条数

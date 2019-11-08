@@ -31,22 +31,23 @@ public class AviationPointDaoImpl implements IAviationPointDao{
 	}
 	 //删除单个营业点的一条信息
 	 @Override
-	public void deleteOne(int pointId) {
-		jdbcTemplate.update("delete from aviation_point where point_id=?", new Object[]{pointId});
+	public int deleteOne(int pointId) {
+		return jdbcTemplate.update("delete from aviation_point where point_id=?", new Object[]{pointId});
 	}
 	//插入和更新一个营业点的信息
 	 @Override
-	public void saveOrUpdataOne(AviationPoint pointId) {
-		
+	public int saveOrUpdataOne(AviationPoint pointId) {
+		int i=0;
 		if(pointId.getPointId()==0){
-			jdbcTemplate.update(
+			i=jdbcTemplate.update(
 					"insert into aviation_point(point_city,manager_id) values(?,?)", 
 					new Object[]{pointId.getPointCity(),pointId.getManagerId()});
 		}else{
-			jdbcTemplate.update(
+			i=jdbcTemplate.update(
 					"update aviation_point set point_city=?,manager_id=? where point_id=?", 
 					new Object[]{pointId.getPointCity(),pointId.getManagerId(),pointId.getPointId()});
 		}
+		return i;
 	}
     //查询所有的营业点的信息
 	@Override
