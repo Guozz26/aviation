@@ -59,6 +59,7 @@ public class AviationController {
 		 return JSON.toJSONString(lists);
 	}
 	
+	
 	@RequestMapping("/lists/delFlight/{id}")
 	@ResponseBody
 	public String getDelFlight(@PathVariable("id") int id) {
