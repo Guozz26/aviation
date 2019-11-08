@@ -47,7 +47,7 @@ public class testAviationFlightServiceImpl {
 	public void testFindFlightGo() {
 		List<FlightInfo> lists = 
 				aviationFlightServcie.findFlightGo
-				(1, 5, "北京", "上海", DateUtil.toDate("yyyy-MM-dd", "2019-11-06"));
+				(1, 5, "北京", "上海", DateUtil.toDate("yyyy-MM-dd", "2019-11-14"));
 		for (FlightInfo flightInfo : lists) {
 			System.out.println(flightInfo);
 		}

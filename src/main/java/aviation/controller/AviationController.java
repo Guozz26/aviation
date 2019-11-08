@@ -53,6 +53,9 @@ public class AviationController {
 		System.out.println(pageNo);
 		System.out.println(pageSize);
 		List<FlightInfo> lists = atFlightService.findFlightGo(pageNo, pageSize, fromA, toA,DateUtil.toDate("yyyy-MM-dd", time) );
+		for (FlightInfo flightInfo : lists) {
+			System.out.println(flightInfo);
+		}
 		 return JSON.toJSONString(lists);
 	}
 	
