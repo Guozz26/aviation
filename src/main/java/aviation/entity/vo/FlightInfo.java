@@ -9,69 +9,33 @@ public class FlightInfo {
 	private Date flightFromTime;
 	private Date flightToTime;
 	private String modelName;
-	private int modelHeadNum;
-	private int modelBodyNum;
+	private int modelHeadnum;
+	private int modelBodynum;
 	private double moneyHeadPrice;
 	private double moneyBodyPrice;
-	public int getFlightId() {
-		return flightId;
+	public FlightInfo() {
+		super();
 	}
-	public void setFlightId(int flightId) {
+	public FlightInfo(int flightId, String flightFrom, String flightTo, Date flightFromTime, Date flightToTime,
+			String modelName, int modelHeadnum, int modelBodynum, double moneyHeadPrice, double moneyBodyPrice) {
+		super();
 		this.flightId = flightId;
-	}
-	public String getFlightFrom() {
-		return flightFrom;
-	}
-	public void setFlightFrom(String flightFrom) {
 		this.flightFrom = flightFrom;
-	}
-	public String getFlightTo() {
-		return flightTo;
-	}
-	public void setFlightTo(String flightTo) {
 		this.flightTo = flightTo;
-	}
-	public Date getFlightFromTime() {
-		return flightFromTime;
-	}
-	public void setFlightFromTime(Date flightFromTime) {
 		this.flightFromTime = flightFromTime;
-	}
-	public Date getFlightToTime() {
-		return flightToTime;
-	}
-	public void setFlightToTime(Date flightToTime) {
 		this.flightToTime = flightToTime;
-	}
-	public String getModelName() {
-		return modelName;
-	}
-	public void setModelName(String modelName) {
 		this.modelName = modelName;
-	}
-	public int getModelHeadNum() {
-		return modelHeadNum;
-	}
-	public void setModelHeadNum(int modelHeadNum) {
-		this.modelHeadNum = modelHeadNum;
-	}
-	public int getModelBodyNum() {
-		return modelBodyNum;
-	}
-	public void setModelBodyNum(int modelBodyNum) {
-		this.modelBodyNum = modelBodyNum;
-	}
-	public double getMoneyHeadPrice() {
-		return moneyHeadPrice;
-	}
-	public void setMoneyHeadPrice(double moneyHeadPrice) {
+		this.modelHeadnum = modelHeadnum;
+		this.modelBodynum = modelBodynum;
 		this.moneyHeadPrice = moneyHeadPrice;
-	}
-	public double getMoneyBodyPrice() {
-		return moneyBodyPrice;
-	}
-	public void setMoneyBodyPrice(double moneyBodyPrice) {
 		this.moneyBodyPrice = moneyBodyPrice;
+	}
+	@Override
+	public String toString() {
+		return "FlightInfo [flightId=" + flightId + ", flightFrom=" + flightFrom + ", flightTo=" + flightTo
+				+ ", flightFromTime=" + flightFromTime + ", flightToTime=" + flightToTime + ", modelName=" + modelName
+				+ ", modelHeadnum=" + modelHeadnum + ", modelBodynum=" + modelBodynum + ", moneyHeadPrice="
+				+ moneyHeadPrice + ", moneyBodyPrice=" + moneyBodyPrice + "]";
 	}
 	@Override
 	public int hashCode() {
@@ -82,8 +46,8 @@ public class FlightInfo {
 		result = prime * result + flightId;
 		result = prime * result + ((flightTo == null) ? 0 : flightTo.hashCode());
 		result = prime * result + ((flightToTime == null) ? 0 : flightToTime.hashCode());
-		result = prime * result + modelBodyNum;
-		result = prime * result + modelHeadNum;
+		result = prime * result + modelBodynum;
+		result = prime * result + modelHeadnum;
 		result = prime * result + ((modelName == null) ? 0 : modelName.hashCode());
 		long temp;
 		temp = Double.doubleToLongBits(moneyBodyPrice);
@@ -123,9 +87,9 @@ public class FlightInfo {
 				return false;
 		} else if (!flightToTime.equals(other.flightToTime))
 			return false;
-		if (modelBodyNum != other.modelBodyNum)
+		if (modelBodynum != other.modelBodynum)
 			return false;
-		if (modelHeadNum != other.modelHeadNum)
+		if (modelHeadnum != other.modelHeadnum)
 			return false;
 		if (modelName == null) {
 			if (other.modelName != null)
@@ -138,30 +102,67 @@ public class FlightInfo {
 			return false;
 		return true;
 	}
-	@Override
-	public String toString() {
-		return "FlightInfo [flightId=" + flightId + ", flightFrom=" + flightFrom + ", flightTo=" + flightTo
-				+ ", flightFromTime=" + flightFromTime + ", flightToTime=" + flightToTime + ", modelName=" + modelName
-				+ ", modelHeadNum=" + modelHeadNum + ", modelBodyNum=" + modelBodyNum + ", moneyHeadPrice="
-				+ moneyHeadPrice + ", moneyBodyPrice=" + moneyBodyPrice + "]";
+	public int getFlightId() {
+		return flightId;
 	}
-	public FlightInfo(int flightId, String flightFrom, String flightTo, Date flightFromTime, Date flightToTime,
-			String modelName, int modelHeadNum, int modelBodyNum, double moneyHeadPrice, double moneyBodyPrice) {
-		super();
+	public void setFlightId(int flightId) {
 		this.flightId = flightId;
+	}
+	public String getFlightFrom() {
+		return flightFrom;
+	}
+	public void setFlightFrom(String flightFrom) {
 		this.flightFrom = flightFrom;
+	}
+	public String getFlightTo() {
+		return flightTo;
+	}
+	public void setFlightTo(String flightTo) {
 		this.flightTo = flightTo;
+	}
+	public Date getFlightFromTime() {
+		return flightFromTime;
+	}
+	public void setFlightFromTime(Date flightFromTime) {
 		this.flightFromTime = flightFromTime;
+	}
+	public Date getFlightToTime() {
+		return flightToTime;
+	}
+	public void setFlightToTime(Date flightToTime) {
 		this.flightToTime = flightToTime;
+	}
+	public String getModelName() {
+		return modelName;
+	}
+	public void setModelName(String modelName) {
 		this.modelName = modelName;
-		this.modelHeadNum = modelHeadNum;
-		this.modelBodyNum = modelBodyNum;
+	}
+	public int getModelHeadnum() {
+		return modelHeadnum;
+	}
+	public void setModelHeadnum(int modelHeadnum) {
+		this.modelHeadnum = modelHeadnum;
+	}
+	public int getModelBodynum() {
+		return modelBodynum;
+	}
+	public void setModelBodynum(int modelBodynum) {
+		this.modelBodynum = modelBodynum;
+	}
+	public double getMoneyHeadPrice() {
+		return moneyHeadPrice;
+	}
+	public void setMoneyHeadPrice(double moneyHeadPrice) {
 		this.moneyHeadPrice = moneyHeadPrice;
+	}
+	public double getMoneyBodyPrice() {
+		return moneyBodyPrice;
+	}
+	public void setMoneyBodyPrice(double moneyBodyPrice) {
 		this.moneyBodyPrice = moneyBodyPrice;
 	}
-	public FlightInfo() {
-		super();
-	}
 	
+
 	
 }

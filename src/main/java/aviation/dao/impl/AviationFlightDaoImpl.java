@@ -1,5 +1,6 @@
 package aviation.dao.impl;
 
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,6 +11,7 @@ import org.springframework.stereotype.Repository;
 import aviation.dao.prototype.IAviationFlightDao;
 import aviation.entity.po.AviationFlight;
 import aviation.entity.vo.FlightInfo;
+import aviation.util.DateUtil;
 
 
 @Repository
@@ -17,26 +19,35 @@ public class AviationFlightDaoImpl implements IAviationFlightDao{
 	
 	@Autowired
 	private JdbcTemplate jdbcTemplate;
-	
+	// - 查询所有的航班信息
 	public List<AviationFlight> findFlightAll(int pageSize, int offset) {
 		return jdbcTemplate.query("select * from aviation_flight limit ? , ? ",
 				new Object[] {offset , pageSize},
 				new BeanPropertyRowMapper<AviationFlight>(AviationFlight.class));
 	}
-
-	public List<AviationFlight> findFlightGo(int pageSize, int offset, String from, String to) {
-		// TODO Auto-generated method stub
-		
-		
-		
-		return null;
-	}
-
-
-	public FlightInfo findFlightInfoAll(int id) {
-		return jdbcTemplate.queryForObject( 
+	
+	
+	// -根据目的地和出发地查询航班
+	public List<FlightInfo> findFlightGo(int pageSize, int offset, String from, String to,Date time) {
+		System.out.println(DateUtil.dateToString("yyyy-MM-dd", time));
+		return  jdbcTemplate.query( 
 				"select a.*,b.model_name,b.model_headnum,b.model_bodynum,"
 				+ "c.money_head_price,c.money_body_price from aviation_flight a "
+				+ "left join aviation_model b on a.flight_id = b.flight_id "
+				+ "left join aviation_money c on b.model_id = c.model_id "
+				+ "where a.flight_from = ? and a.flight_to = ?  "
+				+ "and a.flight_from_time like '%"+DateUtil.dateToString("yyyy-MM-dd", time)+"%' limit ?,?",
+				new Object[] {from,to,offset,pageSize}, 
+				new BeanPropertyRowMapper<FlightInfo>(FlightInfo.class));
+	}
+
+	
+	
+	// -查询某个航班的详细的信息
+	public FlightInfo findFlightInfoAll(int id) {
+		return jdbcTemplate.queryForObject( 
+				"select a.*,b.model_name,b.model_headnum,b.model_bodynum,c.money_head_price,c.money_body_price "
+				+ "from aviation_flight a "
 				+ "left join aviation_model b ON a.flight_id = b.flight_id "
 				+ "left join aviation_money c on b.model_id=c.model_id where a.flight_id = ?",
 				new Object[] {id}, new BeanPropertyRowMapper<>(FlightInfo.class));

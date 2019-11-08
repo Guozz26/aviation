@@ -14,6 +14,7 @@ import aviation.config.TestConfig;
 import aviation.dao.prototype.IAviationFlightDao;
 import aviation.entity.po.AviationFlight;
 import aviation.entity.vo.FlightInfo;
+import aviation.util.DateUtil;
 
 
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -44,5 +45,19 @@ public class testAviationFlightImpl {
 	public void testDelFlight() {
 		int a = aviationFlightDao.delFlight(3);
 		System.out.println(a);
+	}
+	
+	@Test
+	public void testFindFlightGo() {
+		
+		System.out.println(DateUtil.toDate("yyyy-MM-dd", "2019-11-06"));
+		System.out.println("您所查看的航班如下");
+		List<FlightInfo> lists = 
+				aviationFlightDao.findFlightGo(
+						5, 0, "北京", "上海",DateUtil.toDate("yyyy-MM-dd", "2019-11-06"));
+		System.out.println(lists.size());
+		for (FlightInfo a : lists) {
+			System.out.println("123"+a);
+		}
 	}
 }
