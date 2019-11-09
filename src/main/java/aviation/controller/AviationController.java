@@ -62,22 +62,30 @@ public class AviationController {
 		return mv;
 	}
 	
+	
+	
+	// -	新增航班的页面
+		@RequestMapping("/administrators/insertFlight")
+		@ResponseBody
+		public ModelAndView getInsertFlight() {
+			
+			ModelAndView mv = new ModelAndView("Administrators/insertFlight");
+			return mv;
+		}
+	
 	// - 根据出发地和目的地时间查出来的所有的航班
-	@RequestMapping(value = "/administrators/selectFlight/goinfo",produces = {"application/json;charset=UTF-8"})
+	@RequestMapping(value = "/administrators/selectFlight/goinfo", produces = {"application/json;charset=UTF-8"})
 	@ResponseBody
-	public String getGoInfo(String from,String to, String time ,int pageNo,int pageSize) throws UnsupportedEncodingException {
+	public ModelAndView getGoInfo(String from,String to, String time ,int pageNo,int pageSize) throws UnsupportedEncodingException {
 		String fromA = new String(from .getBytes("iso8859-1"),"utf-8");
 		String toA = new String(to .getBytes("iso8859-1"),"utf-8");
-		System.out.println(fromA);
-		System.out.println(toA);
-		System.out.println(time);
-		System.out.println(pageNo);
-		System.out.println(pageSize);
 		List<FlightInfo> lists = atFlightService.findFlightGo(pageNo, pageSize, fromA, toA,DateUtil.toDate("yyyy-MM-dd", time) );
 		for (FlightInfo flightInfo : lists) {
 			System.out.println(flightInfo);
 		}
-		 return JSON.toJSONString(lists);
+		ModelAndView mv = new ModelAndView("Administrators/goinfo");
+		mv.addObject("lists", lists);
+		return mv;
 	}
 	
 	// -删除某个航班的页面
@@ -87,8 +95,6 @@ public class AviationController {
 			atFlightService.delFlight(id);
 			ModelAndView mv = new ModelAndView("Administrators/selectFlight");
 			return mv;
-		
-		
 	}
 	
 	// -进入后台展示页面

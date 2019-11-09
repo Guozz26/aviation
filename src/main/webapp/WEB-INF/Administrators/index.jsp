@@ -50,7 +50,7 @@
                     <dl class="layui-nav-child">
                         <dd><a href="administrators/lists" target="class">查看所有航班信息</a></dd>
                         <dd><a href="administrators/selectFlight" target="class">查询航班</a></dd>
-                        <dd><a href="administrators/lists" target="class">新增航班</a></dd>
+                        <dd><a href="administrators/insertFlight" target="class">新增航班</a></dd>
                     </dl>
                 </li>
                 <li class="layui-nav-item">

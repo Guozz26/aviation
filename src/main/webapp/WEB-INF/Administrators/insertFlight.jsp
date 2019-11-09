@@ -11,33 +11,63 @@
 <meta charset="UTF-8">
 <link rel="stylesheet" href="/aviation/assets/css/bootstrap.css">
 </head>
+<style>
+	.a{
+		width:300px;
+	}
+	.b{
+		float:left;
+		margin-right:100px;
+	}
+	.center{
+	
+		width:800px;
+		height:300px;
+		margin:auto;
+
+	}
+</style>
 <body>
-	<h3 align="center">航班查询</h3>
+	<h3 align="center">新增航班计划</h3>
 	<hr color="red">
 	<div class="container" align="center">
-		<table class="table table-striped">
-			<form action="selectFlight/goinfo" method="get">
+		<form>	
+			<div class="center">
+			  <div class="form-group b">
+				    <label for="exampleInputEmail1">出发地</label>
+				    <input type="text" class="form-control a" id="" placeholder="出发地">
+			  </div>
+		      <div class="form-group b" >
+				    <label for="exampleInputEmail1">出发时间</label>
+				    <input type="date" class="form-control a" id="" >
+			  </div>
+			  <div class="form-group b">
+				    <label for="exampleInputEmail1">目的地</label>
+				    <input type="text" class="form-control a " id="" placeholder="目的地">
+			  </div>
+			   <div class="form-group b" >
+				    <label for="exampleInputEmail1">到达时间</label>
+				    <input type="date" class="form-control a" id="">
+			    </div>
+				    <div class="form-group" style="margin-left:-500px;">
+				    	<label for="exampleInputPassword1">飞机型号</label>
+				    	<input type="text" class="form-control a" id="">
+		  			</div>
 
 
-				<div class="form-group">
-					<label for="">出发地</label> <input type="text" class="form-control"
-						id="" placeholder="请输入出发地" name="from">
+				    <div class="form-group b"  >
+				    	<label for="exampleInputPassword1">头等舱价格</label>
+				    	<input type="text" class="form-control a " id="">
+		  			</div>
+		  			  <div class="form-group b "  >
+				    	<label for="exampleInputPassword1">经济舱价格</label>
+				    	<input type="text" class="form-control a " id="">
+		  			</div>
 				</div>
-				<div class="form-group">
-					<label for="">目的地</label> <input type="text" class="form-control"
-						id="" placeholder="请输入目的地" name="to">
-				</div>
-
-				<div>
-					出发时间<input type="date" class="form" name="time"> <input
-						type="hidden" name="pageNo" value="1"> <input
-						type="hidden" name="pageSize" value="5">
-				</div>
-
-				<button type="submit" class="btn btn-default" value>查询</button>
-				<div>
-			</form>
-		</table>
+			  <div >
+			  	<button type="submit" class="btn btn-default">Submit</button>
+			  </div>
+		</form>
 	</div>
 </body>
 </html>

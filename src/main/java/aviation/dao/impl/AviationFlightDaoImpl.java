@@ -52,7 +52,9 @@ public class AviationFlightDaoImpl implements IAviationFlightDao{
 				+ "left join aviation_money c on a.flight_id =c.flight_id where a.flight_id = ?",
 				new Object[] {id}, new BeanPropertyRowMapper<>(FlightInfo.class));
 	}
-
+	
+	
+	// - 删除航班信息
 	@Override
 	public int delFlight(int id) {
 		int a  = jdbcTemplate.update("delete from aviation_flight where flight_id =? ", 
@@ -65,7 +67,7 @@ public class AviationFlightDaoImpl implements IAviationFlightDao{
 
 
 	
-	// -插入航班信息以及飞机型号
+	// -插入航班信息或修改航班信息
 	@Override
 	public int inertOrUpdateFlight(AviationFlight avFlight) {
 		if(avFlight.getFlightId()==0) {
