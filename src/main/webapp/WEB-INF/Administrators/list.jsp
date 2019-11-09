@@ -22,6 +22,8 @@
 			<th>目的地</th>
 			<th>出发时间</th>
 			<th>到达时间</th>
+			<th>经济舱剩余座位</th>
+			<th>头等舱剩余座位</th>
 			<th>操作</th>
 		</tr>
 		<c:forEach items="${lists}" var="list">
@@ -31,6 +33,8 @@
 				<td>${list.flightTo }</td>
 				<td>${list.flightFromTime }</td>
 				<td>${list.flightToTime }</td>
+				<td>${list.flightHeadNum}</td>
+				<td>${list.flightBodyNum}</td>
 				<td>
 					<a href="lists/listInfo/${list.flightId}">查看详细信息</a>
 				</td>

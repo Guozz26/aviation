@@ -63,7 +63,7 @@ public class AviationController {
 	}
 	
 	// - 根据出发地和目的地时间查出来的所有的航班
-	@RequestMapping("/administrators/selectFlight/goinfo")
+	@RequestMapping(value = "/administrators/selectFlight/goinfo",produces = {"application/json;charset=UTF-8"})
 	@ResponseBody
 	public String getGoInfo(String from,String to, String time ,int pageNo,int pageSize) throws UnsupportedEncodingException {
 		String fromA = new String(from .getBytes("iso8859-1"),"utf-8");
@@ -101,7 +101,7 @@ public class AviationController {
 	}
 	
 	// -插入航班信息页面
-	@RequestMapping("")
+	@RequestMapping("123123123")
 	@ResponseBody
 	public ModelAndView  getInsertView() {
 		
@@ -109,12 +109,10 @@ public class AviationController {
 		return mv;
 	}
 	
-	@RequestMapping()
+	@RequestMapping("1231231")
 	@ResponseBody
 	public String   insertFlight() {
 	
 		return "1";
 	}
-	
-
 }

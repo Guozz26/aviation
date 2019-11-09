@@ -10,7 +10,6 @@ import org.springframework.stereotype.Repository;
 
 import aviation.dao.prototype.IAviationFlightDao;
 import aviation.entity.po.AviationFlight;
-import aviation.entity.po.AviationModel;
 import aviation.entity.vo.FlightInfo;
 import aviation.util.DateUtil;
 
@@ -35,8 +34,8 @@ public class AviationFlightDaoImpl implements IAviationFlightDao{
 				"select a.*,b.model_name,b.model_headnum,b.model_bodynum,"
 				+ "c.money_head_price,c.money_body_price from aviation_flight a "
 				+ "left join aviation_model b on a.model_id = b.model_id "
-				+ "left join aviation_money c on b.model_id = c.model_id "
-				+ "where a.flight_from = ? and a.flight_to = ?  "
+				+ "left join aviation_money c on a.flight_id = c.flight_id "
+				+ "where a.flight_from = ? and a.flight_to = ? "
 				+ "and a.flight_from_time like '%"+DateUtil.dateToString("yyyy-MM-dd", time)+"%' limit ?,?",
 				new Object[] {from,to,offset,pageSize}, 
 				new BeanPropertyRowMapper<FlightInfo>(FlightInfo.class));
@@ -50,7 +49,7 @@ public class AviationFlightDaoImpl implements IAviationFlightDao{
 				"select a.*,b.model_name,b.model_headnum,b.model_bodynum,c.money_head_price,c.money_body_price "
 				+ "from aviation_flight a "
 				+ "left join aviation_model b ON a.model_id = b.model_id "
-				+ "left join aviation_money c on b.model_id=c.model_id where a.flight_id = ?",
+				+ "left join aviation_money c on a.flight_id =c.flight_id where a.flight_id = ?",
 				new Object[] {id}, new BeanPropertyRowMapper<>(FlightInfo.class));
 	}
 
@@ -66,26 +65,26 @@ public class AviationFlightDaoImpl implements IAviationFlightDao{
 
 
 	
-	// -插入航班信息以及飞机型号，和价格
+	// -插入航班信息以及飞机型号
 	@Override
-	public int inertOrUpdateFlight(FlightInfo flightInfo) {
-	/*	if(flightInfo.getFlightId() == 0 ) {
-			jdbcTemplate.update("insert into aviation_flight value(?,?,?,?)", 
-					new Object[] {flightInfo.getFlightFrom(),flightInfo.getFlightTo(),
-					flightInfo.getFlightFromTime(),flightInfo.getFlightToTime()});
-			jdbcTemplate.update("insert into aviation_model value(?,?,?,?)" ,
-					new Object[] {flightInfo.getModelName() , flightInfo.getModelHeadnum(),
-					flightInfo.getModelBodynum(),flightInfo.getFlightId()}
-					);
-			AviationModel model =   jdbcTemplate.queryForObject("select * from aviation_model where orde by model_id limit 1",
-					new BeanPropertyRowMapper<AviationModel>(AviationModel.class));
-			int moodeId = model.getModelId();
-			jdbcTemplate.update("insert into aviation_money value(?,?,?)",
-					new Object[] {flightInfo.getMoneyHeadPrice(),flightInfo.getMoneyBodyPrice(),moodeId}
-					);
+	public int inertOrUpdateFlight(AviationFlight avFlight) {
+		if(avFlight.getFlightId()==0) {
+		jdbcTemplate.update("insert into aviation_flight (flight_from,flight_to,flight_from_time,"
+				+ "flight_to_time,flight_head_num,flight_body_num,model_id) "
+				+ "value (?,?,?,?,?,?,?)",
+				new Object[] {avFlight.getFlightFrom(),avFlight.getFlightTo(),avFlight.getFlightFromTime(),
+						avFlight.getFlightToTime(),avFlight.getFlightHeadNum(),avFlight.getFlightBodyNum(),
+						avFlight.getModelId()
+				});
 		}else {
-			
-		}*/
-		return 0;
+			jdbcTemplate.update("update aviation_flight set flight_from =?,"
+						+ "flight_to = ?,flight_from_time = ?," 
+						+ "flight_to_time = ?,flight_head_num = ?,"
+						+ "flight_body_num = ?,model_id = ? where flight_id = ?" ,
+						new Object[] {avFlight.getFlightFrom(),avFlight.getFlightTo(),avFlight.getFlightFromTime(),
+								avFlight.getFlightToTime(),avFlight.getFlightHeadNum(),avFlight.getFlightBodyNum(),
+								avFlight.getModelId(),avFlight.getFlightId()});
+		} 
+		return 0;	
 	}
 }

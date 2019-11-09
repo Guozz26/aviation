@@ -7,7 +7,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <title>航空航天售票后台管理系统</title>
-    <link rel="stylesheet" href="/aviation/assets/css/bb.css">
+    <link rel="stylesheet" href="/aviation/assets/layui/css/layui.css">
 </head>
 <body class="layui-layout-body">
 <div class="layui-layout layui-layout-admin">

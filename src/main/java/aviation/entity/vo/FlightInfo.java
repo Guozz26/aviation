@@ -8,6 +8,8 @@ public class FlightInfo {
 	private String flightTo;
 	private Date flightFromTime;
 	private Date flightToTime;
+	private int flightHeadNum;
+	private int flightBodyNum;
 	private String modelName;
 	private int modelHeadnum;
 	private int modelBodynum;
@@ -43,6 +45,18 @@ public class FlightInfo {
 	}
 	public void setFlightToTime(Date flightToTime) {
 		this.flightToTime = flightToTime;
+	}
+	public int getFlightHeadNum() {
+		return flightHeadNum;
+	}
+	public void setFlightHeadNum(int flightHeadNum) {
+		this.flightHeadNum = flightHeadNum;
+	}
+	public int getFlightBodyNum() {
+		return flightBodyNum;
+	}
+	public void setFlightBodyNum(int flightBodyNum) {
+		this.flightBodyNum = flightBodyNum;
 	}
 	public String getModelName() {
 		return modelName;
@@ -84,8 +98,10 @@ public class FlightInfo {
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
+		result = prime * result + flightBodyNum;
 		result = prime * result + ((flightFrom == null) ? 0 : flightFrom.hashCode());
 		result = prime * result + ((flightFromTime == null) ? 0 : flightFromTime.hashCode());
+		result = prime * result + flightHeadNum;
 		result = prime * result + flightId;
 		result = prime * result + ((flightTo == null) ? 0 : flightTo.hashCode());
 		result = prime * result + ((flightToTime == null) ? 0 : flightToTime.hashCode());
@@ -109,6 +125,8 @@ public class FlightInfo {
 		if (getClass() != obj.getClass())
 			return false;
 		FlightInfo other = (FlightInfo) obj;
+		if (flightBodyNum != other.flightBodyNum)
+			return false;
 		if (flightFrom == null) {
 			if (other.flightFrom != null)
 				return false;
@@ -118,6 +136,8 @@ public class FlightInfo {
 			if (other.flightFromTime != null)
 				return false;
 		} else if (!flightFromTime.equals(other.flightFromTime))
+			return false;
+		if (flightHeadNum != other.flightHeadNum)
 			return false;
 		if (flightId != other.flightId)
 			return false;
@@ -151,19 +171,22 @@ public class FlightInfo {
 	@Override
 	public String toString() {
 		return "FlightInfo [flightId=" + flightId + ", flightFrom=" + flightFrom + ", flightTo=" + flightTo
-				+ ", flightFromTime=" + flightFromTime + ", flightToTime=" + flightToTime + ", modelName=" + modelName
-				+ ", modelHeadnum=" + modelHeadnum + ", modelBodynum=" + modelBodynum + ", moneyHeadPrice="
-				+ moneyHeadPrice + ", moneyBodyPrice=" + moneyBodyPrice + ", modelId=" + modelId + "]";
+				+ ", flightFromTime=" + flightFromTime + ", flightToTime=" + flightToTime + ", flightHeadNum="
+				+ flightHeadNum + ", flightBodyNum=" + flightBodyNum + ", modelName=" + modelName + ", modelHeadnum="
+				+ modelHeadnum + ", modelBodynum=" + modelBodynum + ", moneyHeadPrice=" + moneyHeadPrice
+				+ ", moneyBodyPrice=" + moneyBodyPrice + ", modelId=" + modelId + "]";
 	}
 	public FlightInfo(int flightId, String flightFrom, String flightTo, Date flightFromTime, Date flightToTime,
-			String modelName, int modelHeadnum, int modelBodynum, double moneyHeadPrice, double moneyBodyPrice,
-			int modelId) {
+			int flightHeadNum, int flightBodyNum, String modelName, int modelHeadnum, int modelBodynum,
+			double moneyHeadPrice, double moneyBodyPrice, int modelId) {
 		super();
 		this.flightId = flightId;
 		this.flightFrom = flightFrom;
 		this.flightTo = flightTo;
 		this.flightFromTime = flightFromTime;
 		this.flightToTime = flightToTime;
+		this.flightHeadNum = flightHeadNum;
+		this.flightBodyNum = flightBodyNum;
 		this.modelName = modelName;
 		this.modelHeadnum = modelHeadnum;
 		this.modelBodynum = modelBodynum;
@@ -171,13 +194,17 @@ public class FlightInfo {
 		this.moneyBodyPrice = moneyBodyPrice;
 		this.modelId = modelId;
 	}
-	public FlightInfo(String flightFrom, String flightTo, Date flightFromTime, Date flightToTime, String modelName,
-			int modelHeadnum, int modelBodynum, double moneyHeadPrice, double moneyBodyPrice, int modelId) {
+	
+	public FlightInfo(String flightFrom, String flightTo, Date flightFromTime, Date flightToTime, int flightHeadNum,
+			int flightBodyNum, String modelName, int modelHeadnum, int modelBodynum, double moneyHeadPrice,
+			double moneyBodyPrice, int modelId) {
 		super();
 		this.flightFrom = flightFrom;
 		this.flightTo = flightTo;
 		this.flightFromTime = flightFromTime;
 		this.flightToTime = flightToTime;
+		this.flightHeadNum = flightHeadNum;
+		this.flightBodyNum = flightBodyNum;
 		this.modelName = modelName;
 		this.modelHeadnum = modelHeadnum;
 		this.modelBodynum = modelBodynum;
@@ -188,7 +215,6 @@ public class FlightInfo {
 	public FlightInfo() {
 		super();
 	}
-	
 
 	
 }
