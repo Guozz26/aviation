@@ -34,7 +34,7 @@ public class AviationFlightDaoImpl implements IAviationFlightDao{
 		return  jdbcTemplate.query( 
 				"select a.*,b.model_name,b.model_headnum,b.model_bodynum,"
 				+ "c.money_head_price,c.money_body_price from aviation_flight a "
-				+ "left join aviation_model b on a.flight_id = b.flight_id "
+				+ "left join aviation_model b on a.model_id = b.model_id "
 				+ "left join aviation_money c on b.model_id = c.model_id "
 				+ "where a.flight_from = ? and a.flight_to = ?  "
 				+ "and a.flight_from_time like '%"+DateUtil.dateToString("yyyy-MM-dd", time)+"%' limit ?,?",
@@ -49,7 +49,7 @@ public class AviationFlightDaoImpl implements IAviationFlightDao{
 		return jdbcTemplate.queryForObject( 
 				"select a.*,b.model_name,b.model_headnum,b.model_bodynum,c.money_head_price,c.money_body_price "
 				+ "from aviation_flight a "
-				+ "left join aviation_model b ON a.flight_id = b.flight_id "
+				+ "left join aviation_model b ON a.model_id = b.model_id "
 				+ "left join aviation_money c on b.model_id=c.model_id where a.flight_id = ?",
 				new Object[] {id}, new BeanPropertyRowMapper<>(FlightInfo.class));
 	}
@@ -69,7 +69,7 @@ public class AviationFlightDaoImpl implements IAviationFlightDao{
 	// -插入航班信息以及飞机型号，和价格
 	@Override
 	public int inertOrUpdateFlight(FlightInfo flightInfo) {
-		if(flightInfo.getFlightId() == 0 ) {
+	/*	if(flightInfo.getFlightId() == 0 ) {
 			jdbcTemplate.update("insert into aviation_flight value(?,?,?,?)", 
 					new Object[] {flightInfo.getFlightFrom(),flightInfo.getFlightTo(),
 					flightInfo.getFlightFromTime(),flightInfo.getFlightToTime()});
@@ -85,7 +85,7 @@ public class AviationFlightDaoImpl implements IAviationFlightDao{
 					);
 		}else {
 			
-		}
+		}*/
 		return 0;
 	}
 }
