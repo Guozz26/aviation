@@ -66,7 +66,7 @@ public class testAviationOrderImpl {
 	//--测试订单插入
 	@Test
 	public void Testfes() {
-		 AviationOrder  se = new AviationOrder(1,"tr","s12123",DateUtil.toDate("yyyy-MM-dd hh:mm:ss", "1997-06-12 23:12:12"),2,2,3,4,2);
+		 AviationOrder  se = new AviationOrder("tg","s12123",DateUtil.toDate("yyyy-MM-dd hh:mm:ss", "1997-06-13 23:12:12"),3,4,5,5,3);
 		 aviationOrderDao.ChageOrder(se);
 	}
 	//--删除订单

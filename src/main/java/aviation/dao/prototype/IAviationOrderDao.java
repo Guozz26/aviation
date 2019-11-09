@@ -19,7 +19,6 @@ public interface IAviationOrderDao {
 	
 	//--查询订单所有信息
 	  OrderInfo findFlightInfoAll(int id);
-	
 	//--修改订单
 	void ChageOrder(AviationOrder OrderId);
 	//--删除订单

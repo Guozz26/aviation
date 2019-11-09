@@ -32,7 +32,7 @@ public class AviationPointServiceImpl implements IAviationPointService {
 	//营业点的单个删除实现类
 	@Override
 	public int deleteOne(int id) {
-		// TODO Auto-generated method stub
+		
 		return aviationdao.deleteOne(id);
 	}
 	//营业点的单个插入和修改实现类
