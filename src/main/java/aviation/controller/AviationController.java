@@ -4,6 +4,8 @@ import java.io.UnsupportedEncodingException;
 import java.util.Date;
 import java.util.List;
 
+import javax.xml.ws.Service.Mode;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -26,23 +28,42 @@ public class AviationController {
 	private IAviationFlightService atFlightService;
 	
 
-	
-	@RequestMapping("/lists")
+	// - 所有航班信息的页面
+	@RequestMapping("/administrators/lists")
 	public ModelAndView getUsers() {
-		ModelAndView mv = new ModelAndView("list");
+		ModelAndView mv = new ModelAndView("Administrators/list");
 		List<AviationFlight> lists = atFlightService.findFlightAll(1, 10);
 		mv.addObject("lists",lists);
 		return mv;
 	}
 	
-	@RequestMapping("/lists/{id}")
+	// - 后台主页面
+	@RequestMapping("/administrators")
+	public ModelAndView getIndex() {
+		ModelAndView mv = new ModelAndView("Administrators/index");
+		return mv;
+	}
+	
+	// 某个航班的详细信息
+	@RequestMapping("/administrators/lists/listInfo/{id}")
 	public ModelAndView getUserInfo(@PathVariable("id") int id) {
-		ModelAndView mv = new ModelAndView("info");
+		ModelAndView mv = new ModelAndView("Administrators/info");
 		FlightInfo lists = atFlightService.findFlightInfoAll(id);
 		mv.addObject("lists",lists);
 		return mv;
 	}
-	@RequestMapping("/goinfo")
+	
+	// - 查询航班的页面
+	@RequestMapping("/administrators/selectFlight")
+	@ResponseBody
+	public ModelAndView getSelectFlight() {
+		
+		ModelAndView mv = new ModelAndView("Administrators/selectFlight");
+		return mv;
+	}
+	
+	// - 根据出发地和目的地时间查出来的所有的航班
+	@RequestMapping("/administrators/selectFlight/goinfo")
 	@ResponseBody
 	public String getGoInfo(String from,String to, String time ,int pageNo,int pageSize) throws UnsupportedEncodingException {
 		String fromA = new String(from .getBytes("iso8859-1"),"utf-8");
@@ -59,14 +80,41 @@ public class AviationController {
 		 return JSON.toJSONString(lists);
 	}
 	
-	
-	@RequestMapping("/lists/delFlight/{id}")
+	// -删除某个航班的页面
+	@RequestMapping("/administrators/lists/listInfo/delFlight/{id}")
 	@ResponseBody
-	public String getDelFlight(@PathVariable("id") int id) {
-		if(atFlightService.delFlight(id)>0) {
-			return "susscer";
-		}
-		return "shibai ";
+	public ModelAndView getDelFlight(@PathVariable("id") int id) {
+			atFlightService.delFlight(id);
+			ModelAndView mv = new ModelAndView("Administrators/selectFlight");
+			return mv;
+		
+		
 	}
+	
+	// -进入后台展示页面
+	
+	@RequestMapping("/administrators/huan/index")
+	@ResponseBody
+	public ModelAndView getHuanView() {
+		ModelAndView mv = new ModelAndView("Administrators/huan/index");
+		return mv;
+	}
+	
+	// -插入航班信息页面
+	@RequestMapping("")
+	@ResponseBody
+	public ModelAndView  getInsertView() {
+		
+		ModelAndView mv = new ModelAndView("Administrators/inertFlight");
+		return mv;
+	}
+	
+	@RequestMapping()
+	@ResponseBody
+	public String   insertFlight() {
+	
+		return "1";
+	}
+	
 
 }

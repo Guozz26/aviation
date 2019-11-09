@@ -2,6 +2,7 @@ package aviation.testDao.AviationFlight;
 
 
 
+import java.util.Date;
 import java.util.List;
 
 import org.junit.Test;
@@ -59,5 +60,10 @@ public class testAviationFlightImpl {
 		for (FlightInfo a : lists) {
 			System.out.println("123"+a);
 		}
+	}
+	@Test
+	public void testInsertOrUpdate() {
+		
+		//aviationFlightDao.inertOrUpdateFlight(new FlightInfo(0, "日本", "韩国", new Date(), new Date(), "A550", 50, 300, 400, 200));
 	}
 }

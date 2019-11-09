@@ -1,0 +1,338 @@
+body {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 100vh;
+	background-color: #AECAD5;
+}
+.container {
+	position: relative;
+	margin-left: 100px;
+}
+.shadow {
+	width: 400px;
+	height: 10px;
+	border-radius: 50%;
+	background-color: #7B8D96;
+	position: absolute;
+	right: 20px;
+	bottom: -40px;
+	z-index: -2;
+}
+
+.lines {
+	position: absolute;
+	height: 500px;
+	width: 2px;
+	background-color: #000;
+	right: 310px;
+	bottom: 200px;
+}
+.lines:before {
+	content: "";
+	position: absolute;
+	height: 500px;
+	width: 2px;
+	background-color: #000;
+	right: 40px;
+	transform-origin: bottom;
+	transform: rotate(3deg);
+}
+.lines:after {
+	content: "";
+	position: absolute;
+	height: 500px;
+	width: 2px;
+	background-color: #000;
+	left: 40px;
+	transform-origin: bottom;
+	transform: rotate(-3deg);
+}
+.punching {
+	position: absolute;
+	height: 300px;
+	width: 100px;
+	background-color: #9C3C43;
+	border-radius: 10px;
+	overflow: hidden;
+	right: 260px;
+	bottom: 20px;
+	transform-origin: top;
+	animation: 3s punching linear infinite;
+}
+.punching:before {
+	content: "";
+    position: absolute;
+    height: 20px;
+    width: 120px;
+    border-radius: 50%;
+    border: 120px solid;
+    border-color: transparent transparent #361115;
+    left: -130px;
+    top: -30px;
+}
+.punching:after {
+	content: "";
+	position: absolute;
+	height: 90%;
+	width: 20px;
+	background-color: rgba(255,255,255,0.4);
+	top: 5%;
+	right: 20px;
+	border-radius: 5px;
+}
+
+.apple {
+	height: 200px;
+	width: 200px;
+	border-radius: 50%;
+	background-color: #DE5D35;
+	box-shadow: inset 20px -10px #9E4125, inset 30px 5px #AF4929;
+	position: relative;
+	animation: 0.5s apple linear infinite alternate;
+	z-index: 2;
+}
+.apple:before {
+	content: "";
+	position: absolute;
+	top: 30px;
+	right: 40px;
+	height: 25px;
+	width: 20px;
+	border-radius: 50%;
+	background-color: #EAAB8D;
+	transform: rotate(-30deg);
+	z-index: 1;
+}
+.apple:after {
+	content: "";
+	position: absolute;
+	top: 25px;
+	right: 35px;
+	height: 50px;
+	width: 25px;
+	border-radius: 50%;
+	background-color: #E7916C;
+	transform: rotate(-30deg);
+	box-shadow: 0 8px 0 10px #E4845D;
+}
+.eyes {
+	position: absolute;
+	height: 17px;
+	width: 17px;
+	border-radius: 50%;
+	background-color: #000;
+	top: 70px;
+	left: 15px;
+	box-shadow: 40px 0;
+}
+.eyes:before {
+	content: "";
+	position: absolute;
+	top: -13px;
+	left: -5px;
+	height: 10px;
+	width: 30px;
+	background-color: #DE7C59;
+	border-radius: 5px;
+	transform: rotate(20deg);
+}
+.eyes:after {
+	content: "";
+	position: absolute;
+	top: -13px;
+	left: 30px;
+	height: 10px;
+	width: 33px;
+	background-color: #DE7C59;
+	border-radius: 5px;
+	transform: rotate(-20deg);
+}
+.hairs {
+	position: absolute;
+	height: 100px;
+	width: 40px;
+	border: solid;
+	border-color: transparent transparent transparent #69453E;
+	border-width: 10px 0 5px 5px;
+	border-radius: 50%;
+	top: -90px;
+	left: 100px;
+	z-index: -1;
+	transform: rotate(30deg);
+}
+.hairs:before {
+	content: "";
+	position: absolute;
+	width: 40px;
+	height: 80px;
+	border-radius: 50% 0 50% 0;
+	background-color: #85A33D;
+    transform: rotate(30deg) skewX(-30deg);
+    top: -20px;
+    left: 37px;
+    border-left: 30px solid #789336;
+}
+.leg {
+	position: absolute;
+	width: 10px;
+	height: 30px;
+	border-radius: 5px;
+	background-color: #420E0F;
+	bottom: -10px;
+	left: 100px;
+	transform-origin: top;
+}
+.leg.right {
+	bottom: -2px;
+	left: 80px;
+	z-index: -1;
+	transform: rotate(10deg);
+	animation: 0.5s legRight linear infinite alternate;
+}
+.leg.left {
+	transform: rotate(-20deg);
+}
+.leg div {
+	position: absolute;
+	top: 25px;
+	width: 10px;
+	height: 30px;
+	border-radius: 5px;
+	background-color: #420E0F;
+	transform-origin: top;
+}
+.leg div:before {
+	content: "";
+	position: absolute;
+	width: 30px;
+	height: 15px;
+	border-radius: 50% 50% 5px 5px;
+	background-color: #420E0F;
+	bottom: -5px;
+	right: -5px;
+}
+.leg.left div {
+	transform: rotate(-30deg);
+	animation: 0.5s legLeft linear infinite alternate;
+}
+.leg.left div:before {
+	transform: rotate(50deg);
+	animation: 0.5s footLeft linear infinite alternate;
+}
+.leg.right div:before {
+	transform: rotate(-10deg);
+	animation: 0.5s footRight linear infinite alternate;
+}
+.arm-left {
+    position: absolute;
+    width: 80px;
+    height: 50px;
+    border-radius: 50%;
+    border: 5px solid;
+    border-color: transparent transparent #400D0C #400D0C;
+    transform-origin: right;
+    transform: rotate(-45deg);
+    top: 60px;
+    left: 10px;
+	animation: 0.5s armLeft linear infinite alternate;
+}
+.arm-left:before {
+	content: "";
+	position: absolute;
+	height: 30px;
+	width: 30px;
+	border-radius: 50%;
+	background-color: #821814;
+	background-color: #821814;
+    left: -10px;
+    top: -10px;
+}
+.arm-left:after {
+	content: "";
+	position: absolute;
+	height: 10px;
+	width: 25px;
+	border-radius: 5px;
+	background-color: #9A211F;
+	top: 15px;
+    left: -14px;
+    transform: rotate(25deg);
+}
+.arm-container {
+	animation: 0.5s apple linear infinite alternate;
+}
+.arm-right {
+	position: absolute;
+	height: 5px;
+	width: 100px;
+	background-color: #400D0C;
+	top: 100px;
+	left: -20px;
+	animation: 3s armRight linear infinite;
+}
+.arm-right:before {
+	content: "";
+	position: absolute;
+	height: 30px;
+	width: 30px;
+	border-radius: 50%;
+	background-color: #821814;
+	background-color: #821814;
+    left: -25px;
+    top: -10px;
+}
+.arm-right:after {
+	content: "";
+	position: absolute;
+	height: 25px;
+	width: 10px;
+	border-radius: 5px;
+	background-color: #9A211F;
+	top: -8px;
+    left: 0;
+}
+
+@keyframes apple {
+	to {transform: translateY(5px)}
+}
+@keyframes legLeft {
+	to {transform: rotate(-40deg)}
+}
+@keyframes footLeft {
+	to {
+		transform: rotate(60deg);
+		bottom: -2px;
+	}
+}
+@keyframes legRight {
+	to {
+	    left: 75px;
+    	transform: rotate(5deg);
+	}
+}
+@keyframes footRight {
+	to {transform: rotate(-4deg);}
+}
+@keyframes armLeft {
+	to {
+		height: 60px;
+	    left: 7px;
+	    top: 52px;
+	}
+}
+@keyframes armRight {
+	4% {}
+	5% {left: -45px}
+	6% {left: -20px}
+	10% {}
+	11% {left: -45px} 
+	12% {left: -20px}
+}
+@keyframes punching {
+	4% {}
+	7% {transform: rotate(2deg)}
+	10% {}
+	13% {transform: rotate(2deg)} 
+	20% {transform: rotate(0)}
+}

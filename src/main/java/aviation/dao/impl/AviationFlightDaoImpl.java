@@ -10,6 +10,7 @@ import org.springframework.stereotype.Repository;
 
 import aviation.dao.prototype.IAviationFlightDao;
 import aviation.entity.po.AviationFlight;
+import aviation.entity.po.AviationModel;
 import aviation.entity.vo.FlightInfo;
 import aviation.util.DateUtil;
 
@@ -59,6 +60,31 @@ public class AviationFlightDaoImpl implements IAviationFlightDao{
 				new Object[] {id});		
 		if(a>0) {
 			return 1 ;
+		}
+		return 0;
+	}
+
+
+	
+	// -插入航班信息以及飞机型号，和价格
+	@Override
+	public int inertOrUpdateFlight(FlightInfo flightInfo) {
+		if(flightInfo.getFlightId() == 0 ) {
+			jdbcTemplate.update("insert into aviation_flight value(?,?,?,?)", 
+					new Object[] {flightInfo.getFlightFrom(),flightInfo.getFlightTo(),
+					flightInfo.getFlightFromTime(),flightInfo.getFlightToTime()});
+			jdbcTemplate.update("insert into aviation_model value(?,?,?,?)" ,
+					new Object[] {flightInfo.getModelName() , flightInfo.getModelHeadnum(),
+					flightInfo.getModelBodynum(),flightInfo.getFlightId()}
+					);
+			AviationModel model =   jdbcTemplate.queryForObject("select * from aviation_model where orde by model_id limit 1",
+					new BeanPropertyRowMapper<AviationModel>(AviationModel.class));
+			int moodeId = model.getModelId();
+			jdbcTemplate.update("insert into aviation_money value(?,?,?)",
+					new Object[] {flightInfo.getMoneyHeadPrice(),flightInfo.getMoneyBodyPrice(),moodeId}
+					);
+		}else {
+			
 		}
 		return 0;
 	}
