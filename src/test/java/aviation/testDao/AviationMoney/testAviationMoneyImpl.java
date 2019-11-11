@@ -1,5 +1,7 @@
 package aviation.testDao.AviationMoney;
 
+import java.util.List;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -41,6 +43,14 @@ public class testAviationMoneyImpl {
 		@Test
 		public void testdelet() {
 			aviationMoneyDao.daleteMoney(1);
+			
+		}
+		@Test
+		public void testFindAll() {
+			List<AviationMoney> lists = aviationMoneyDao.findAll();
+			for (AviationMoney aviationMoney : lists) {
+				System.out.println(aviationMoney);
+			}
 			
 		}
 	

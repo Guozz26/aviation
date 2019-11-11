@@ -1,7 +1,8 @@
 package aviation.dao.prototype;
 
+import java.util.List;
+
 import aviation.entity.po.AviationModel;
-import aviation.entity.po.AviationOrder;
 
 /*
  * 机型表的实现接口
@@ -14,4 +15,6 @@ public interface IAviationModelDao {
 		void ChageModel(AviationModel ModelId);
 	//--删除机型
 		int daleteModel(int id );
-}
+	// -查询所有的机型
+		List<AviationModel> findAll();
+} 

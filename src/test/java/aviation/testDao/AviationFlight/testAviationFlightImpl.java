@@ -65,4 +65,10 @@ public class testAviationFlightImpl {
 	public void testInsertOrUpdate() {
 		aviationFlightDao.inertOrUpdateFlight(new AviationFlight(12,"1123231", "2", new Date(), new Date(), 50, 400 ,1));
 	}
+	
+	@Test
+	public void testFindFligthMaxId() {
+		int a  = aviationFlightDao.fingFlightMaxId();
+		System.out.println(a);
+	}
 }

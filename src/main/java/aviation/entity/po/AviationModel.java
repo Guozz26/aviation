@@ -3,8 +3,8 @@ package aviation.entity.po;
 public class AviationModel {
 	private int modelId;
 	private String modelName;
-	private int modelHeadNum;
-	private int modelBodyNum;
+	private int modelHeadnum;
+	private int modelBodynum;
 	public int getModelId() {
 		return modelId;
 	}
@@ -17,47 +17,24 @@ public class AviationModel {
 	public void setModelName(String modelName) {
 		this.modelName = modelName;
 	}
-	public int getModelHeadNum() {
-		return modelHeadNum;
+	public int getModelHeadnum() {
+		return modelHeadnum;
 	}
-	public void setModelHeadNum(int modelHeadNum) {
-		this.modelHeadNum = modelHeadNum;
+	public void setModelHeadnum(int modelHeadnum) {
+		this.modelHeadnum = modelHeadnum;
 	}
-	public int getModelBodyNum() {
-		return modelBodyNum;
+	public int getModelBodynum() {
+		return modelBodynum;
 	}
-	public void setModelBodyNum(int modelBodyNum) {
-		this.modelBodyNum = modelBodyNum;
-	}
-	public AviationModel(int modelId, String modelName, int modelHeadNum, int modelBodyNum) {
-		super();
-		this.modelId = modelId;
-		this.modelName = modelName;
-		this.modelHeadNum = modelHeadNum;
-		this.modelBodyNum = modelBodyNum;
-	}
-	
-	public AviationModel( String modelName, int modelHeadNum, int modelBodyNum) {
-		super();
-		this.modelName = modelName;
-		this.modelHeadNum = modelHeadNum;
-		this.modelBodyNum = modelBodyNum;
-	}
-	public AviationModel(int modelId) {
-		super();
-		this.modelId = modelId;
-	}
-	
-	
-	public AviationModel() {
-		super();
+	public void setModelBodynum(int modelBodynum) {
+		this.modelBodynum = modelBodynum;
 	}
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + modelBodyNum;
-		result = prime * result + modelHeadNum;
+		result = prime * result + modelBodynum;
+		result = prime * result + modelHeadnum;
 		result = prime * result + modelId;
 		result = prime * result + ((modelName == null) ? 0 : modelName.hashCode());
 		return result;
@@ -71,9 +48,9 @@ public class AviationModel {
 		if (getClass() != obj.getClass())
 			return false;
 		AviationModel other = (AviationModel) obj;
-		if (modelBodyNum != other.modelBodyNum)
+		if (modelBodynum != other.modelBodynum)
 			return false;
-		if (modelHeadNum != other.modelHeadNum)
+		if (modelHeadnum != other.modelHeadnum)
 			return false;
 		if (modelId != other.modelId)
 			return false;
@@ -86,8 +63,24 @@ public class AviationModel {
 	}
 	@Override
 	public String toString() {
-		return "AviationModel [modelId=" + modelId + ", modelName=" + modelName + ", modelHeadNum=" + modelHeadNum
-				+ ", modelBodyNum=" + modelBodyNum + "]";
+		return "AviationModel [modelId=" + modelId + ", modelName=" + modelName + ", modelHeadnum=" + modelHeadnum
+				+ ", modelBodynum=" + modelBodynum + "]";
 	}
-
+	public AviationModel(int modelId, String modelName, int modelHeadnum, int modelBodynum) {
+		super();
+		this.modelId = modelId;
+		this.modelName = modelName;
+		this.modelHeadnum = modelHeadnum;
+		this.modelBodynum = modelBodynum;
+	}
+	public AviationModel(String modelName, int modelHeadnum, int modelBodynum) {
+		super();
+		this.modelName = modelName;
+		this.modelHeadnum = modelHeadnum;
+		this.modelBodynum = modelBodynum;
+	}
+	public AviationModel() {
+		super();
+	}
+	
 }

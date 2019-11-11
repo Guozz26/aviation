@@ -1,5 +1,6 @@
 package aviation.testService.AviationFlight;
 
+import java.util.Date;
 import java.util.List;
 
 import org.junit.Test;
@@ -10,6 +11,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import aviation.config.TestConfig;
 import aviation.entity.po.AviationFlight;
+import aviation.entity.po.AviationMoney;
 import aviation.entity.vo.FlightInfo;
 import aviation.service.prototype.IAviationFlightService;
 import aviation.util.DateUtil;
@@ -51,5 +53,12 @@ public class testAviationFlightServiceImpl {
 		for (FlightInfo flightInfo : lists) {
 			System.out.println(flightInfo);
 		}
+	}
+	
+	@Test
+	public void testInsertOrUpdate() {
+		aviationFlightServcie.insertOrUpdateFlight(
+				new AviationFlight("北京", "上害", new Date(), new Date(), 50, 400, 1),
+				new AviationMoney(1400, 400, 0));
 	}
 }

@@ -23,5 +23,7 @@ public interface IAviationFlightDao {
 	int delFlight(int id);
 	// - 插入或修改航班信息的所有的信息
 	int inertOrUpdateFlight(AviationFlight avFlight);
+	// -查询当前航班最大id
+	int fingFlightMaxId();
 	
 }

@@ -1,5 +1,7 @@
 package aviation.testDao.AviationModel;
 
+import java.util.List;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,6 +42,15 @@ public class testAviationModelImpl {
 	@Test
 	public void testdelet() {
 		aviationModelDao.daleteModel(3);
+		
+	}
+	
+	@Test
+	public void testFindAll() {
+		List<AviationModel> lists = aviationModelDao.findAll();
+		for (AviationModel aviationModel : lists) {
+			System.out.println(aviationModel);
+		}
 		
 	}
 }

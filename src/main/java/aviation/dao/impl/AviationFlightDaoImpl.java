@@ -89,4 +89,11 @@ public class AviationFlightDaoImpl implements IAviationFlightDao{
 		} 
 		return 0;	
 	}
+
+	// - 查询当前最大航班id
+	@Override
+	public int fingFlightMaxId() {
+		AviationFlight af = jdbcTemplate.queryForObject("select * from aviation_flight order by flight_id desc limit 1", new BeanPropertyRowMapper<AviationFlight>(AviationFlight.class));	
+		return af.getFlightId();
+	}
 }

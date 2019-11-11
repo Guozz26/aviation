@@ -1,5 +1,7 @@
 package aviation.dao.impl;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -10,7 +12,7 @@ import aviation.entity.po.AviationModel;
 import aviation.entity.po.AviationMoney;
 
 @Repository("aviationMoneyDaoImpl")
-public class AviationMoneyImpl implements IAviationMoneyDao{
+public class AviationMoneyDaoImpl implements IAviationMoneyDao{
 	@Autowired
 	private JdbcTemplate jdbcTemplate;
 	
@@ -47,6 +49,14 @@ public class AviationMoneyImpl implements IAviationMoneyDao{
 
 		return jdbcTemplate.update("delete from aviation_money where money_id=?", new Object[]{id});
 		
+	}
+	
+	// - 查询所有的航班的座位价格的信息
+	@Override
+	public List<AviationMoney> findAll() {
+		
+		List<AviationMoney> lists = jdbcTemplate.query("select * from aviation_money", new BeanPropertyRowMapper<AviationMoney>(AviationMoney.class));
+		return lists;	
 	}
 
 }
