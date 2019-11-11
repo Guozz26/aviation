@@ -53,6 +53,7 @@ public class AviationFlightServiceImpl implements IAviationFlightService{
 			
 		aviationFlightDao.inertOrUpdateFlight(flight);
 		int flightId = aviationFlightDao.fingFlightMaxId();
+	
 		money.setFlightId(flightId);
 		aviationMoneyDao.ChageMoney(money);
 		return 1;
