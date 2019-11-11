@@ -32,7 +32,7 @@ public class testAviationModelImpl {
 	//修改
 	@Test
 	public void modelfeng() {
-		AviationModel ss = new AviationModel(4,"d21",25,25);
+		AviationModel ss = new AviationModel("d21",25,25);
 		
 		aviationModelDao.ChageModel(ss);
 		

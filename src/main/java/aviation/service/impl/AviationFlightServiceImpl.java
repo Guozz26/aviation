@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import aviation.dao.impl.AviationMoneyDaoImpl;
 import aviation.dao.prototype.IAviationFlightDao;
@@ -20,6 +21,9 @@ public class AviationFlightServiceImpl implements IAviationFlightService{
 	
 	@Autowired
 	private IAviationFlightDao aviationFlightDao;	
+	
+	@Autowired
+	private IAviationMoneyDao aviationMoneyDao;
 	
 	public List<AviationFlight> findFlightAll(int pageNo, int pageSize) {
 		return aviationFlightDao.findFlightAll(pageSize, (pageNo-1)*pageSize);
@@ -44,18 +48,17 @@ public class AviationFlightServiceImpl implements IAviationFlightService{
 	
 	// - 插入航班信息，以及航班的座位的价格
 	@Override
+	@Transactional
 	public int insertOrUpdateFlight(AviationFlight flight,AviationMoney money) {
 			
 		aviationFlightDao.inertOrUpdateFlight(flight);
 		int flightId = aviationFlightDao.fingFlightMaxId();
 		money.setFlightId(flightId);
-		IAviationMoneyDao am  = new AviationMoneyDaoImpl();
-		am.ChageMoney(money);
+		aviationMoneyDao.ChageMoney(money);
 		return 1;
 	}
 
 	
-
 
 
 }

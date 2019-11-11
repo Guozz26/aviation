@@ -29,9 +29,11 @@ public class AviationModelDaoImpl implements IAviationModelDao{
 //修改和增加
 	@Override
 	public void ChageModel(AviationModel ModelId) {
-		if(ModelId.getModelId() == 0) {
+		System.out.println(ModelId);
+		if(ModelId.getModelId()==0) {
+			System.out.println(0);
 			jdbcTemplate.update(
-					"insert into aviation_model(model_name,model_headnum,model_bodynum) values(?,?,?)", 
+					"insert into aviation_model(model_name,model_headnum,model_bodynum) value(?,?,?)", 
 					new Object[]{ModelId.getModelName(),ModelId.getModelHeadnum(),ModelId.getModelBodynum()});
 		}else {
 			jdbcTemplate.update(
