@@ -20,6 +20,9 @@ public class AviationOrderServiceImpl  implements IAviationOrderService{
 	private IAviationOrderDao aviationOrderDao;
 	
 	
+	
+	
+	
 //--查询一个订单
 	public AviationOrder chess(int OrderId) {
 		
