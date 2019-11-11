@@ -16,12 +16,13 @@ import org.springframework.web.servlet.ModelAndView;
 import com.alibaba.fastjson.JSON;
 
 import aviation.entity.po.AviationFlight;
+import aviation.entity.po.AviationMoney;
 import aviation.entity.vo.FlightInfo;
 import aviation.service.prototype.IAviationFlightService;
 import aviation.util.DateUtil;
 
 @Controller
-public class AviationController {
+public class FlightController {
 	
 	
 	@Autowired
@@ -79,6 +80,8 @@ public class AviationController {
 	public ModelAndView getGoInfo(String from,String to, String time ,int pageNo,int pageSize) throws UnsupportedEncodingException {
 		String fromA = new String(from .getBytes("iso8859-1"),"utf-8");
 		String toA = new String(to .getBytes("iso8859-1"),"utf-8");
+		System.out.println(fromA);
+		System.out.println(toA);
 		List<FlightInfo> lists = atFlightService.findFlightGo(pageNo, pageSize, fromA, toA,DateUtil.toDate("yyyy-MM-dd", time) );
 		for (FlightInfo flightInfo : lists) {
 			System.out.println(flightInfo);
@@ -93,9 +96,46 @@ public class AviationController {
 	@ResponseBody
 	public ModelAndView getDelFlight(@PathVariable("id") int id) {
 			atFlightService.delFlight(id);
-			ModelAndView mv = new ModelAndView("Administrators/selectFlight");
+			ModelAndView mv = new ModelAndView("Administrators/succer");
 			return mv;
 	}
+	/*
+	  int flightId,String from,String fromTime,String to,
+				String toTime,int modelId,double moneyHeadPrice,double moneyBodyPrice
+	 
+	 insertOrUpdateFlight(
+						new AviationFlight(flightId,from, to, DateUtil.toDate("yyyy-MM-dd hh:mm:ss", fromTime),
+								DateUtil.toDate("yyyy-MM-dd hh:mm:ss", toTime), 0, 0, modelId) ,
+						new AviationMoney(modelId,500, 200, 0));
+	 
+	 
+	 
+	 
+	 */
+	// -返回修改某个航班的航班信息
+		@RequestMapping("/administrators/lists/listInfo/updateFlight/{id}")
+		@ResponseBody
+		public ModelAndView getUpdateFlight(@PathVariable("id") int id) {
+				FlightInfo fi =	atFlightService.findFlightInfoAll(id);
+				ModelAndView mv = new ModelAndView("Administrators/updateFlight");
+				mv.addObject("FlightInfo", fi);
+				return mv;
+		}
+		
+	// -修改提交的返回
+	// -返回修改某个航班的航班信息
+		@RequestMapping("/administrators/lists/listInfo/updateFlight/updSuccer")
+		@ResponseBody
+		// http://localhost:8888/aviation/administrators/lists/listInfo/updateFlight/updSuccer?flightId=2&from=%E5%8C%97%E4%BA%AC&fromTime=&to=%E4%B8%8A%E6%B5%B7&toTime=&modelId=1&moneyHeadPrice=1900.0&moneyBodyPrice=880.25
+		public ModelAndView getUpdateFlightSuccer( int flightId,String from,String fromTime,String to,
+				String toTime,int modelId,double moneyHeadPrice,double moneyBodyPrice) {
+				atFlightService.insertOrUpdateFlight(
+					new AviationFlight(flightId,from, to, DateUtil.toDate("yyyy-MM-dd hh:mm:ss", fromTime),
+							DateUtil.toDate("yyyy-MM-dd hh:mm:ss", toTime), 0, 0, modelId) ,
+					new AviationMoney(modelId,moneyHeadPrice, moneyBodyPrice, flightId));
+				ModelAndView mv = new ModelAndView("Administrators/succer");
+				return mv;
+		}
 	
 	// -进入后台展示页面
 	
@@ -106,13 +146,36 @@ public class AviationController {
 		return mv;
 	}
 	
-	// -插入航班信息页面
-	@RequestMapping("123123123")
+	// -插入航班信息页面返回
+	@RequestMapping("/administrators/insSuccer")
 	@ResponseBody
-	public ModelAndView  getInsertView() {
+	public ModelAndView  getInsertView(String from,String fromTime,String to,
+			String toTime,int modelId,double moneyHeadPrice,double moneyBodyPrice) {
 		
-		ModelAndView mv = new ModelAndView("Administrators/inertFlight");
-		return mv;
+		 try {
+			from = new String(from .getBytes("iso8859-1"),"utf-8");
+			to = new String(to .getBytes("iso8859-1"),"utf-8");
+		} catch (UnsupportedEncodingException e) {
+			e.printStackTrace();
+		}
+		 
+		fromTime = FlightController.newString(fromTime);
+		toTime = FlightController.newString(toTime);
+		System.out.println(fromTime);
+		// -2019-11-20T01:57
+	
+		char[] fromToChar = toTime.toCharArray();
+		int a = atFlightService.insertOrUpdateFlight(
+				new AviationFlight(from, to, DateUtil.toDate("yyyy-MM-dd hh:mm:ss", fromTime), DateUtil.toDate("yyyy-MM-dd hh:mm:ss", toTime), 0, 0, modelId),
+				new AviationMoney(500, 200, 0));
+		if(a>0) {
+			ModelAndView mv = new ModelAndView("Administrators/succer");
+			return mv;
+		}else {
+			ModelAndView mv = new ModelAndView("Administrators/fail");
+			return mv;
+		}
+		
 	}
 	
 	@RequestMapping("1231231")
@@ -121,4 +184,22 @@ public class AviationController {
 	
 		return "1";
 	}
+	
+	// -页面传过来的日期类型的格式转化
+	private static String newString(String oldString) {
+		String newString = null;
+		// -2019-11-20T01:57
+		newString = oldString.substring(0, 10) +" "+ oldString.substring(11) + ":00";
+		System.out.println(newString);
+		return newString;
+	}
 }
+
+
+
+
+
+
+
+
+

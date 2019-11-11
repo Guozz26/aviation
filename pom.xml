@@ -138,6 +138,7 @@
 				<configuration>
 					<port>8888</port>
 					<path>/aviation</path>
+					<uriEncoding>utf-8</uriEncoding>
 					<!-- 实现热部署 不需要每次修改代码后都重新启动tomcat -->
 					<contextReloadable>true</contextReloadable>
 				</configuration>

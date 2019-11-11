@@ -61,13 +61,12 @@
                       
                     </dl>
                 </li>
-                <li class="layui-nav-item"><a href="">订单管理</a></li>
+                <li class="layui-nav-item"><a href="order/lists" target="class">订单管理</a></li>
                  <li class="layui-nav-item">
                     <a href="javascript:;">盈利统计</a>
                     <dl class="layui-nav-child">
                         <dd><a href="javascript:;">各营业点盈利信息</a></dd>
                         <dd><a href="javascript:;">总盈利信息</a></dd>
-                  
                     </dl>
                 </li>
             </ul>

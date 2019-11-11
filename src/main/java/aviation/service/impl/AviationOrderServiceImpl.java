@@ -19,6 +19,7 @@ public class AviationOrderServiceImpl  implements IAviationOrderService{
 	@Autowired
 	private IAviationOrderDao aviationOrderDao;
 	
+	
 //--查询一个订单
 	public AviationOrder chess(int OrderId) {
 		
@@ -33,9 +34,9 @@ public class AviationOrderServiceImpl  implements IAviationOrderService{
 	}
 //--查询订单多个
 
-	public List<AviationOrder> check(int offset, int pageSize) {
+	public List<AviationOrder> check(int pageNo, int pageSize) {
 	
-		return aviationOrderDao.check(offset, pageSize);
+		return aviationOrderDao.check((pageNo-1)*pageSize, pageSize);
 	}
 //--查询订单所有信息
 

@@ -33,33 +33,27 @@ public class AviationOrderDaoImpl implements IAviationOrderDao{
 	@Override
 	public OrderInfo userss(int UserId) {
 		
-		return jdbcTemplate.queryForObject("SELECT b.user_name  ,a.order_id,a.order_idcard,a.order_time,c.flight_id,c.flight_from_time,c.flight_from,c.flight_to_time,c.flight_to,d.model_name\r\n" + 
-				",e.price_name,g.total_price\r\n" + 
-				"FROM aviation_order a \r\n" + 
-				"LEFT JOIN aviation_user b on  a.user_id = b.user_id\r\n" + 
-				"LEFT JOIN aviation_total  g ON a.total_id = a.total_id\r\n" + 
-				"LEFT JOIN aviation_flight  c on c.flight_id = g.flight_id\r\n" + 
-				"LEFT JOIN aviation_model d ON d.model_id = d.model_id\r\n" + 
-				"LEFT JOIN aviation_price e ON g.price_id = e.price_id\r\n" + 
-				"WHERE b.user_id = ?", 
-				new Object[] {(UserId)},
-				new BeanPropertyRowMapper<OrderInfo>(OrderInfo.class)
-				);
+		return jdbcTemplate.queryForObject("select b.order_id,b.order_name,b.order_idcard ,"
+				+ "b.order_time,a.user_name,a.user_age,c.flight_from,c.flight_from_time,"
+				+ "c.flight_to,c.flight_to_time,d.money_body_price,d.money_head_price from aviation_user a	"
+				+ "lEFT JOIN aviation_order b on a.user_id = b.user_id "
+				+ "left join aviation_flight c on b.flight_id = c.flight_id "
+				+ "left join aviation_money d on b.money_id = d.money_id "
+				+ "WHERE a.user_id = ?",
+				new Object[] {UserId}, new BeanPropertyRowMapper<OrderInfo>(OrderInfo.class));
 		
 	}
 
-	//--查询用户买过 的票
+	//--查询某个订单的详细信息
 	@Override
 	public OrderInfo findFlightInfoAll(int id) {
-		return jdbcTemplate.queryForObject("SELECT b.user_name  ,a.order_id,a.order_idcard,a.order_time,c.flight_id,c.flight_from_time,c.flight_from,c.flight_to_time,c.flight_to,d.model_name\r\n" + 
-				",e.price_name,g.total_price\r\n" + 
-				"FROM aviation_order a \r\n" + 
-				"LEFT JOIN aviation_user b on  a.user_id = b.user_id\r\n" + 
-				"LEFT JOIN aviation_total  g ON a.total_id = a.total_id\r\n" + 
-				"LEFT JOIN aviation_flight  c on c.flight_id = g.flight_id\r\n" + 
-				"LEFT JOIN aviation_model d ON d.model_id = d.model_id\r\n" + 
-				"LEFT JOIN aviation_price e ON g.price_id = e.price_id\r\n" + 
-				"WHERE order_id = ?", 
+		return jdbcTemplate.queryForObject("select a.order_id,a.order_name,a.order_idcard ,a.order_time,b.user_name,b.user_age,c.flight_from,c.flight_from_time,c.flight_to,"
+				+ "c.flight_to_time,d.money_body_price,d.money_head_price "
+				+ "from aviation_order 	a "
+				+ "lEFT JOIN aviation_user b on a.user_id = b.user_id "
+				+ "left join aviation_flight c on a.flight_id = c.flight_id  "
+				+ "left join aviation_money d on a.money_id = d.money_id " 
+				+ "WHERE order_id = ?", 
 				new Object[] {id}, new BeanPropertyRowMapper<OrderInfo>(OrderInfo.class));
 	}
 //--查询多个订单
@@ -76,12 +70,12 @@ public class AviationOrderDaoImpl implements IAviationOrderDao{
 	public void ChageOrder(AviationOrder OrderId) {
 		if(OrderId.getOrderId()==0) {
 			jdbcTemplate.update(
-					"insert into aviation_order(order_name,order_idcard,order_time,money_id,flight_id,user_id,price_id,total_id) values(?,?,?,?,?,?,?,?)", 
-					new Object[]{OrderId.getOrderName(),OrderId.getOrderIdcard(),OrderId.getOrderTime(),OrderId.getMoneyId(),OrderId.getFlightId(),OrderId.getUserId(),OrderId.getPriceId(),OrderId.getTotalId()});
+					"insert into aviation_order(order_name,order_idcard,order_time,money_id,flight_id,user_id,price_id) values(?,?,?,?,?,?,?)", 
+					new Object[]{OrderId.getOrderName(),OrderId.getOrderIdcard(),OrderId.getOrderTime(),OrderId.getMoneyId(),OrderId.getFlightId(),OrderId.getUserId(),OrderId.getPriceId()});
 		}else {
 			jdbcTemplate.update(
 					"update aviation_order set order_name=?,order_idcard=?,order_time=?,money_id=?,flight_id=?,user_id=?,price_id=?,total_id=? where order_id=? ", 
-					new Object[]{OrderId.getOrderName(),OrderId.getOrderIdcard(),OrderId.getOrderTime(),OrderId.getMoneyId(),OrderId.getFlightId(),OrderId.getUserId(),OrderId.getPriceId(),OrderId.getTotalId(),OrderId.getOrderId()});
+					new Object[]{OrderId.getOrderName(),OrderId.getOrderIdcard(),OrderId.getOrderTime(),OrderId.getMoneyId(),OrderId.getFlightId(),OrderId.getUserId(),OrderId.getPriceId(),OrderId.getOrderId()});
 		}
 	
 	}

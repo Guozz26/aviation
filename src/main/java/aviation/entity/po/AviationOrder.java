@@ -11,7 +11,6 @@ public class AviationOrder {
 	private int flightId;
 	private int userId;
 	private int priceId;
-	private int totalId;
 	public int getOrderId() {
 		return orderId;
 	}
@@ -60,47 +59,6 @@ public class AviationOrder {
 	public void setPriceId(int priceId) {
 		this.priceId = priceId;
 	}
-	public int getTotalId() {
-		return totalId;
-	}
-	public void setTotalId(int totalId) {
-		this.totalId = totalId;
-	}
-	public AviationOrder(int orderId, String orderName, String orderIdcard, Date orderTime, int moneyId, int flightId,
-			int userId, int priceId, int totalId) {
-		super();
-		this.orderId = orderId;
-		this.orderName = orderName;
-		this.orderIdcard = orderIdcard;
-		this.orderTime = orderTime;
-		this.moneyId = moneyId;
-		this.flightId = flightId;
-		this.userId = userId;
-		this.priceId = priceId;
-		this.totalId = totalId;
-	}
-	public AviationOrder(int orderId) {
-		super();
-		this.orderId = orderId;
-		
-	}
-	public AviationOrder( String orderName, String orderIdcard, Date orderTime, int moneyId, int flightId,
-			int userId, int priceId, int totalId) {
-		super();
-		
-		this.orderName = orderName;
-		this.orderIdcard = orderIdcard;
-		this.orderTime = orderTime;
-		this.moneyId = moneyId;
-		this.flightId = flightId;
-		this.userId = userId;
-		this.priceId = priceId;
-		this.totalId = totalId;
-	}
-	
-	public AviationOrder() {
-		super();
-	}
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -112,7 +70,6 @@ public class AviationOrder {
 		result = prime * result + ((orderName == null) ? 0 : orderName.hashCode());
 		result = prime * result + ((orderTime == null) ? 0 : orderTime.hashCode());
 		result = prime * result + priceId;
-		result = prime * result + totalId;
 		result = prime * result + userId;
 		return result;
 	}
@@ -148,8 +105,6 @@ public class AviationOrder {
 			return false;
 		if (priceId != other.priceId)
 			return false;
-		if (totalId != other.totalId)
-			return false;
 		if (userId != other.userId)
 			return false;
 		return true;
@@ -158,8 +113,40 @@ public class AviationOrder {
 	public String toString() {
 		return "AviationOrder [orderId=" + orderId + ", orderName=" + orderName + ", orderIdcard=" + orderIdcard
 				+ ", orderTime=" + orderTime + ", moneyId=" + moneyId + ", flightId=" + flightId + ", userId=" + userId
-				+ ", priceId=" + priceId + ", totalId=" + totalId + "]";
+				+ ", priceId=" + priceId + "]";
 	}
+	public AviationOrder(int orderId, String orderName, String orderIdcard, Date orderTime, int moneyId, int flightId,
+			int userId, int priceId) {
+		super();
+		this.orderId = orderId;
+		this.orderName = orderName;
+		this.orderIdcard = orderIdcard;
+		this.orderTime = orderTime;
+		this.moneyId = moneyId;
+		this.flightId = flightId;
+		this.userId = userId;
+		this.priceId = priceId;
+	}
+	
+	public AviationOrder(String orderName, String orderIdcard, Date orderTime, int moneyId, int flightId, int userId,
+			int priceId) {
+		super();
+		this.orderName = orderName;
+		this.orderIdcard = orderIdcard;
+		this.orderTime = orderTime;
+		this.moneyId = moneyId;
+		this.flightId = flightId;
+		this.userId = userId;
+		this.priceId = priceId;
+	}
+	public AviationOrder(int orderId) {
+		super();
+		this.orderId = orderId;
+	}
+	public AviationOrder() {
+		super();
+	}
+	
 	
 	
 }

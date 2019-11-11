@@ -29,7 +29,7 @@
 				</div>
 
 				<div>
-					出发时间<input type="date" class="form" name="time"> <input
+					出发时间<input type="date" class="form-control" name="time"> <input
 						type="hidden" name="pageNo" value="1"> <input
 						type="hidden" name="pageSize" value="5">
 				</div>

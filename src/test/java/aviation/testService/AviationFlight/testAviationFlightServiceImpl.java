@@ -57,8 +57,9 @@ public class testAviationFlightServiceImpl {
 	
 	@Test
 	public void testInsertOrUpdate() {
-		aviationFlightServcie.insertOrUpdateFlight(
-				new AviationFlight("北京", "上害", new Date(), new Date(), 50, 400, 1),
+		int a = aviationFlightServcie.insertOrUpdateFlight(
+				new AviationFlight("北京", "上222害", new Date(), new Date(), 0, 0, 1),
 				new AviationMoney(1400, 400, 0));
+		System.out.println(a);
 	}
 }

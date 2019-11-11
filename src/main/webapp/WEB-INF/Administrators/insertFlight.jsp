@@ -31,37 +31,37 @@
 	<h3 align="center">新增航班计划</h3>
 	<hr color="red">
 	<div class="container" align="center">
-		<form>	
+		<form action="insSuccer" method="get">	
 			<div class="center">
 			  <div class="form-group b">
 				    <label for="exampleInputEmail1">出发地</label>
-				    <input type="text" class="form-control a" id="" placeholder="出发地">
+				    <input type="text" class="form-control a" id="" placeholder="出发地" name="from">
 			  </div>
 		      <div class="form-group b" >
 				    <label for="exampleInputEmail1">出发时间</label>
-				    <input type="date" class="form-control a" id="" >
+				    <input type="datetime-local" class="form-control a" id="" name="fromTime"  pattern="yyyy-MM-dd HH:mm:ss">
 			  </div>
 			  <div class="form-group b">
 				    <label for="exampleInputEmail1">目的地</label>
-				    <input type="text" class="form-control a " id="" placeholder="目的地">
+				    <input type="text" class="form-control a " id="" placeholder="目的地" name="to">
 			  </div>
 			   <div class="form-group b" >
-				    <label for="exampleInputEmail1">到达时间</label>
-				    <input type="date" class="form-control a" id="">
+				    <label for="exampleInputEmail1" >到达时间</label>
+				    <input type="datetime-local" class="form-control a" id="" name="toTime">
 			    </div>
 				    <div class="form-group" style="margin-left:-500px;">
 				    	<label for="exampleInputPassword1">飞机型号</label>
-				    	<input type="text" class="form-control a" id="">
+				    	<input type="text" class="form-control a" id="" name="modelId">
 		  			</div>
 
 
 				    <div class="form-group b"  >
 				    	<label for="exampleInputPassword1">头等舱价格</label>
-				    	<input type="text" class="form-control a " id="">
+				    	<input type="text" class="form-control a " id="" name="moneyHeadPrice">
 		  			</div>
 		  			  <div class="form-group b "  >
 				    	<label for="exampleInputPassword1">经济舱价格</label>
-				    	<input type="text" class="form-control a " id="">
+				    	<input type="text" class="form-control a " id="" name="moneyBodyPrice">
 		  			</div>
 				</div>
 			  <div >

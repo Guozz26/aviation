@@ -27,7 +27,7 @@
 			<div><p>经济舱</p>${lists.modelBodynum }</div>
 			<div><p>价格</p>${lists.moneyBodyPrice }</div>	
 			<a href="delFlight/${lists.flightId}">删除航班</a>
-			<a href="lists/info/${lists.flightId}">修改航班信息</a>
+			<a href="updateFlight/${lists.flightId}">修改航班信息</a>
 	</div>
 </body>
 </html>

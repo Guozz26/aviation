@@ -7,8 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import aviation.dao.impl.AviationMoneyDaoImpl;
 import aviation.dao.prototype.IAviationFlightDao;
+import aviation.dao.prototype.IAviationModelDao;
 import aviation.dao.prototype.IAviationMoneyDao;
 import aviation.entity.po.AviationFlight;
 import aviation.entity.po.AviationModel;
@@ -24,6 +24,9 @@ public class AviationFlightServiceImpl implements IAviationFlightService{
 	
 	@Autowired
 	private IAviationMoneyDao aviationMoneyDao;
+	
+	@Autowired
+	private IAviationModelDao aviationModelDao;
 	
 	public List<AviationFlight> findFlightAll(int pageNo, int pageSize) {
 		return aviationFlightDao.findFlightAll(pageSize, (pageNo-1)*pageSize);
@@ -51,15 +54,18 @@ public class AviationFlightServiceImpl implements IAviationFlightService{
 	@Transactional
 	public int insertOrUpdateFlight(AviationFlight flight,AviationMoney money) {
 			
-		aviationFlightDao.inertOrUpdateFlight(flight);
-		int flightId = aviationFlightDao.fingFlightMaxId();
-	
-		money.setFlightId(flightId);
-		aviationMoneyDao.ChageMoney(money);
+		try {
+			AviationModel am  = aviationModelDao.chess(flight.getModelId());
+			flight.setFlightHeadNum(am.getModelHeadnum());
+			flight.setFlightBodyNum(am.getModelBodynum());
+			aviationFlightDao.inertOrUpdateFlight(flight);
+			int flightId = aviationFlightDao.fingFlightMaxId();
+
+			money.setFlightId(flightId);
+			aviationMoneyDao.ChageMoney(money);
+		} catch (Exception e) {
+			return 0;
+		}
 		return 1;
 	}
-
-	
-
-
 }

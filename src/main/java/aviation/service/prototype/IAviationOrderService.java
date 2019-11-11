@@ -17,7 +17,7 @@ public interface IAviationOrderService {
 		//--根据用户id查询
 		OrderInfo userss(int UserId);
 		//--查询订单多个
-		List<AviationOrder> check (int offset,int pageSize);
+		List<AviationOrder> check (int pageNo,int pageSize);
 		
 		//--查询订单所有信息
 		  OrderInfo findFlightInfoAll(int id);
