@@ -45,6 +45,7 @@ public class testAviationMoneyImpl {
 			aviationMoneyDao.daleteMoney(1);
 			
 		}
+		
 		@Test
 		public void testFindAll() {
 			List<AviationMoney> lists = aviationMoneyDao.findAll();

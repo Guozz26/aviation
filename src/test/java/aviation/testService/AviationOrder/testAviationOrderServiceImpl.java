@@ -38,7 +38,7 @@ public class testAviationOrderServiceImpl {
 	
 @Test
 	public void orderss(){
-	 List<AviationOrder> pages = iaviationorderservice.check(1, 5);
+	 List<AviationOrder> pages = iaviationorderservice.check(0, 100);
 	 	for (AviationOrder aviationOrder : pages) {
 	 		
 	 			System.out.println(aviationOrder);
