@@ -9,8 +9,6 @@ import org.springframework.stereotype.Repository;
 
 import aviation.dao.prototype.IAviationModelDao;
 import aviation.entity.po.AviationModel;
-import aviation.entity.po.AviationMoney;
-import aviation.entity.po.AviationOrder;
 
 @Repository("aviationModelDaoImpl")
 public class AviationModelDaoImpl implements IAviationModelDao{

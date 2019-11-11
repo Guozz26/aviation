@@ -14,6 +14,19 @@ public class AviationManager {
 		this.managerTel = managerTel;
 		this.managerPwd = managerPwd;
 	}
+	public AviationManager( String managerName, String managerSex, String managerTel, String managerPwd) {
+		super();
+	
+		this.managerName = managerName;
+		this.managerSex = managerSex;
+		this.managerTel = managerTel;
+		this.managerPwd = managerPwd;
+	}
+	public AviationManager(int managerId) {
+		super();
+		this.managerId = managerId;
+	}
+	
 	public AviationManager() {
 		super();
 	}

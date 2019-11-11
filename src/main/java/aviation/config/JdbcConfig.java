@@ -15,7 +15,7 @@ import com.alibaba.druid.pool.DruidDataSource;
 
 @Configuration
 @PropertySource("classpath:jdbc.properties")
-@EnableTransactionManagement  
+@EnableTransactionManagement     //--事务      
 public class JdbcConfig {
 	
 	@Value(value = "${jdbc.driverClass}")
