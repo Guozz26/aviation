@@ -39,5 +39,10 @@ public class AviationManagerServiceImpl implements IAviationManagerService{
 		
 		return iaviationMnagerDao.deleteManager(id);
 	}
+	@Override
+	public int findMaxId() {
+		
+		return iaviationMnagerDao.findMaxId();
+	}
 
 }

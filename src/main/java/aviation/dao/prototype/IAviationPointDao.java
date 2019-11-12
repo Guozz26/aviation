@@ -21,4 +21,6 @@ public interface IAviationPointDao {
    	   List<AviationPoint> findAll(int offset, int pageSize);
    	   //获取总条数
    	   int totalItems();
+   	   
+
 }

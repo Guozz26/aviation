@@ -1,13 +1,17 @@
 package aviation.dao.impl;
 
+import java.lang.annotation.Annotation;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowire;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
 import aviation.dao.prototype.IAviationPointDao;
+import aviation.entity.po.AviationManager;
 import aviation.entity.po.AviationPoint;
 
 /**
@@ -63,4 +67,5 @@ public class AviationPointDaoImpl implements IAviationPointDao{
 		// TODO Auto-generated method stub
 		return 0;
 	}
+
 }

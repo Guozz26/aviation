@@ -13,4 +13,6 @@ public interface IAviationManagerService {
 	void updateManager(AviationManager ManagerId);
 	//--删除经理
 	int deleteManager (int id);
+	//- 查询当前经理的最大id
+	int findMaxId();
 }

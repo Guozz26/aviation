@@ -17,22 +17,22 @@
 	<div class="container" align="center">
 	<table class="table table-striped">
 		<tr>
-			<th>订单编号</th>
-			<th>买家姓名</th>
-			<th>买家身份账号</th>
-			<th>下单时间</th>
+			<th>营业点编号</th>
+			<th>营业点所在城市</th>
+			<th>营业点负责人</th>
+			<th>tel</th>
 			<th>操作</th>
 		</tr>
 		<c:forEach items="${lists}" var="list">
 			<tr>
-				<td>${list.orderId}</td>
-				<td>${list.orderName }</td>
-				<td>${list.orderIdcard }</td>
-				<td>${list.orderTime }</td>
+				<td>${list.pointId}</td>
+				<td>${list.pointCity }</td>
+				<td>${list.managerName }</td>
+				<td>${list.managerTel }</td>
 
 				<td>
-					<a href="lists/listInfo/${list.orderId}">查看详细信息</a>
-					<a href="lists/delOrder/${list.orderId}">删除订单</a>
+					<a href="lists/updPoint/${list.pointId}">修改营业点信息</a>
+					<a href="lists/delPoint/${list.pointId}">删除订单</a>
 				</td>
 				
 			</tr>

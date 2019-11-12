@@ -12,7 +12,7 @@
 <link rel="stylesheet" href="/aviation/assets/css/bootstrap.css">
 </head>
 <body>
-	<h3 align="center"> 航班计划 </h3>
+	<h3 align="center"> 订单详情信息 </h3>
 	<hr color="red">
 	<div class="container" align="center">
 	<table class="table table-striped">

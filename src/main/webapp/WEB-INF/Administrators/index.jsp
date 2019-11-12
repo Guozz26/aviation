@@ -56,8 +56,9 @@
                 <li class="layui-nav-item">
                     <a href="javascript:;">用户以及营业点管理</a>
                     <dl class="layui-nav-child">
-                        <dd><a href="javascript:;">查看所有营业点</a></dd>
-                        <dd><a href="javascript:;">查看所有的用户</a></dd>
+                        <dd><a href="point/lists" target="class">查看所有营业点</a></dd>
+                        <dd><a href="point/insertPoint" target="class">增加营业点</a></dd>
+                        <dd><a href="user/lists" target="class">查看所有的用户</a></dd>
                       
                     </dl>
                 </li>

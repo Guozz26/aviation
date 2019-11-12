@@ -18,4 +18,6 @@ public interface IAviationManagerDao {
 	void updateManager(AviationManager ManagerId);
 	//--删除经理
 	int deleteManager (int id);
+	   // -查询当前最大的营业点的编号值
+	   int findMaxId();
 }
