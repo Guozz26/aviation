@@ -49,12 +49,30 @@ public class PointController {
 	}
 	
 	
-	@RequestMapping("point/lists/updPoint/update")
-	public ModelAndView getUpdatePoint(String pointCity,int managerId,String managerName,String managerSex,String managerTel,String managerPwd) {
-		mangerService.updateManager(new AviationManager(managerName, managerSex, managerTel, managerPwd));
-		managerId = mangerService.findMaxId();
-		pointService.ServicesaveOrUpdataOne(new AviationPoint(pointCity, managerId));
+	@RequestMapping("point/lists/upPoint/update/succer")
+	public ModelAndView getUpdatePoint(int pointId ,String pointCity,int managerId,String managerName,String managerSex,String managerTel,String managerPwd) {
+		System.out.println(pointId);
+		System.out.println(managerId);
+		mangerService.updateManager(new AviationManager(managerId,managerName, managerSex, managerTel, managerPwd));
+		pointService.ServicesaveOrUpdataOne(new AviationPoint(pointId,pointCity, managerId));
 		return new ModelAndView("point/succer");
+	}
+	
+	@RequestMapping("point/lists/upPoint/{pointId}")
+	public ModelAndView getUpPoint(@PathVariable("pointId")int id) {
+		AviationPoint list  =pointService.findOne(id);
+			PointInfo lists = new PointInfo();
+			AviationManager e = mangerService.find(list.getManagerId());
+			lists.setPointId(list.getPointId());
+			lists.setPointCity(list.getPointCity());
+			lists.setManagerId(e.getManagerId());
+			lists.setManagerName(e.getManagerName());
+			lists.setManagerSex(e.getManagerSex());
+			lists.setManagerTel(e.getManagerTel());
+		ModelAndView mv = new ModelAndView("point/upPoint");
+		System.out.println(lists);
+		mv.addObject("lists",lists);
+		return mv;
 	}
 	
 	@RequestMapping("point/insertPoint")
@@ -62,5 +80,26 @@ public class PointController {
 		ModelAndView mv = new ModelAndView("point/insertPoint");
 		return  mv;
 	}
+	
+	@RequestMapping("point/insertPoint/succer")
+	public ModelAndView getInsertPointSuc(String pointCity,String managerName,String managerSex,String managerTel,String managerPwd) {
+		
+		System.out.println(managerName + ""+ managerSex+""+ managerTel+","+ managerPwd);
+		mangerService.updateManager(new AviationManager(managerName, managerSex, managerTel, managerPwd));
+		
+		int managerId = mangerService.findMaxId();
+		pointService.ServicesaveOrUpdataOne(new AviationPoint(pointCity, managerId));
+		return new ModelAndView("point/succer");
+	}
+	
+	@RequestMapping("point/lists/delPoint/{id}")
+	public ModelAndView getDelPoint(@PathVariable("id") int id) {
+		int a = pointService.deleteOne(id);
+		if(a>0)
+			return new ModelAndView("point/succer");
+		else
+			return new ModelAndView("point/fail");
+	}
+	
 	
 }

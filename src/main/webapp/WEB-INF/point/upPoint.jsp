@@ -31,29 +31,28 @@
 	<h3 align="center">新增营业点</h3>
 	<hr color="red">
 	<div class="container" align="center">
-		<form action="insertPoint/succer" method="get">	
+		<form action="update/succer" method="get">	
 			<div class="center">
+			<input type="hidden" name="pointId" value="${lists.pointId }">
 			  <div class="form-group b">
 				    <label for="exampleInputEmail1">所在城市</label>
-				    <input type="text" class="form-control a" id="" placeholder="city" name="pointCity">
+				    <input type="text" class="form-control a" id="" placeholder="city" name="pointCity" value="${lists.pointCity}">
 			  </div>
+			  <input type="hidden" value="${lists.managerId}" name="managerId">
 		      <div class="form-group b" >
 				    <label for="exampleInputEmail1">负责人名字</label>
-				    <input type="text" class="form-control a" id="" name="managerName">
+				    <input type="text" class="form-control a" id="" name="managerName" value="${lists.managerName}">
 			  </div>
 			  <div class="form-group b">
-				    性别<Select name="managerSex" class="form-control a">
-						<option selected = “selected”>男</option>
+				    性别<Select name="managerSex" class="form-control a" >
+						<option selected = “selected” value="${lists.managerSex}">男</option>
 						<option>女</option>
 					</select>
 			  </div>
-			   <div class="form-group b" >
-				    <label for="exampleInputEmail1" >出生日期</label>
-				    <input type="date" class="form-control a" id="" name="managerAge">
-			    </div>
+			
 				    <div class="form-group" style="margin-left:-500px;">
 				    	<label for="exampleInputPassword1">电话号码</label>
-				    	<input type="text" class="form-control a" id="" name="managerTel">
+				    	<input type="text" class="form-control a" id="" name="managerTel" value="${lists.managerTel}">
 		  			</div>
 
 

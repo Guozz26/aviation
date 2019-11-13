@@ -12,7 +12,7 @@
 <link rel="stylesheet" href="/aviation/assets/css/bootstrap.css">
 </head>
 <body>
-	<h3 align="center"> 订单信息 </h3>
+	<h3 align="center"> 营业点信息 </h3>
 	<hr color="red">
 	<div class="container" align="center">
 	<table class="table table-striped">
@@ -31,8 +31,8 @@
 				<td>${list.managerTel }</td>
 
 				<td>
-					<a href="lists/updPoint/${list.pointId}">修改营业点信息</a>
-					<a href="lists/delPoint/${list.pointId}">删除订单</a>
+					<a href="lists/upPoint/${list.pointId}">修改营业点信息</a>
+					<a href="lists/delPoint/${list.pointId}">删除该营业点</a>
 				</td>
 				
 			</tr>

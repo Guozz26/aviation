@@ -9,7 +9,6 @@
 <title>首页</title>
 <meta charset="UTF-8">
 <link rel="stylesheet" href="/aviation/assets/css/bootstrap.css">
-<link rel="stylesheet" href="/aviation/assets/css/Gzzinfo.css">
 </head>
 <body style="background:#fff;">
 	<h3 align="center"> 航班计划 </h3>

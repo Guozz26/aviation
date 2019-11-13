@@ -66,8 +66,9 @@
                  <li class="layui-nav-item">
                     <a href="javascript:;">盈利统计</a>
                     <dl class="layui-nav-child">
-                        <dd><a href="javascript:;">各营业点盈利信息</a></dd>
-                        <dd><a href="javascript:;">总盈利信息</a></dd>
+                        <dd><a href="volume/index" target="class">各营业点本月盈利</a></dd>
+                        <dd><a href="volume/index2" target="class">各营业点年盈利</a></dd>
+                        <dd><a href="volume/index3" target="class">总盈利信息</a></dd>
                     </dl>
                 </li>
             </ul>

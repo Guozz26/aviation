@@ -64,7 +64,7 @@ public class AviationManagerImpl implements IAviationManagerDao{
 	public int findMaxId() {
 		
 		AviationManager am = jdbcTemplate.queryForObject("select manager_id from aviation_manager order by manager_id desc limit 1",
-				new BeanPropertyRowMapper<AviationManager>());
+				new BeanPropertyRowMapper<AviationManager>(AviationManager.class));
 		return am.getManagerId();
 	}
 
