@@ -54,4 +54,11 @@ public class testAviationUserImpl {
 		iaviationUserDao.deleteUser(3);
 	}
 	
+	
+	@Test
+	public void testfindUser() {
+		AviationUser user = iaviationUserDao.fingUser("李四", "123");
+		System.out.println(user);
+		
+	}
 }

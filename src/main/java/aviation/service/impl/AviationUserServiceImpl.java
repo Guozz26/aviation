@@ -38,4 +38,9 @@ public class AviationUserServiceImpl implements IAviationUserService{
 		return iaviationUserDao.deleteUser(id);
 	}
 
+	@Override
+	public AviationUser findUser(String name,String password) {
+		return iaviationUserDao.fingUser(name, password);
+	}
+
 }

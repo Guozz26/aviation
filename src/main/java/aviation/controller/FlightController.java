@@ -38,7 +38,7 @@ public class FlightController {
 		return mv;
 	}
 	
-	// - 后台主页面
+	// - 后台主页面     administrators
 	@RequestMapping("/administrators")
 	public ModelAndView getIndex() {
 		ModelAndView mv = new ModelAndView("Administrators/index");

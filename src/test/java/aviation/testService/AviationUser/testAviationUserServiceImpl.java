@@ -55,5 +55,10 @@ public class testAviationUserServiceImpl {
 		iAviationuserService.deleteUser(2);
 		
 	}
+	@Test
+	public void testfindUser() {
+		iAviationuserService.findUser("李四", "123");
+		
+	}
 	
 }

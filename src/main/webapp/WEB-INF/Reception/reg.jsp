@@ -1,3 +1,7 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ page import="java.util.List,aviation.*;" %>
 <!doctype html>
 <html lang="en">
 <head>
@@ -81,7 +85,7 @@
     </form>
     <div class="click">
         已有账号，请点击
-        <a href = "sgin.html">这里</a>
+        <a href = "sgin">这里</a>
 
     </div>
 </div>

@@ -13,6 +13,8 @@ public interface IAviationUserService {
 	void updateUser(AviationUser UserId);
 	//--删除用户
 	int deleteUser (int id);
+	// - 根据用户名和密码查找用户
+	AviationUser findUser(String name,String password);
 	
 	
 }

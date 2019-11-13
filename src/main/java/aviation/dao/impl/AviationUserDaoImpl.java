@@ -53,6 +53,14 @@ public class AviationUserDaoImpl implements IAviationUserDao{
 	
 		return jdbctemplate.update("delete from aviation_user where user_id=?",new Object[] {id});
 	}
+	@Override
+	public AviationUser fingUser(String name,String password) {
+		
+		return jdbctemplate.queryForObject("select * from aviation_User where user_name = ? and user_pwd = ?",
+				new Object[] {name,password},
+				new BeanPropertyRowMapper<AviationUser>(AviationUser.class)
+				);
+	}
 	
 	
 }
