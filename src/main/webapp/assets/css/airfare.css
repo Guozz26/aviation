@@ -1,0 +1,405 @@
+
+body {
+    padding: 0;
+    margin: 0;
+
+/*顶部*/
+}
+.top{
+    width: 100%;
+    height: 72px;
+    background-color: #fff;
+}
+.slw-top-1{
+    width: 202px;
+    height: 40px;
+    position: relative;
+    top:15px;
+    left: 150px;
+}
+.slw-top-2{
+    height: 32px;
+    width: 32px;
+
+    background: url("../images/4.png") no-repeat ;
+    position: relative;
+    left: 370px;
+    top: -18px;
+    background-position-x: 0px;
+    background-position-y: -109px;
+
+}
+.slw-top-3{
+    float: right;
+    margin-top: -50px;
+    margin-right: 30px;
+
+}
+.slw-top-3 a{
+    font-size: 22px;
+    margin-right: 30px;
+    text-decoration: none;
+    font-family: Pingfang,'微软雅黑',SimSun,sans-serif;
+    color: black;
+}
+/*导航栏*/
+.slw-one{
+    width: 100%;
+    height: 52px;
+    background: url("https://www.hnair.com/image_new/navbg.jpg") no-repeat ;
+}
+.slw-one-1{
+    width:1200px ;
+    height: 40px;
+    margin: auto;
+
+}
+.slw-one-1 a{
+    position: relative;
+    margin-left: 40px;
+    font-size: 16px;
+    font-family: Pingfang,'微软雅黑',SimSun,sans-serif;
+    color:white;
+    text-decoration: none;
+    top: 15px;
+}
+/*搜索航班*/
+
+.slw-two img{
+    width: 100%;
+    height: 1400px;
+    position: relative;
+}
+
+.slw-three{
+    position: absolute;
+    width: 1200px;
+    height: 1400px;
+
+    margin-left: 160px;
+    top: 130px;
+
+}
+.slw-four{
+    height: 70px;
+    width:1160px;
+
+    margin-left: 15px;
+    margin-top: 20px;
+}
+.slw-four-1{
+    width: 1100px;
+    height: 1px;
+    border-top: white 3px solid;
+    position: absolute;
+    top: 40px;
+    left: 48px;
+    display: flex;
+    flex-wrap: wrap;
+
+}
+.slw-four-2{
+    width: 29px;
+    height: 29px;
+
+    float: left;
+    margin: auto;
+    border-radius: 15px ;
+    border: #fd992e 1px solid;
+    position: relative;
+    top: -18px;
+}
+.slw-four-3{
+    width: 23px;
+    height: 23px;
+    border-radius: 50% ;
+    background: #fd992e ;
+    margin-left: 2px;
+    margin-top: 2px;
+}
+.slw-four-4{
+    height: 30px;
+    width:1100px;
+
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: 35px;
+}
+.slw-four-5{
+    margin: auto;
+    margin-top: 36px;
+    font-size: 20px;
+    color: #333;
+    font-family: PingFangSC-Regular, microsoft yahei, STHeiTi, simsun, arial, sans-serif;
+}
+.slw-five{
+    width: 1200px;
+    height: 130px;
+    background-color: #ffffff;
+    box-shadow:1px 2px 3px 4px #ccc;
+    display: flex;
+    flex-wrap: wrap;
+}
+.slw-five-1{
+    width: 195px;
+    height: 100px;
+
+    margin: auto;
+}
+.slw-five-2{
+    color: #6e6d6d;
+    position: relative;
+    top:10px;
+}
+
+.cityinput{
+    position: relative;
+    top: 15px;
+    width: 150px;
+    height: 45px;
+}
+#slw-five-4{
+    position: relative;
+    top:25px;
+    left: 30px;
+    height: 50px;
+    width: 125px;
+}
+.slw-six{
+    height: 50px;
+    width: 1200px;
+    position: relative;
+    top:50px;
+
+}
+.slw-six-1{
+    color: #333;
+    font-size: 20px;
+    font-weight: normal;
+}
+.slw-six-2{
+    color: #d80000;
+    font-size: 20px;
+    font-weight: normal;
+}
+.slw-ww{
+    position: relative;
+    top:25px;
+}
+.slw-sever{
+    width: 1200px;
+    height: 1000px;
+    position: relative;
+    top:50px;
+    background-color: #ffffff;
+    box-shadow:1px 2px 3px 4px #ccc;
+
+}
+.slw-server-1{
+    width: 1100px;
+    height: 170px;
+    background-color: #ffffff;
+    box-shadow:1px 1px 1px 1px #ccc;
+    position: relative;
+    top:30px;
+    left: 48px;
+
+}
+.slw-server-2{
+    width: 150px;
+    height: 120px;
+
+    position: relative;
+    top:40px;
+    left: 30px;
+}
+.slw-server-3{
+    font-size: 24px;
+    color: #000;
+    font-family: PingFangSC-Regular, microsoft yahei, STHeiTi, simsun, arial, sans-serif;
+}
+.slw-server-4{
+    font-size: 14px;
+    color: #333;
+    font-family: PingFangSC-Regular, microsoft yahei, STHeiTi, simsun, arial, sans-serif;
+}
+.slw-server-5{
+    font-size: 14px;
+    color: #333;
+    font-family: PingFangSC-Regular, microsoft yahei, STHeiTi, simsun, arial, sans-serif;
+}
+.slw-server-6{
+    width: 150px;
+    height: 120px;
+
+    position: relative;
+    top: -80px;
+    left: 390px;
+}
+.slw-server-7{
+    width: 200px;
+    height: 20px;
+
+    position: relative;
+    top: -165px;
+    left: 170px;
+}
+.slw-server-8{
+    width: 70px;
+    height: 2px;
+    border: silver solid 2px;
+    position: relative;
+    top: 5px;
+    left: 10px;
+}
+.slw-server-9{
+    width: 70px;
+    height: 2px;
+    border: silver solid 2px;
+    position: relative;
+    top: 1px;
+    left: 129px;
+}
+.slw-server-10 img{
+    width: 40px;
+    height: 40px;
+    position: relative;
+    top: -20px;
+    left: 83px;
+
+}
+.slw-server-11{
+    width: 600px;
+    height: 150px;
+
+    position: relative;
+    left: 550px;
+    top: -240px;
+
+}
+.slw-eight-1{
+    width: 20px;
+    height: 20px;
+    position: relative;
+    left: -20px;
+    top: 15px;
+}
+
+.slw-eight-2{
+    width: 600px;
+    height: 60px;
+
+}
+.slw-eight-3{
+    font-size: 20px;
+    color: #666;
+    position: relative;
+    left: 10px;
+    top: 10px;
+}
+.slw-eight-4{
+    font-size: 20px;
+    color: #666;
+    position: relative;
+    left: 40px;
+    top: 10px;
+}
+.slw-eight-5{
+     font-size: 20px;
+     color: #666;
+     position: relative;
+     left: 60px;
+     top: 10px;
+ }
+.slw-eight-6{
+    font-size: 20px;
+    color: #666;
+    position: relative;
+    left: 80px;
+    top: 10px;
+}
+#slw-eight-7{
+    width: 100px;
+    height: 40px;
+    margin-top: 15px;
+    margin-left: 110px;
+}
+.slw-eight-8{
+    width: 600px;
+    height: 60px;
+
+}
+.slw-eight-9{
+    width: 20px;
+    height: 20px;
+    position: relative;
+    left:-20px;
+    top: 15px;
+}
+.slw-eight-10{
+    font-size: 20px;
+    color: #666;
+    position: relative;
+    left: 10px;
+    top: 10px;
+}
+.slw-eight-11{
+    font-size: 20px;
+    color: #666;
+    position: relative;
+    left: 40px;
+    top: 10px;
+}
+.slw-eight-12{
+    font-size: 20px;
+    color: #666;
+    position: relative;
+    left: 60px;
+    top: 10px;
+}
+.slw-eight-13{
+    font-size: 20px;
+    color: #666;
+    position: relative;
+    left: 80px;
+    top: 10px;
+}
+#slw-eight-14{
+    width: 100px;
+    height: 40px;
+    margin-top: 15px;
+    margin-left: 110px;
+}
+
+.slw-h {
+    width: 100%;
+    height: 300px;
+    background: white;
+}
+.slw-t{
+    width: 200px;
+    height: 50px;
+}
+.slw-t img{
+    position: relative;
+    top:70px;
+    left: 200px;
+}
+.slw-i{
+    width: 500px;
+    height: 60px;
+    position: relative;
+    top:40px;
+    left: 1000px;
+}
+.slw-i a{
+    font-size: 16px;
+    margin-left: 15px;
+    color: #333333;
+}
+.slw-z{
+    width:310px;
+    height: 30px;
+
+    margin-left: 1115px;
+}
