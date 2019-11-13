@@ -99,4 +99,11 @@ public class volumeController {
 		return JSONObject.toJSONString(lists);
 	}
 	
+	
+	
+	@RequestMapping("volume/index4")
+	public ModelAndView getIndex4() {
+			return new ModelAndView("volume/index4");
+	}
+
 }

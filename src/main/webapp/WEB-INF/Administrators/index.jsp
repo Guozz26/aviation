@@ -69,6 +69,7 @@
                         <dd><a href="volume/index" target="class">各营业点本月盈利</a></dd>
                         <dd><a href="volume/index2" target="class">各营业点年盈利</a></dd>
                         <dd><a href="volume/index3" target="class">总盈利信息</a></dd>
+                        <dd><a href="volume/index4" target="class">各营业点月收入对比</a></dd>
                     </dl>
                 </li>
             </ul>
