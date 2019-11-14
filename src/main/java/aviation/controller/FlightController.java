@@ -83,6 +83,7 @@ public class FlightController {
 		System.out.println(fromA);
 		System.out.println(toA);
 		List<FlightInfo> lists = atFlightService.findFlightGo(pageNo, pageSize, fromA, toA,DateUtil.toDate("yyyy-MM-dd", time) );
+		System.out.println(lists.size());
 		for (FlightInfo flightInfo : lists) {
 			System.out.println(flightInfo);
 		}

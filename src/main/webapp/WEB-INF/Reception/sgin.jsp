@@ -59,7 +59,7 @@
     </div>
     <div>
         <h3 class="head">登录</h3>
-        <form  action="index" mothed="get" id="formcon">
+        <form  action="index" method="post" id="formcon">
             <div class="form-group">
                 <label for="exampleInputEmail1">用户名</label>
                 <input type="text" class="form-control" id="exampleInputEmail1" placeholder="请输入用户名" name = "name">

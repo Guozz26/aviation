@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ page import="java.util.List,aviation.*;" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!doctype html>
 <html lang="en">
 <head>
@@ -10,9 +11,9 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>澳大利亚机票价格</title>
-    <link rel="stylesheet" href="css/airfare.css">
-    <link rel="stylesheet" href="css/cityselect.css">
-    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="/aviation/assets/css/airfare.css">
+    <link rel="stylesheet" href="/aviation/assets/css/cityselect.css">
+    <link rel="stylesheet" href="/aviation/assets/css/bootstrap.css">
 </head>
 <body>
 <!--页面顶部-->
@@ -89,15 +90,15 @@
              </div>
          </div>
          <!--航班查询-->
-
+		<form action="/aviation/reception/selectFlight" method="post">
          <div class="slw-five">
              <div class="slw-five-1">
                <div class="slw-five-2">起飞城市</div>
                  <div class="slw-five-3">
                      <!-- 在输入框加入id -->
-                     <input type="text" class="cityinput" id="citySelect" placeholder="请输入出发地">
+                     <input type="text" class="cityinput" id="citySelect" placeholder="请输入出发地" name="from">
                  </div>
-                 <script type="text/javascript" src="js/cityselect.js"></script>
+                 <script type="text/javascript" src="/aviation/assets/js/cityselect.js"></script>
                  <script type="text/javascript">
                      var test=new Vcity.CitySelector({input:'citySelect'});
                  </script>
@@ -106,10 +107,10 @@
                  <div class="slw-five-2">起飞城市</div>
                  <div class="slw-five-3">
                      <!-- 在输入框加入id -->
-                     <input type="text" class="cityinput" id="citymudidi" placeholder="请输入出发地">
+                     <input type="text" class="cityinput" id="citymudidi" placeholder="请输入出发地" name="to">
                  </div>
 
-                 <script type="text/javascript" src="js/cityselect.js"></script>
+                 <script type="text/javascript" src="/aviation/assets/js/cityselect.js"></script>
                  <script type="text/javascript">
                      var test=new Vcity.CitySelector({input:'citymudidi'});
                  </script>
@@ -117,8 +118,7 @@
              <div class="slw-five-1">
                  <div class="slw-five-2">出发时间</div>
                  <div class="slw-five-3">
-
-                     <input  type="date" class="cityinput"  value="请输入时间">
+                     <input  type="date" class="cityinput"  value="请输入时间" name="time">
                  </div>
 
 
@@ -131,62 +131,82 @@
 
              </div>
              <div class="slw-five-1">
-                 <button type="button" class="btn btn-danger" id="slw-five-4">搜索导航</button>
+             <input type="hidden" name="pageSize" value="5">
+             <input type="hidden" name="pageNo" value="1">
+                 <button type="submit" class="btn btn-danger" id="slw-five-4">搜索导航</button>
              </div>
          </div>
+         </form>
          <!--天气-->
          <iframe  class="slw-ww" src="http://tianqi.5ikfc.com:90/plugin-code/?style=4&dy=7&fs=20&bg=&cl=990000&th=990000&tl=0033ff&city=taiyuan" allowTransparency="true" frameborder="0" scrolling="no" width="1200" height="50" id="weather_frame"></iframe>
 
          <!--航班找到几个-->
          <div class="slw-six">
              <span class="slw-six-1">已找到</span>
-             <span class="slw-six-2">7</span>
+             <span class="slw-six-2">${lists.size()}</span>
              <span class="slw-six-1">个航班，请选择去程航班</span>
          </div>
 
+	
          <!--航班展示-->
-         <div class="slw-sever">
+         <div class="slw-sever" style="height:${200*lists.size()}px;">
+         <c:forEach items="${lists}" var="list">
             <div class="slw-server-1">
                 <!--出发时间-->
                 <div class="slw-server-2">
-                    <div class="slw-server-3">17:15</div>
-                     <div clss="slw-server-4">北京首都国际机场</div><!--不要超过10个字-->
-                    <div class="slw-server-5">11月3日</div>
+                	
+                    <div class="slw-server-3" style="text-align:center">  
+                    	<fmt:formatDate value="${list.flightFromTime }" type="date" pattern="HH:  mm"/>  
+                    </div>
+                     <div clss="slw-server-4" style="text-align:center;">${list.flightFrom}</div><!--不要超过10个字-->
+                    <div class="slw-server-5" style="text-align:center">
+                    	<fmt:formatDate value="${list.flightFromTime }" type="date" pattern="MM 月 dd 日"/>
+                    </div>
 
                 </div>
 
                 <!--到达时间-->
                 <div class="slw-server-6">
-                    <div class="slw-server-3">19：30</div>
-                    <div clss="slw-server-4">深圳宝安机场</div><!--不要超过10个字-->
-                    <div class="slw-server-5">11月3日</div>
+                    <div class="slw-server-3" style="text-align:center"> 
+                    	<fmt:formatDate value="${list.flightToTime }" type="date" pattern="HH:  mm"/>  
+                    </div>
+                    <div clss="slw-server-4" style="text-align:center">${list.flightTo}</div><!--不要超过10个字-->
+                    <div class="slw-server-5" style="text-align:center"> 
+                    	<fmt:formatDate value="${list.flightToTime }" type="date" pattern="MM 月 dd 日"/>  
+                    </div>
                 </div>
                 <!--飞机图标-->
                 <div class="slw-server-7">
                     <div class="slw-server-8"></div>
                     <div class="slw-server-9"></div>
                     <div class="slw-server-10">
-                        <img src="images/6.png" alt="">
+                        <img src="/aviation/assets/images/6.png" alt="">
                     </div>
                 </div>
                 <!--座位等级-->
                 <div class="slw-server-11">
 
                  <div class="slw-eight-2">
-                     <input type="radio" name="place" value="0" class="slw-eight-1">
+                
                     <span class="slw-eight-3">头等舱</span>
-                    <span class="slw-eight-4">座位:&nbsp200</span>
-                    <span class="slw-eight-5">余100</span>
-                    <span class="slw-eight-6">￥1888</span>
-                    <input type="submit" id="slw-eight-7" class="btn btn-danger" value="预定">
+                    <span class="slw-eight-4">座位:${list.modelHeadnum}&nbsp;&nbsp;</span>
+                    <span class="slw-eight-5">余${list.flightHeadNum}&nbsp;&nbsp;</span>                   
+                    <span class="slw-eight-6">￥${list.moneyHeadPrice}</span>  
+                    <form>
+	                    <input type="submit" id="slw-eight-7" class="btn btn-danger" value="预定" style="float:right;margin-right:100px;">
+	                	<input type="hidden" name="zuo" value="1">
+                	</form>
                  </div>
                  <div class="slw-eight-8">
-                    <input type="radio" name="place" value="1" class="slw-eight-9">
+             
                     <span class="slw-eight-10">经济舱</span>
-                    <span class="slw-eight-11">座位:&nbsp200</span>
-                    <span class="slw-eight-12">余100</span>
-                    <span class="slw-eight-13">￥1088</span>
-                     <input type="submit" id="slw-eight-14" class="btn btn-danger" value="预定">
+                    <span class="slw-eight-11">座位:${list.modelBodynum}</span>
+                    <span class="slw-eight-12">余${list.flightBodyNum}</span>
+                    <span class="slw-eight-13">￥${list.moneyHeadPrice}</span>
+            		<form>
+            			<input type="hidden" name="zuo" value="2">
+                     	<input type="submit" id="slw-eight-14" class="btn btn-danger" value="预定" style="float:right;margin-right:100px;">
+               		</form>
                  </div>
 
                 </div>
@@ -199,10 +219,10 @@
 
 
             </div>
-
+		</c:forEach>	
          </div>
 
-
+	
 
 
 
@@ -211,11 +231,11 @@
 <!--尾巴-->
 <div class="slw-h">
     <div class="slw-t">
-   <img src="images/5.png" alt="">
+   <img src="/aviation/assets/images/5.png" alt="">
     </div >
     <div class="slw-i">
         <a href="">承运条件</a>
-        <a href="">联系人</a>
+        <a href="">联系人</a>	
         <a href="">隐私与安全</a>
         <a href="">使用条款</a>
         <a href="">票价指南</a>

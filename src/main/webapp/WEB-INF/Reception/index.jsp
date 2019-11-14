@@ -15,6 +15,7 @@
 	<!--JS页面-->
 
 	<link rel="stylesheet" href="/aviation/assets/css/bootstrap.css">
+	<link rel="stylesheet" href="/aviation/assets/css/cityselect.css">
 
 	<link rel="stylesheet" href="/aviation/assets/css/style2.css" type="text/css" media="all" />
 
@@ -72,33 +73,53 @@
 							程&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp预&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp定
 							</div>
 					</div>
-					<from action="" method="post">
-						<div class="slw-aa-4">
+					<form action="selectFlight" method="post">
+							<div class="slw-aa-4">
 							<a href="">机票</a>
 							<div class="slw-aa-4-1">
-								<input class="slw-aa-4-2" type="radio" name="pay" value="0" ><span class="slw-aa-4-3">使用现金、积分或混合支付</span>
+								<input class="slw-aa-4-2" type="radio" ><span class="slw-aa-4-3">使用现金、积分或混合支付</span>
 									&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-								<input class="slw-aa-4-2" type="radio" name="pay" value="1"><span class="slw-aa-4-3">扫码支付</span>
+								<input class="slw-aa-4-2" type="radio"><span class="slw-aa-4-3">扫码支付</span>
 							</div>
 							<div class=slw-aa-5 style="color: white;font-size:25px;position: relative; top:60px;left:20px"> 出发地:</div>
 							<div class="input-group input-group-lg">
-									<span style="width:50px;position: relative; top:60px;left:20px"  class="input-group-addon" id="sizing-addon1">出发地</span>
-									<input  style="width:350px; position: relative; top:60px;left:20px" type="text" class="form-control" placeholder="Shanghai[pudong]  [上海][浦东]" aria-describedby="sizing-addon1">
+									<span style="width:50px;position: relative; top:60px;left:20px"  class="input-group-addon" >出发地</span>
+
+								<div class="slw-five-3">
+									<!-- 在输入框加入id -->
+									<input  style="width:300px;height: 46px; position: relative; top:60px;left:20px" type="text" id="citychufa"  class="form-control" placeholder="Shanghai[pudong]  [上海][浦东]" aria-describedby="sizing-addon1" name="from">
+								</div>
+
+								<script type="text/javascript" src="/aviation/assets/js/cityselect.js"></script>
+								<script type="text/javascript">
+									var test=new Vcity.CitySelector({input:'citychufa'});
+								</script>
 							</div>
 							<div class=slw-aa-5 style="color: white;font-size:25px;position: relative; left: 520px;top:-22px"> 目的地:</div>
 							<div class="input-group input-group-lg">
-								<span style="width:50px;position: relative;top:-22px;left: 520px"  class="input-group-addon" id="sizing-addon1">目的地</span>
-								<input  style="width:350px; position: relative;top:-22px;left: 520px" type="text" class="form-control" placeholder="Adelaide[阿德莱德]" aria-describedby="sizing-addon1">
+								<span style="width:50px;position: relative;top:-22px;left: 520px"  class="input-group-addon" >目的地</span>
+
+								<div class="slw-five-3">
+									<!-- 在输入框加入id -->
+									<input  style="width:350px;height: 46px; position: relative; top:-22px;left:520px" type="text" id="citymudi"  class="form-control" placeholder="Shanghai[pudong]  [上海][浦东]" aria-describedby="sizing-addon1" name="to">
+								</div>
+
+								<script type="text/javascript" src="/aviation/assets/js/cityselect.js"></script>
+								<script type="text/javascript">
+									var test=new Vcity.CitySelector({input:'citymudi'});
+								</script>
 							</div>
 							<div class="slw-aa-6">
 								<div class="slw-aa-6-1">
 									<span style="font-size: 22px;color: #FAFAFA">出发日期</span>
-									<input  type="date" class="form-control" id="slw-aa-6-2" >
+									<input  type="date" class="form-control" id="slw-aa-6-2" name="time">
 								</div>
 							</div>
-							<input type="submit"  onclick="hint()" class="btn btn-danger " id=slw-aa-6-3 value="搜索航班">
+							<input type="hidden" name="pageSize" value="5">
+							<input type="hidden" name="pageNo" value="1">
+							<input type="submit"   class="btn btn-danger " id=slw-aa-6-3 value="搜索航班">
 						</div>
-					</from>
+					</form>
 				</div>
 			</div>
 	</div>
@@ -179,9 +200,4 @@
 	<div class="slw-z">© Qantas Airways Limited ABN 16 009 661 901</div>
 </div>
 </body>
-<script>
-	function hint() {
-		alert("您好，查询之前需要去登录")
-	}
-</script>
 </html>

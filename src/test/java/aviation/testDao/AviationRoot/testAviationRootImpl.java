@@ -7,12 +7,13 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import aviation.config.AppConfig;
+import aviation.config.TestConfig;
 import aviation.dao.prototype.IAviationRootDao;
 
 
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(classes={AppConfig.class})
+@ContextConfiguration(classes={TestConfig.class})
 public class testAviationRootImpl {
 	
 	@Autowired
@@ -21,5 +22,11 @@ public class testAviationRootImpl {
 	@Test
 	public void testFindRoot() {
 		System.out.println(aviationRootDao.findRoot(1));
+	}
+	
+	
+	@Test
+	public void testFindRoota() {
+		System.out.println(aviationRootDao.findRoot("root","root"));
 	}
 }

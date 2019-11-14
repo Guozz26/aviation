@@ -20,6 +20,13 @@ public class AviationRootDaoImpl implements IAviationRootDao{
 				new BeanPropertyRowMapper<AviationRoot>(AviationRoot.class));
 		return aviationRoot;
 	}
+
+	@Override
+	public AviationRoot findRoot(String name, String password) {
+		return jdbcTemplate.queryForObject("select * from aviation_root where root_name = ? and root_pwd=?", 
+				new Object[] {name,password},
+				new BeanPropertyRowMapper<AviationRoot>(AviationRoot.class));
+	}
 	
 	
 }
