@@ -55,7 +55,7 @@ public class PointController {
 		System.out.println(managerId);
 		mangerService.updateManager(new AviationManager(managerId,managerName, managerSex, managerTel, managerPwd));
 		pointService.ServicesaveOrUpdataOne(new AviationPoint(pointId,pointCity, managerId));
-		return new ModelAndView("point/succer");
+		return new ModelAndView("point/Succer");
 	}
 	
 	@RequestMapping("point/lists/upPoint/{pointId}")
@@ -81,7 +81,7 @@ public class PointController {
 		return  mv;
 	}
 	
-	@RequestMapping("point/insertPoint/succer")
+	@RequestMapping("point/insertPoint/Succer")
 	public ModelAndView getInsertPointSuc(String pointCity,String managerName,String managerSex,String managerTel,String managerPwd) {
 		
 		System.out.println(managerName + ""+ managerSex+""+ managerTel+","+ managerPwd);
@@ -89,14 +89,14 @@ public class PointController {
 		
 		int managerId = mangerService.findMaxId();
 		pointService.ServicesaveOrUpdataOne(new AviationPoint(pointCity, managerId));
-		return new ModelAndView("point/succer");
+		return new ModelAndView("point/Succer");
 	}
 	
 	@RequestMapping("point/lists/delPoint/{id}")
 	public ModelAndView getDelPoint(@PathVariable("id") int id) {
 		int a = pointService.deleteOne(id);
 		if(a>0)
-			return new ModelAndView("point/succer");
+			return new ModelAndView("point/Succer");
 		else
 			return new ModelAndView("point/fail");
 	}

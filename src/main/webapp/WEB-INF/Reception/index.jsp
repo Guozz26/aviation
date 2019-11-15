@@ -28,6 +28,7 @@
 
 	<link rel="stylesheet" type="text/css" href="/aviation/assets/css/biubiubiu.css" />
 	<script type="text/javascript" src="/aviation/assets/js/jquery.js"></script>
+	<script type="text/javascript" src="/aviation/assets/js/exit.js"></script>
 
 </head>
 
@@ -39,9 +40,14 @@
 	   </div>
 	   <div class="slw-top-2"></div>
 	   <div class="slw-top-3">
-		   <a href="">注册</a>
-		   <a href="">登录</a>
-		   <a href="">个人中心</a>
+		<c:if test="${sessionScope.userId==0}">
+		   <a href="/aviation/reception/sgin">登录</a>
+		</c:if>
+		<c:if test="${sessionScope.userId!=0}">
+		<a href="javasprict:;">欢迎您，${sessionScope.userName}</a>
+		 <a href="/aviation/reception/personal">个人中心</a>
+		 <a href="#" id="exit">退出</a>
+		</c:if>
 	   </div>
 
 

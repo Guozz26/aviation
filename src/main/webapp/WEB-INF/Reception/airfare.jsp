@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="/aviation/assets/css/airfare.css">
     <link rel="stylesheet" href="/aviation/assets/css/cityselect.css">
     <link rel="stylesheet" href="/aviation/assets/css/bootstrap.css">
+    
 </head>
 <body>
 <!--页面顶部-->
@@ -25,22 +26,30 @@
     </div>
     <div class="slw-top-2"></div>
     <div class="slw-top-3">
-
-        <a href="">登录</a>
-        <a href="">个人中心</a>
+    <script type="text/javascript" src="/aviation/assets/js/jquery.js"></script>
+		<script type="text/javascript" src="/aviation/assets/js/exit.js"></script>
+		
+        <c:if test="${sessionScope.userId==0}">
+		   <a href="/aviation/reception/sgin">登录</a>
+		</c:if>
+		<c:if test="${sessionScope.userId!=0}">
+		<a href="javasprict:;">欢迎您，${sessionScope.userName}</a>
+		 <a href="/aviation/reception/personal">个人中心</a>
+		 <a href="javasprict:;" id="exit">退出</a>
+		</c:if>
     </div>
 </div>
 <!--导航栏-->
 <div class="slw-one">
     <div class="slw-one-1">
-        <a href="">首页</a>
-        <a href="">预定与服务</a>
-        <a href="">旅游度假</a>
-        <a href="">旅游信息</a>
-        <a href="">搭乘海航</a>
-        <a href="">优惠与推荐</a>
-        <a href="">UBDF俱乐部</a>
-        <a href="">飞行+</a>
+        <a href="/aviation/reception/index">首页</a>
+        <a href="#">预定与服务</a>
+        <a href="#">旅游度假</a>
+        <a href="#">旅游信息</a>
+        <a href="#">搭乘海航</a>
+        <a href="#">优惠与推荐</a>
+        <a href="#">UBDF俱乐部</a>
+        <a href="#">飞行+</a>
     </div>
     
     

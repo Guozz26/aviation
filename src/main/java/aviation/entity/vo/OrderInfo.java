@@ -20,6 +20,14 @@ public class OrderInfo {
 	private String modelName;
 	private double moneyHeadPrice;
 	private double moneyBodyPrice;
+	private String zuo;
+	
+	public String getZuo() {
+		return zuo;
+	}
+	public void setZuo(String zuo) {
+		this.zuo = zuo;
+	}
 	public String getUserName() {
 		return userName;
 	}

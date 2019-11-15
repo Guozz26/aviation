@@ -50,7 +50,7 @@ public class testAviationOrderServiceImpl {
 //--根据用户查询
 	@Test
 	public void usetTet() {
-		OrderInfo ss  = iaviationorderservice.userss(1);
+		List<OrderInfo> ss  = iaviationorderservice.userss(1);
 		
 		System.out.println(ss);
 	}

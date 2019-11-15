@@ -15,7 +15,7 @@ public interface IAviationOrderService {
 	//--查询一个订单
 		AviationOrder chess(int OrderId);
 		//--根据用户id查询
-		OrderInfo userss(int UserId);
+		List<OrderInfo> userss(int UserId);
 		//--查询订单多个
 		List<AviationOrder> check (int pageNo,int pageSize);
 		

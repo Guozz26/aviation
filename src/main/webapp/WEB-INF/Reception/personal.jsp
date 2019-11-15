@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ page import="java.util.List,aviation.*;" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!doctype html>
 <html lang="en">
 <head>
@@ -11,7 +12,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <link href="/aviation/assets/css/core.css" rel="stylesheet">
-    <script language="javascript">
+    <script>
         function Tab(num)
         {
             var i;
@@ -34,7 +35,7 @@
     </div>
     <div class="slw-top-2"></div>
     <div class="slw-top-3">
-        <a href="" style="text-decoration:none">首页</a>
+        <a href="/aviation/reception/index" style="text-decoration:none">首页</a>
     </div>
 
 
@@ -76,35 +77,28 @@
     </ul>
 </div>
 <!--里面的内容-->
+<c:if test="${yes==1}">
+
 <div id="d1">
+<c:forEach items="${order}" var="order">
     <ul>
         <li style="list-style: none">
-
                 <div  class="bsg-inside-1" >
                     <div class="bsg-inside-1-1" >
                          <div class="bsg-inside-1-2"></div>
                     </div>
-                 <h2 >
-                        <span>南京</span> <span>---</span> <span>太原</span>
-
-                  </h2>
-                    <p>
-                        <span>2019-05-12 09:45</span>  <span>至</span> <span>11：40 UMB2135</span>
-                    </p>
+                 <h2 ><span>${order.flightFrom}</span> <span>---</span> <span>${order.flightTo}</span></h2>
+                    <p><span>${order.flightFromTime}</span>  <span>至</span> <span>	<fmt:formatDate value="${order.flightToTime }" type="date" pattern="HH:  mm"/>   ${order.zuo}</span></p>
                     <div class="bsg-inside-1-3" >
-                        <span class="bsg-iside-left">￥470</span><span class="bsg-inside-right" >已出票</span>
-
-
-
+                        <span class="bsg-iside-left">${order.moneyBodyPrice}</span><span class="bsg-inside-right" >已出票</span>
                     </div>
-
                 </div>
-
-
         </li>
-
     </ul>
+    </c:forEach>
 </div>
+
+</c:if>
     <!--未出行订单-->
 <div id="d2">
     <ul style="list-style: none">

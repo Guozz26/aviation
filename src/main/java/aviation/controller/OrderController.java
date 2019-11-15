@@ -50,13 +50,13 @@ public class OrderController {
 	
 	@RequestMapping("/order/lists/delOrder/{id}")
 	public ModelAndView getDelOrder(@PathVariable("id")int id ) {
-		ModelAndView mv = new ModelAndView("order/succer");
+		ModelAndView mv = new ModelAndView("order/Succer");
 		
 		int a  =  aOrderService.daleteOrder(id);
 		if(a>0)
 			return mv;
 		else
-			return new ModelAndView("order/succer");
+			return new ModelAndView("order/Succer");
 	}
 	
 }

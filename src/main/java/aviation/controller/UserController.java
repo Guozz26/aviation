@@ -29,7 +29,7 @@ public class UserController {
 	@RequestMapping("user/lists/delUser/{id}")
 	public ModelAndView getDelUser(@PathVariable("id") int id) {
 		if(userService.deleteUser(id)>0)
-			return new ModelAndView("user/succer");
+			return new ModelAndView("user/Succer");
 		else
 			return new ModelAndView("user/fail");
 	}

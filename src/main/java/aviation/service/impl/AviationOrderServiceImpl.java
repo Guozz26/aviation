@@ -31,7 +31,7 @@ public class AviationOrderServiceImpl  implements IAviationOrderService{
 
 //--根据用户id查询
 
-	public OrderInfo userss(int UserId) {
+	public List<OrderInfo> userss(int UserId) {
 		
 		return aviationOrderDao.userss(UserId);
 	}

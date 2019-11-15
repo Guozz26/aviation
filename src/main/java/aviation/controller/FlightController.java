@@ -97,7 +97,7 @@ public class FlightController {
 	@ResponseBody
 	public ModelAndView getDelFlight(@PathVariable("id") int id) {
 			atFlightService.delFlight(id);
-			ModelAndView mv = new ModelAndView("Administrators/succer");
+			ModelAndView mv = new ModelAndView("Administrators/Succer");
 			return mv;
 	}
 	/*
@@ -134,7 +134,7 @@ public class FlightController {
 					new AviationFlight(flightId,from, to, DateUtil.toDate("yyyy-MM-dd hh:mm:ss", fromTime),
 							DateUtil.toDate("yyyy-MM-dd hh:mm:ss", toTime), 0, 0, modelId) ,
 					new AviationMoney(modelId,moneyHeadPrice, moneyBodyPrice, flightId));
-				ModelAndView mv = new ModelAndView("Administrators/succer");
+				ModelAndView mv = new ModelAndView("Administrators/Succer");
 				return mv;
 		}
 	
@@ -170,7 +170,7 @@ public class FlightController {
 				new AviationFlight(from, to, DateUtil.toDate("yyyy-MM-dd hh:mm:ss", fromTime), DateUtil.toDate("yyyy-MM-dd hh:mm:ss", toTime), 0, 0, modelId),
 				new AviationMoney(500, 200, 0));
 		if(a>0) {
-			ModelAndView mv = new ModelAndView("Administrators/succer");
+			ModelAndView mv = new ModelAndView("Administrators/Succer");
 			return mv;
 		}else {
 			ModelAndView mv = new ModelAndView("Administrators/fail");

@@ -67,10 +67,10 @@
 </div>
 <div class="center">
     <h3 class="head">注册</h3>
-    <form action="regCon.jsp" mothed="post" id="formcon">
+    <form action="/aviation/reception/reg/succer" method="post" id="formcon">
         <div class="form-group">
             <label for="u_name">用户名</label>
-            <input type="text" class="form-control" id="u_name" placeholder="请输入用户名" name="u_name">
+            <input type="text" class="form-control" id="u_name" placeholder="请输入用户名" name="name">
         </div>
         <div class="form-group">
             <label for="password">密码</label>

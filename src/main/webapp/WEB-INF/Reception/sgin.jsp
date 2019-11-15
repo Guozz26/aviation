@@ -72,7 +72,7 @@
 	           	 营业员<input type="radio" name="role" value="2" >
 	           	 管理员<input type="radio" name="role" value="3" >
 	            Boss<input type="radio" name="role" value="3" >
-            <input type="submit" class="btn btn-default button">登录</input>
+            <input type="submit" class="btn btn-default button" value="登录">
 
         </form>
         <div class = "click">

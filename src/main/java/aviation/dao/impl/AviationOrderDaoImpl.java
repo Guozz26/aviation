@@ -31,9 +31,9 @@ public class AviationOrderDaoImpl implements IAviationOrderDao{
 	
 	//根据用户查订单
 	@Override
-	public OrderInfo userss(int UserId) {
+	public List<OrderInfo> userss(int UserId) {
 		
-		return jdbcTemplate.queryForObject("select b.order_id,b.order_name,b.order_idcard ,"
+		return jdbcTemplate.query("select b.order_id,b.order_name,b.order_idcard ,"
 				+ "b.order_time,a.user_name,a.user_age,c.flight_from,c.flight_from_time,"
 				+ "c.flight_to,c.flight_to_time,d.money_body_price,d.money_head_price from aviation_user a	"
 				+ "lEFT JOIN aviation_order b on a.user_id = b.user_id "

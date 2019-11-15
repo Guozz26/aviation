@@ -45,7 +45,7 @@ public class testAviationOrderImpl {
 	//--根据用户查询
 	@Test
 	public void usetTet() {
-		OrderInfo ss  = aviationOrderDao.userss(1);
+		List<OrderInfo> ss  = aviationOrderDao.userss(1);
 		
 		System.out.println(ss);
 		
