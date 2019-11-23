@@ -37,6 +37,7 @@
 		 <a href="/aviation/reception/personal">个人中心</a>
 		 <a href="javasprict:;" id="exit">退出</a>
 		</c:if>
+		
     </div>
 </div>
 <!--导航栏-->
