@@ -38,9 +38,11 @@
                     <dd><a href="">安全设置</a></dd>
                 </dl>
             </li>
-            <li class="layui-nav-item"><a href="Reception/sgin.jsp">退了</a></li>
+            <li class="layui-nav-item"><a href="http://localhost:8888/aviation/reception/sgin">退出</a></li>
         </ul>
     </div>
+    
+    <!-- 管理员登录 -->
       <c:if test="${role == 3}">
     <div class="layui-side layui-bg-black">
         <div class="layui-side-scroll">
@@ -49,40 +51,41 @@
                 <li class="layui-nav-item layui-nav-itemed">
                     <a class="" href="javascript:;">航班管理</a>
                     <dl class="layui-nav-child">
-                        <dd><a href="administrators/lists" target="class">查看所有航班信息</a></dd>
-                        <dd><a href="administrators/selectFlight" target="class">查询航班</a></dd>
-                        <dd><a href="administrators/insertFlight" target="class">新增航班</a></dd>
+                        <dd><a href="/aviation/administrators/lists" target="class">查看所有航班信息</a></dd>
+                        <dd><a href="/aviation/administrators/selectFlight" target="class">查询航班</a></dd>
+                        <dd><a href="/aviation/administrators/insertFlight" target="class">新增航班</a></dd>
                     </dl>
                 </li>
                
                 <li class="layui-nav-item">
                     <a href="javascript:;">用户以及营业点管理</a>
                     <dl class="layui-nav-child">
-                        <dd><a href="point/lists" target="class">查看所有营业点</a></dd>
-                        <dd><a href="point/insertPoint" target="class">增加营业点</a></dd>
-                        <dd><a href="user/lists" target="class">查看所有的用户</a></dd>
+                        <dd><a href="/aviation/point/lists" target="class">查看所有营业点</a></dd>
+                        <dd><a href="/aviation/point/insertPoint" target="class">增加营业点</a></dd>
+                        <dd><a href="/aviation/user/lists" target="class">查看所有的用户</a></dd>
                       
                     </dl>
                 </li>
         
         
-                <li class="layui-nav-item"><a href="order/lists" target="class">订单管理</a></li>
-                <li class = "layui-nav-item"><a href="http://localhost:8888/aviation/jorder/lists" target="class">购票管理</a></li>
+                <li class="layui-nav-item"><a href="/aviation/order/lists" target="class">订单管理</a></li>
+                <li class = "layui-nav-item"><a href="/aviation/order/lists" target="class">购票管理</a></li>
        
 
                  <li class="layui-nav-item">
                     <a href="javascript:;">盈利统计</a>
                     <dl class="layui-nav-child">
-                        <dd><a href="volume/index" target="class">各营业点本月盈利</a></dd>
-                        <dd><a href="volume/index2" target="class">各营业点年盈利</a></dd>
-                        <dd><a href="volume/index3" target="class">总盈利信息</a></dd>
-                        <dd><a href="volume/index4" target="class">各营业点月收入对比</a></dd>
+                        <dd><a href="/aviation/volume/index" target="class">各营业点本月盈利</a></dd>
+                        <dd><a href="/aviation/volume/index2" target="class">各营业点年盈利</a></dd>
+                        <dd><a href="/aviation/volume/index3" target="class">总盈利信息</a></dd>
+                        <dd><a href="/aviation/volume/index4" target="class">各营业点月收入对比</a></dd>
                     </dl>
                 </li>
    </ul>
            </div>
              </div>
                     </c:if>
+<!--营业员登录  -->
  <c:if test="${role == 2}">
     <div class="layui-side layui-bg-black">
         <div class="layui-side-scroll">
@@ -91,9 +94,9 @@
                 <li class="layui-nav-item layui-nav-itemed">
                     <a class="" href="javascript:;">航班管理</a>
                     <dl class="layui-nav-child">
-                        <dd><a href="administrators/lists" target="class">查看所有航班信息</a></dd>
-                        <dd><a href="administrators/selectFlight" target="class">查询航班</a></dd>
-                        <li class="layui-nav-item"><a href="order/lists" target="class">订单管理</a></li>
+                        <dd><a href="/aviation/administrators/lists" target="class">查看所有航班信息</a></dd>
+                        <dd><a href="/aviation/administrators/selectFlight" target="class">查询航班</a></dd>
+                        <li class="layui-nav-item"><a href="/aviation/order/lists" target="class">订单管理</a></li>
                     </dl>
                 </li>
                 </ul>
@@ -109,10 +112,10 @@
                  <li class="layui-nav-item">
                     <a href="javascript:;">盈利统计</a>
                     <dl class="layui-nav-child">
-                        <dd><a href="volume/index" target="class">各营业点本月盈利</a></dd>
-                        <dd><a href="volume/index2" target="class">各营业点年盈利</a></dd>
-                        <dd><a href="volume/index3" target="class">总盈利信息</a></dd>
-                        <dd><a href="volume/index4" target="class">各营业点月收入对比</a></dd>
+                        <dd><a href="/aviation/volume/index" target="class">各营业点本月盈利</a></dd>
+                        <dd><a href="/aviation/volume/index2" target="class">各营业点年盈利</a></dd>
+                        <dd><a href="/aviation/volume/index3" target="class">总盈利信息</a></dd>
+                        <dd><a href="/aviation/volume/index4" target="class">各营业点月收入对比</a></dd>
                     </dl>
                 </li>
   			 </ul>	

@@ -10,7 +10,7 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link href="../css/payments.css" rel="stylesheet">
+    <link href="/aviation/assets/css/payments.css" rel="stylesheet">
     <title>Document</title>
 </head>
 
@@ -31,7 +31,7 @@
 <div class="bsg-top">
     <img src="https://www.qantas.com/content/dam/qantas/logos/qantas-masterbrand-logo-40px.svg" alt="" width="200px"height="100%">
         <div class="bsg-top-right">
-            <h3>首页</h3>
+            <h3><a href="http://localhost:8888/aviation/reception/index">首页</a></h3>
         </div>
 
 </div>
@@ -73,7 +73,7 @@
             <li style="list-style: none">
 
 
-                <img src="../imgs/weixing.png" alt=""width="200px"height="200px"style="margin: auto;margin-left: 350px">
+                <img src="/aviation/assets/images/weixing.png" alt=""width="200px"height="200px"style="margin: auto;margin-left: 350px">
             </li>
 
         </ul>
@@ -82,7 +82,7 @@
     <div id="d2">
         <ul style="list-style: none">
             <li style="list-style: none">
-                <img src="../imgs/zhifubao.png" alt=""width="200px"height="200px"style="margin: auto;margin-left: 350px">
+                <img src="/aviation/assets/images/zhifubao.png" alt=""width="200px"height="200px"style="margin: auto;margin-left: 350px">
 
             </li>
         </ul>

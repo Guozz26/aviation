@@ -37,7 +37,6 @@
 		 <a href="/aviation/reception/personal">个人中心</a>
 		 <a href="javasprict:;" id="exit">退出</a>
 		</c:if>
-		
     </div>
 </div>
 <!--导航栏-->
@@ -202,7 +201,7 @@
                     <span class="slw-eight-4">座位:${list.modelHeadnum}&nbsp;&nbsp;</span>
                     <span class="slw-eight-5">余${list.flightHeadNum}&nbsp;&nbsp;</span>                   
                     <span class="slw-eight-6">￥${list.moneyHeadPrice}</span>  
-                    <form>
+                    <form action=/aviation/reception/addPay method="post">
 	                    <input type="submit" id="slw-eight-7" class="btn btn-danger" value="预定" style="float:right;margin-right:100px;">
 	                	<input type="hidden" name="zuo" value="1">
                 	</form>
@@ -213,7 +212,7 @@
                     <span class="slw-eight-11">座位:${list.modelBodynum}</span>
                     <span class="slw-eight-12">余${list.flightBodyNum}</span>
                     <span class="slw-eight-13">￥${list.moneyHeadPrice}</span>
-            		<form>
+            		<form action=/aviation/reception/addPay method="post">
             			<input type="hidden" name="zuo" value="2">
                      	<input type="submit" id="slw-eight-14" class="btn btn-danger" value="预定" style="float:right;margin-right:100px;">
                		</form>

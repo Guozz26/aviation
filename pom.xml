@@ -117,6 +117,12 @@
 		    <artifactId>fastjson</artifactId>
 		    <version>1.2.62</version>
 		</dependency>
+		<!-- 蚂蚁金服  支付 -->
+		<dependency>
+			<groupId>com.alipay.sdk</groupId>
+			<artifactId>alipay-sdk-java</artifactId>
+			<version>3.0.0</version>
+		</dependency>
 
 	</dependencies>
 	<!-- 4.配置构建插件 -->

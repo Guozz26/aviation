@@ -160,6 +160,19 @@ public class Reception {
 		return mv;
 	}
 	
+	//游客预定票后身份信息填写
+	@RequestMapping(value ="/reception/addPay")
+	 public ModelAndView getAddpay(HttpServletRequest request) {
+		return new ModelAndView("Reception/addpay");
+		
+	}
+	//游客填完身份信息页面后的支付页面
+	@RequestMapping(value ="/reception/payMents")
+	public ModelAndView getPayMents(HttpServletRequest request) {
+		return new ModelAndView("Reception/payments");
+		
+	}
+	
 	@RequestMapping("/reception/exit")
 	public ModelAndView getExit(HttpServletRequest request) {
 		HttpSession session = request.getSession();

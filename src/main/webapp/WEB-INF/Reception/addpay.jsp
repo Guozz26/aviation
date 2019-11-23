@@ -43,7 +43,7 @@
 
    </div>
    </div>
-
+	<form action="/aviation/reception/payMents" method="post">
    <div class="slw-two">
 
         <div class="slw-two-1">
@@ -67,9 +67,9 @@
        <button class="slw-three-1">+添加乘客</button>
    </div>
    <div class="slw-three-2">
-       <button class="slw-three-3">下一步</button>
+       <input type="submit" class="slw-three-3" value="下一步">
    </div>
-
+   </form>
 <!--飞机信息-->
   <div class="slw-five-1">
       <!--第一行-->
