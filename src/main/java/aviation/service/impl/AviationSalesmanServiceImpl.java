@@ -48,6 +48,15 @@ public class AviationSalesmanServiceImpl implements IAviationSalesmanService {
 		// TODO Auto-generated method stub
 		return 0;
 	}
+	
+	
+	
+	//根据用户和密码查找
+	@Override
+	public AviationSalesman fingsaesman(String name, String password) {
+		
+		return salesmandao.fingsaesman(name, password);
+	}
 
 
 

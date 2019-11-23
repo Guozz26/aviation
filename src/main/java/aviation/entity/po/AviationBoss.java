@@ -3,8 +3,7 @@ package aviation.entity.po;
 public class AviationBoss {
 	private int bossId;
 	private String bossPwd;
-	
-	
+	private String bossName;
 	public int getBossId() {
 		return bossId;
 	}
@@ -17,11 +16,39 @@ public class AviationBoss {
 	public void setBossPwd(String bossPwd) {
 		this.bossPwd = bossPwd;
 	}
+	public String getBossName() {
+		return bossName;
+	}
+	public void setBossName(String bossName) {
+		this.bossName = bossName;
+	}
+	@Override
+	public String toString() {
+		return "AviationBoss [bossId=" + bossId + ", bossPwd=" + bossPwd + ", bossName=" + bossName + "]";
+	}
+	public AviationBoss(int bossId, String bossPwd, String bossName) {
+		super();
+		this.bossId = bossId;
+		this.bossPwd = bossPwd;
+		this.bossName = bossName;
+	}
+	public AviationBoss( String bossPwd, String bossName) {
+		super();
+		this.bossPwd = bossPwd;
+		this.bossName = bossName;
+	}
+	
+	
+	
+	public AviationBoss() {
+		super();
+	}
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + bossId;
+		result = prime * result + ((bossName == null) ? 0 : bossName.hashCode());
 		result = prime * result + ((bossPwd == null) ? 0 : bossPwd.hashCode());
 		return result;
 	}
@@ -36,6 +63,11 @@ public class AviationBoss {
 		AviationBoss other = (AviationBoss) obj;
 		if (bossId != other.bossId)
 			return false;
+		if (bossName == null) {
+			if (other.bossName != null)
+				return false;
+		} else if (!bossName.equals(other.bossName))
+			return false;
 		if (bossPwd == null) {
 			if (other.bossPwd != null)
 				return false;
@@ -43,18 +75,9 @@ public class AviationBoss {
 			return false;
 		return true;
 	}
-	@Override
-	public String toString() {
-		return "AviationBoss [bossId=" + bossId + ", bossPwd=" + bossPwd + "]";
-	}
-	public AviationBoss(int bossId, String bossPwd) {
-		super();
-		this.bossId = bossId;
-		this.bossPwd = bossPwd;
-	}
-	public AviationBoss() {
-		super();
-	}
+	
+	
+	
 	
 	
 }

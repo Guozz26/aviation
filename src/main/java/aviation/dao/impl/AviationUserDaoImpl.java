@@ -53,6 +53,7 @@ public class AviationUserDaoImpl implements IAviationUserDao{
 	
 		return jdbctemplate.update("delete from aviation_user where user_id=?",new Object[] {id});
 	}
+	//根据用户名和密码查找用户
 	@Override
 	public AviationUser fingUser(String name,String password) {
 		

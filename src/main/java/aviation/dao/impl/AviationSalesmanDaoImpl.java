@@ -8,6 +8,7 @@ import org.springframework.stereotype.Repository;
 
 import aviation.dao.prototype.IAviationSalesmanDao;
 import aviation.entity.po.AviationSalesman;
+import aviation.entity.po.AviationUser;
 
 /**
  * 营业员的dao层的接口实现类
@@ -68,5 +69,15 @@ public class AviationSalesmanDaoImpl implements IAviationSalesmanDao {
 	public int totalItems() {
 		// TODO Auto-generated method stub
 		return 0;
+	}
+	
+	//通过用户名和密码查找用户
+	@Override
+	public AviationSalesman fingsaesman(String name, String password) {
+	
+		return  jdbcTemplate.queryForObject("select * from aviation_salesman where salesman_name = ? and salesman_pwd = ?",
+				new Object[] {name,password},
+				new BeanPropertyRowMapper<AviationSalesman>(AviationSalesman.class)
+				);
 	}
 }

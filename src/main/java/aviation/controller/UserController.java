@@ -16,7 +16,7 @@ public class UserController {
 		
 	@Autowired
 	private IAviationUserService userService;
-	
+	//用户的
 	@RequestMapping("user/lists")
 	public ModelAndView getUserList() {
 		List<AviationUser> lists= userService.findAll();

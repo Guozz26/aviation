@@ -11,6 +11,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import aviation.config.TestConfig;
 import aviation.dao.prototype.IAviationSalesmanDao;
 import aviation.entity.po.AviationSalesman;
+import aviation.entity.po.AviationUser;
 import aviation.util.DateUtil;
 /**
  * 营业员的dao层测试
@@ -50,6 +51,15 @@ public class testAviationSalesmanImpl {
         	DateUtil.toDate("yyyy-MM-dd hh:mm:ss",  "1997-01-08 23:03:20"),"slw3456", 7);
         	   System.out.println(avi.saveOrUpdataOne(man));
           }
+          
+          //根据用户的密码和名字查找
+          
+      	@Test
+    	public void testfindUser() {
+      		AviationSalesman user = avi.fingsaesman("qwe", "123456");
+    		System.out.println(user);
+    		
+    	}
          
           
 }

@@ -21,5 +21,8 @@ public interface IAviationSalesmanService {
 		List<AviationSalesman> findAll(int pageNo, int pageSize);
 		   
 		int totalItems();		
+		
+		//根据用户和密码查找
+		AviationSalesman  fingsaesman(String name,String password);
     
 }

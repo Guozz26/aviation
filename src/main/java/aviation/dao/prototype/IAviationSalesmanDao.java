@@ -2,6 +2,7 @@ package aviation.dao.prototype;
 
 import java.util.List;
 import aviation.entity.po.AviationSalesman;
+import aviation.entity.po.AviationUser;
 /**
  * 营业员的接口类
  * @author 卟嗳
@@ -19,4 +20,7 @@ public interface IAviationSalesmanDao {
 	List<AviationSalesman> findAll(int pageNo, int pageSize);
 	   
 	int totalItems();
+	//通过neme和password查找
+	// -根据用户名和密码查询用户
+	AviationSalesman  fingsaesman(String name,String password);
 }

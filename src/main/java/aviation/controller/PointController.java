@@ -18,7 +18,7 @@ import aviation.service.prototype.IAviationPointService;
 
 @Controller
 public class PointController {
-	
+	//营业点的  增删改查
 	
 	@Autowired
 	private IAviationManagerService mangerService;

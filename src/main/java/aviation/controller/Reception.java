@@ -17,9 +17,11 @@ import org.springframework.web.servlet.ModelAndView;
 import aviation.entity.po.AviationUser;
 import aviation.entity.vo.FlightInfo;
 import aviation.entity.vo.OrderInfo;
+import aviation.service.prototype.IAviationBossService;
 import aviation.service.prototype.IAviationFlightService;
 import aviation.service.prototype.IAviationOrderService;
 import aviation.service.prototype.IAviationRootService;
+import aviation.service.prototype.IAviationSalesmanService;
 import aviation.service.prototype.IAviationUserService;
 import aviation.util.DateUtil;
 
@@ -35,8 +37,12 @@ public class Reception {
 	private IAviationRootService rootService;
 	@Autowired
 	private IAviationOrderService orderService;
+	@Autowired
+	private IAviationSalesmanService  salesmanService;
+	@Autowired
+	private IAviationBossService bossService;
 
-	
+	//前台的
 	
 	@RequestMapping("reception/sgin")
 	public ModelAndView getSgin() {
@@ -44,6 +50,7 @@ public class Reception {
 		return new ModelAndView("Reception/sgin");
 	}
 	
+	//前台主页面
 	@RequestMapping( "reception/index")
 	public ModelAndView getIndexSuccer(HttpServletRequest request) {
 		String name = request.getParameter("name");
@@ -52,18 +59,22 @@ public class Reception {
 		 int role = 0;
 		try {
 			role = (Integer.parseInt(request.getParameter("role")));
+			System.out.println(role);
 		} catch (NumberFormatException e1) {
 			e1.printStackTrace();
 		}
+		
+		//登录权限设置    1是前台  2是营业员  3是管理员  4是boss
 		
 		if(role ==1) {
 			int userId = 0;
 			String userName=null;
 			try {
-				userId = userService.findUser(name, password).getUserId();
-				userName = userService.findUser(name, password).getUserName();
-			} catch (Exception e) {
+					userId = userService.findUser(name, password).getUserId();
+					userName = userService.findUser(name, password).getUserName();
 				
+				} catch (Exception e) {
+				return new ModelAndView("Reception/sgin");
 			}
 			HttpSession session = request.getSession();
 			 session.setAttribute("userId", userId);
@@ -74,6 +85,22 @@ public class Reception {
 			mv.addObject("Id",userId);
 			 return mv;
 		}
+	if(role==2) {
+			int rootId =0;
+			try {
+				rootId = salesmanService.fingsaesman(name, password).getSalesmanId();
+				System.out.println(rootId);
+			}catch (Exception e) {	
+			}
+			if(rootId==0) {
+				return new ModelAndView("Reception/sgin");
+			}
+			HttpSession session = request.getSession();
+			ModelAndView mv=new ModelAndView("Administrators/index");
+			mv.addObject("role",2);
+			 return mv;
+		}
+	
 		if(role==3) {
 			int rootId =0;
 			try {
@@ -87,8 +114,21 @@ public class Reception {
 			 session.setAttribute("role", 3);
 			 return new ModelAndView("Administrators/index");
 		}
-		
-	
+	if(role==4) {
+			int rootId =0;
+			try {
+				rootId = bossService.fingBoss(name, password).getBossId();
+				System.out.println(rootId);
+			}catch (Exception e) {	
+			}
+			if(rootId==0) {
+				return new ModelAndView("Reception/sgin");
+			}
+			HttpSession session = request.getSession();
+			ModelAndView mv=new ModelAndView("Administrators/index");
+			mv.addObject("role",4);
+			 return mv;
+		}
 		return new ModelAndView("Reception/index");
 	}
 	

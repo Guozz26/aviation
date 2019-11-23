@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ page import="java.util.List,aviation.*;" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,15 +15,15 @@
     <div class="layui-header">
         <div class="layui-logo">航空航天售票后台管理系统</div>
         <ul class="layui-nav layui-layout-left">
-            <li class="layui-nav-item"><a href="">控制台</a></li>
-            <li class="layui-nav-item"><a href="">商品管理</a></li>
-            <li class="layui-nav-item"><a href="">用户</a></li>
+            <li class="layui-nav-item"><a href=""></a></li>
+            <li class="layui-nav-item"><a href=""></a></li>
+            <li class="layui-nav-item"><a href=""></a></li>
             <li class="layui-nav-item">
-                <a href="javascript:;">其它系统</a>
+                <a href="javascript:;"></a>
                 <dl class="layui-nav-child">
-                    <dd><a href="">邮件管理</a></dd>
-                    <dd><a href="">消息管理</a></dd>
-                    <dd><a href="">授权管理</a></dd>
+                    <dd><a href=""></a></dd>
+                    <dd><a href=""></a></dd>
+                    <dd><a href=""></a></dd>
                 </dl>
             </li>
         </ul>
@@ -37,10 +38,10 @@
                     <dd><a href="">安全设置</a></dd>
                 </dl>
             </li>
-            <li class="layui-nav-item"><a href="">退了</a></li>
+            <li class="layui-nav-item"><a href="Reception/sgin.jsp">退了</a></li>
         </ul>
     </div>
-
+      <c:if test="${role == 3}">
     <div class="layui-side layui-bg-black">
         <div class="layui-side-scroll">
             <!-- 左侧导航区域（可配合layui已有的垂直导航） -->
@@ -53,6 +54,7 @@
                         <dd><a href="administrators/insertFlight" target="class">新增航班</a></dd>
                     </dl>
                 </li>
+               
                 <li class="layui-nav-item">
                     <a href="javascript:;">用户以及营业点管理</a>
                     <dl class="layui-nav-child">
@@ -62,7 +64,12 @@
                       
                     </dl>
                 </li>
+        
+        
                 <li class="layui-nav-item"><a href="order/lists" target="class">订单管理</a></li>
+                <li class = "layui-nav-item"><a href="http://localhost:8888/aviation/jorder/lists" target="class">购票管理</a></li>
+       
+
                  <li class="layui-nav-item">
                     <a href="javascript:;">盈利统计</a>
                     <dl class="layui-nav-child">
@@ -72,9 +79,46 @@
                         <dd><a href="volume/index4" target="class">各营业点月收入对比</a></dd>
                     </dl>
                 </li>
-            </ul>
-        </div>
-    </div>
+   </ul>
+           </div>
+             </div>
+                    </c:if>
+ <c:if test="${role == 2}">
+    <div class="layui-side layui-bg-black">
+        <div class="layui-side-scroll">
+            <!-- 左侧导航区域（可配合layui已有的垂直导航） -->
+            <ul class="layui-nav layui-nav-tree"  lay-filter="test">
+                <li class="layui-nav-item layui-nav-itemed">
+                    <a class="" href="javascript:;">航班管理</a>
+                    <dl class="layui-nav-child">
+                        <dd><a href="administrators/lists" target="class">查看所有航班信息</a></dd>
+                        <dd><a href="administrators/selectFlight" target="class">查询航班</a></dd>
+                        <li class="layui-nav-item"><a href="order/lists" target="class">订单管理</a></li>
+                    </dl>
+                </li>
+                </ul>
+           </div>
+             </div>
+ </c:if>
+ 
+  <c:if test="${role == 4}">
+    <div class="layui-side layui-bg-black">
+        <div class="layui-side-scroll">
+            <!-- 左侧导航区域（可配合layui已有的垂直导航） -->
+            <ul class="layui-nav layui-nav-tree"  lay-filter="test"> 
+                 <li class="layui-nav-item">
+                    <a href="javascript:;">盈利统计</a>
+                    <dl class="layui-nav-child">
+                        <dd><a href="volume/index" target="class">各营业点本月盈利</a></dd>
+                        <dd><a href="volume/index2" target="class">各营业点年盈利</a></dd>
+                        <dd><a href="volume/index3" target="class">总盈利信息</a></dd>
+                        <dd><a href="volume/index4" target="class">各营业点月收入对比</a></dd>
+                    </dl>
+                </li>
+  			 </ul>	
+          </div>
+   </div>
+  </c:if>
 
     <div class="layui-body">
         <iframe  frameborder="0" name="class" src="administrators/huan/index" height="100%" width = "100%"></iframe>

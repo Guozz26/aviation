@@ -49,4 +49,16 @@ public class testAviationSalesmanServiceImpl {
 		        	DateUtil.toDate("yyyy-MM-dd hh:mm:ss",  "1997-01-08 23:03:20"),"slw3456", 7);
 		  System.out.println(avi.saveOrUpdataOne(a));
 	}
+	
+	
+	
+	
+	//根据用户和密码查找
+ 	@Test
+	public void testfindUser() {
+  		AviationSalesman user = avi.fingsaesman("qwe", "123456");
+		System.out.println(user);
+		
+	}
+     
 }

@@ -21,7 +21,7 @@ import aviation.util.DateUtil;
 @Controller
 public class volumeController {
 	
-	
+	//统计信息的实现
 	@Autowired
 	private IAviationVolumeService volumeService;
 	

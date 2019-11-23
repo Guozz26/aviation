@@ -28,6 +28,7 @@ public class AviationFlightDaoImpl implements IAviationFlightDao{
 	
 	
 	// -根据目的地和出发地查询航班
+	
 	public List<FlightInfo> findFlightGo(int pageSize, int offset, String from, String to,Date time) {
 		System.out.println(DateUtil.dateToString("yyyy-MM-dd", time));
 		return  jdbcTemplate.query( 
