@@ -189,6 +189,7 @@ public class Reception {
 		return mv;
 	}
 	
+	
 	//游客预定票后身份信息填写
 	// 某个航班的详细信息
 	@RequestMapping("/reception/addPay")
@@ -244,13 +245,13 @@ OrderId.setUserId(se);
  OrderId.setOrderMoney(price);
  
  orderService.ChageOrder(OrderId);
- ModelAndView mv = new ModelAndView("user/index");
+ ModelAndView mv = new ModelAndView("Reception/index");
  mv.addObject("price", price);
 		return mv;
 		
 	}
 	
-	
+
 	//支付接口 跳转
 		
 	@RequestMapping(value ="/reception/gopay" ,method = RequestMethod.POST)
@@ -279,7 +280,8 @@ OrderId.setUserId(se);
 	}
 	
 	
-	//后台订单查询的
+	
+	//后台订单查询的订单
 	@RequestMapping("/reception/personal")
 	public ModelAndView getPersonal(HttpServletRequest request) {
 		HttpSession session = request.getSession();
@@ -287,7 +289,7 @@ OrderId.setUserId(se);
 		ModelAndView mv = new ModelAndView("Reception/personal");	
 		
 		try {
-			orderService.tuipoa(id, 1);
+			//orderService.tuipoa(id, 1);
 			List<AviationOrder>  order= orderService.user(id);
 		
 				mv.addObject("order",order);

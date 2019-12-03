@@ -101,10 +101,10 @@
 </span>
                     </div>
                     
-                    
+              
         			<a href="lists/listInfo/${order.orderId}" ><button type="submit" class="btn btn-default button">改签</button></a>
-					<a href="aviation/reception/personal/${order.orderId}"><button type="submit" class="btn btn-default button">退票</button></a>
-				
+					<a href="aviation/order/lists/duipiao/${order.orderId}"><button type="submit" class="btn btn-default button">退票</button></a>
+					
         
                 </div>
             

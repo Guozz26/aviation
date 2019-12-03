@@ -51,6 +51,7 @@
 				<td>${a.orderFromTo }</td>
 				<td>${a.orderMoney }</td>
 				<td>${a.orderPrice}</td>
+				
 				<c:if test="${a.orderStatic==1}">
 						<td>已退票</td>
 				</c:if>
