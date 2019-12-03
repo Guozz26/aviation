@@ -1,76 +1,236 @@
 package aviation.entity.po;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class AviationOrder {
-	private int orderId;
-	private String orderName;
-	private String orderIdcard;
-	private Date orderTime;
-	private int moneyId;
-	private int flightId;
-	private int userId;
-	private int priceId;
+public class AviationOrder implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private int OrderId;
+	private String OrderName;
+	private String OrderIdcard;
+	private Date OrderTime;
+	private double OrderMoney;
+	private Date OrderFromTime;
+	private Date OrderFromTo;
+	private String OrderTimes;
+	private String OrderTo;
+	private String OrderUserName;
+	private String OrderPrice;
+	private int UserId;
+	private int OrderStatic;
+	public int getOrderStatic() {
+		return orderStatic;
+	}
+	public void setOrderStatic(int orderStatic) {
+		this.orderStatic = orderStatic;
+	}
+
+	private int orderStatic;
+    
+	
+	public AviationOrder(String orderIdcard, double orderMoney, Date orderFromTime, Date orderFromTo, String orderTimes,
+			String orderTo, String orderUserName, String orderPrice, int userId, int orderStatic) {
+		super();
+		OrderIdcard = orderIdcard;
+		OrderMoney = orderMoney;
+		OrderFromTime = orderFromTime;
+		OrderFromTo = orderFromTo;
+		OrderTimes = orderTimes;
+		OrderTo = orderTo;
+		OrderUserName = orderUserName;
+		OrderPrice = orderPrice;
+		UserId = userId;
+		this.orderStatic = orderStatic;
+	}
+
+	
+	
+	public AviationOrder(int orderId, String orderName, String orderIdcard, Date orderTime, double orderMoney,
+			Date orderFromTime, Date orderFromTo, String orderTimes, String orderTo, String orderUserName,
+			String orderPrice,int userId) {
+		super();
+		OrderId = orderId;
+		OrderName = orderName;
+		OrderIdcard = orderIdcard;
+		OrderTime = orderTime;
+		OrderMoney = orderMoney;
+		OrderFromTime = orderFromTime;
+		OrderFromTo = orderFromTo;
+		OrderTimes = orderTimes;
+		OrderTo = orderTo;
+		OrderUserName = orderUserName;
+		OrderPrice = orderPrice;
+		UserId = userId;
+		OrderStatic = orderStatic;
+	}
+	
+	public AviationOrder() {
+		super();
+	}
+
+	public AviationOrder( String orderIdcard, double orderMoney, Date orderFromTime, Date orderFromTo,
+			String orderTimes, String orderTo, String orderUserName, String orderPrice) {
+		super();		
+		OrderIdcard = orderIdcard;
+		OrderMoney = orderMoney;
+		OrderFromTime = orderFromTime;
+		OrderFromTo = orderFromTo;
+		OrderTimes = orderTimes;
+		OrderTo = orderTo;
+		OrderUserName = orderUserName;
+		OrderPrice = orderPrice;
+	}
+	
+	public AviationOrder(int orderId) {
+		super();
+		OrderId = orderId;
+		
+	}
+	public AviationOrder(int orderId, String orderIdcard, double orderMoney,
+			Date orderFromTime, Date orderFromTo, String orderTimes, String orderTo, String orderUserName,
+			String orderPrice) {
+		super();
+		OrderId = orderId;	
+		OrderIdcard = orderIdcard;		
+		OrderMoney = orderMoney;
+		OrderFromTime = orderFromTime;
+		OrderFromTo = orderFromTo;
+		OrderTimes = orderTimes;
+		OrderTo = orderTo;
+		OrderUserName = orderUserName;
+		OrderPrice = orderPrice;
+	}
+	
 	public int getOrderId() {
-		return orderId;
+		return OrderId;
 	}
+
 	public void setOrderId(int orderId) {
-		this.orderId = orderId;
+		OrderId = orderId;
 	}
+
 	public String getOrderName() {
-		return orderName;
+		return OrderName;
 	}
+
 	public void setOrderName(String orderName) {
-		this.orderName = orderName;
+		OrderName = orderName;
 	}
+
 	public String getOrderIdcard() {
-		return orderIdcard;
+		return OrderIdcard;
 	}
+
 	public void setOrderIdcard(String orderIdcard) {
-		this.orderIdcard = orderIdcard;
+		OrderIdcard = orderIdcard;
 	}
+
 	public Date getOrderTime() {
-		return orderTime;
+		return OrderTime;
 	}
+
 	public void setOrderTime(Date orderTime) {
-		this.orderTime = orderTime;
+		OrderTime = orderTime;
 	}
-	public int getMoneyId() {
-		return moneyId;
+
+	public double getOrderMoney() {
+		return OrderMoney;
 	}
-	public void setMoneyId(int moneyId) {
-		this.moneyId = moneyId;
+
+	public void setOrderMoney(double orderMoney) {
+		OrderMoney = orderMoney;
 	}
-	public int getFlightId() {
-		return flightId;
+
+	public Date getOrderFromTime() {
+		return OrderFromTime;
 	}
-	public void setFlightId(int flightId) {
-		this.flightId = flightId;
+
+	public void setOrderFromTime(Date orderFromTime) {
+		OrderFromTime = orderFromTime;
 	}
+
+	public Date getOrderFromTo() {
+		return OrderFromTo;
+	}
+
+	public void setOrderFromTo(Date orderFromTo) {
+		OrderFromTo = orderFromTo;
+	}
+
+	public String getOrderTimes() {
+		return OrderTimes;
+	}
+
+	public void setOrderTimes(String orderTimes) {
+		OrderTimes = orderTimes;
+	}
+
+	public String getOrderTo() {
+		return OrderTo;
+	}
+
+	public void setOrderTo(String orderTo) {
+		OrderTo = orderTo;
+	}
+
+	public String getOrderUserName() {
+		return OrderUserName;
+	}
+
+	public void setOrderUserName(String orderUserName) {
+		OrderUserName = orderUserName;
+	}
+
+	public String getOrderPrice() {
+		return OrderPrice;
+	}
+
+	public void setOrderPrice(String orderPrice) {
+		OrderPrice = orderPrice;
+	}
+
 	public int getUserId() {
-		return userId;
+		return UserId;
 	}
+
 	public void setUserId(int userId) {
-		this.userId = userId;
+		UserId = userId;
 	}
-	public int getPriceId() {
-		return priceId;
+
+	public static long getSerialversionuid() {
+		return serialVersionUID;
 	}
-	public void setPriceId(int priceId) {
-		this.priceId = priceId;
+	@Override
+	public String toString() {
+		return "AviationOrder [OrderId=" + OrderId + ", OrderName=" + OrderName + ", OrderIdcard=" + OrderIdcard
+				+ ", OrderTime=" + OrderTime + ", OrderMoney=" + OrderMoney + ", OrderFromTime=" + OrderFromTime
+				+ ", OrderFromTo=" + OrderFromTo + ", OrderTimes=" + OrderTimes + ", OrderTo=" + OrderTo
+				+ ", OrderUserName=" + OrderUserName + ", OrderPrice=" + OrderPrice + ", UserId=" + UserId
+				+ ", OrderStatic=" + OrderStatic + ", orderStatic=" + orderStatic + "]";
 	}
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + flightId;
-		result = prime * result + moneyId;
-		result = prime * result + orderId;
-		result = prime * result + ((orderIdcard == null) ? 0 : orderIdcard.hashCode());
-		result = prime * result + ((orderName == null) ? 0 : orderName.hashCode());
-		result = prime * result + ((orderTime == null) ? 0 : orderTime.hashCode());
-		result = prime * result + priceId;
-		result = prime * result + userId;
+		result = prime * result + ((OrderFromTime == null) ? 0 : OrderFromTime.hashCode());
+		result = prime * result + ((OrderFromTo == null) ? 0 : OrderFromTo.hashCode());
+		result = prime * result + OrderId;
+		result = prime * result + ((OrderIdcard == null) ? 0 : OrderIdcard.hashCode());
+		long temp;
+		temp = Double.doubleToLongBits(OrderMoney);
+		result = prime * result + (int) (temp ^ (temp >>> 32));
+		result = prime * result + ((OrderName == null) ? 0 : OrderName.hashCode());
+		result = prime * result + ((OrderPrice == null) ? 0 : OrderPrice.hashCode());
+		result = prime * result + OrderStatic;
+		result = prime * result + ((OrderTime == null) ? 0 : OrderTime.hashCode());
+		result = prime * result + ((OrderTimes == null) ? 0 : OrderTimes.hashCode());
+		result = prime * result + ((OrderTo == null) ? 0 : OrderTo.hashCode());
+		result = prime * result + ((OrderUserName == null) ? 0 : OrderUserName.hashCode());
+		result = prime * result + UserId;
+		result = prime * result + orderStatic;
 		return result;
 	}
 	@Override
@@ -82,70 +242,64 @@ public class AviationOrder {
 		if (getClass() != obj.getClass())
 			return false;
 		AviationOrder other = (AviationOrder) obj;
-		if (flightId != other.flightId)
-			return false;
-		if (moneyId != other.moneyId)
-			return false;
-		if (orderId != other.orderId)
-			return false;
-		if (orderIdcard == null) {
-			if (other.orderIdcard != null)
+		if (OrderFromTime == null) {
+			if (other.OrderFromTime != null)
 				return false;
-		} else if (!orderIdcard.equals(other.orderIdcard))
+		} else if (!OrderFromTime.equals(other.OrderFromTime))
 			return false;
-		if (orderName == null) {
-			if (other.orderName != null)
+		if (OrderFromTo == null) {
+			if (other.OrderFromTo != null)
 				return false;
-		} else if (!orderName.equals(other.orderName))
+		} else if (!OrderFromTo.equals(other.OrderFromTo))
 			return false;
-		if (orderTime == null) {
-			if (other.orderTime != null)
+		if (OrderId != other.OrderId)
+			return false;
+		if (OrderIdcard == null) {
+			if (other.OrderIdcard != null)
 				return false;
-		} else if (!orderTime.equals(other.orderTime))
+		} else if (!OrderIdcard.equals(other.OrderIdcard))
 			return false;
-		if (priceId != other.priceId)
+		if (Double.doubleToLongBits(OrderMoney) != Double.doubleToLongBits(other.OrderMoney))
 			return false;
-		if (userId != other.userId)
+		if (OrderName == null) {
+			if (other.OrderName != null)
+				return false;
+		} else if (!OrderName.equals(other.OrderName))
+			return false;
+		if (OrderPrice == null) {
+			if (other.OrderPrice != null)
+				return false;
+		} else if (!OrderPrice.equals(other.OrderPrice))
+			return false;
+		if (OrderStatic != other.OrderStatic)
+			return false;
+		if (OrderTime == null) {
+			if (other.OrderTime != null)
+				return false;
+		} else if (!OrderTime.equals(other.OrderTime))
+			return false;
+		if (OrderTimes == null) {
+			if (other.OrderTimes != null)
+				return false;
+		} else if (!OrderTimes.equals(other.OrderTimes))
+			return false;
+		if (OrderTo == null) {
+			if (other.OrderTo != null)
+				return false;
+		} else if (!OrderTo.equals(other.OrderTo))
+			return false;
+		if (OrderUserName == null) {
+			if (other.OrderUserName != null)
+				return false;
+		} else if (!OrderUserName.equals(other.OrderUserName))
+			return false;
+		if (UserId != other.UserId)
+			return false;
+		if (orderStatic != other.orderStatic)
 			return false;
 		return true;
 	}
-	@Override
-	public String toString() {
-		return "AviationOrder [orderId=" + orderId + ", orderName=" + orderName + ", orderIdcard=" + orderIdcard
-				+ ", orderTime=" + orderTime + ", moneyId=" + moneyId + ", flightId=" + flightId + ", userId=" + userId
-				+ ", priceId=" + priceId + "]";
-	}
-	public AviationOrder(int orderId, String orderName, String orderIdcard, Date orderTime, int moneyId, int flightId,
-			int userId, int priceId) {
-		super();
-		this.orderId = orderId;
-		this.orderName = orderName;
-		this.orderIdcard = orderIdcard;
-		this.orderTime = orderTime;
-		this.moneyId = moneyId;
-		this.flightId = flightId;
-		this.userId = userId;
-		this.priceId = priceId;
-	}
-	
-	public AviationOrder(String orderName, String orderIdcard, Date orderTime, int moneyId, int flightId, int userId,
-			int priceId) {
-		super();
-		this.orderName = orderName;
-		this.orderIdcard = orderIdcard;
-		this.orderTime = orderTime;
-		this.moneyId = moneyId;
-		this.flightId = flightId;
-		this.userId = userId;
-		this.priceId = priceId;
-	}
-	public AviationOrder(int orderId) {
-		super();
-		this.orderId = orderId;
-	}
-	public AviationOrder() {
-		super();
-	}
+
 	
 	
 	

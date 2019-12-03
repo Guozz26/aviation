@@ -15,5 +15,6 @@ public interface IAviationUserDao {
 		int deleteUser (int id);
 		// -根据用户名和密码查询用户
 		AviationUser fingUser(String name,String password);
-	
+	//根据用户名查id
+		AviationUser name(String name);
 }

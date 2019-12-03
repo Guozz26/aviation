@@ -72,15 +72,53 @@
 <div class="head" id="head">
     <ul>
         <li id="L1" onclick="Tab(1)"><a href="#">全部订单</a></li>
-        <li id="L2" onclick="Tab(2)"><a href="#">未出行</a></li>
-        <li id="L3" onclick="Tab(3)"><a href="#">待付款</a></li>
+<!--         <li id="L2" onclick="Tab(2)"><a href="#">未出行</a></li>
+        <li id="L3" onclick="Tab(3)"><a href="#">待付款</a></li> -->
     </ul>
 </div>
 <!--里面的内容-->
-<c:if test="${yes==1}">
+
+<div id="d1" style="overflow-y:auto;">
+
+<c:forEach items="${order}" var="order">
+    <ul>
+        <li style="list-style: none">
+                <div  class="bsg-inside-1" >
+                    <div class="bsg-inside-1-1" >
+                         <div class="bsg-inside-1-2"></div>
+                    </div>
+                 <h2 ><span>${order.orderTimes}</span> <span>---</span> <span>${order.orderTo}</span></h2>
+                    <p><span>${order.orderFromTime}</span>  <span>至</span> <span>	<fmt:formatDate value="${order.orderFromTo }" type="date" pattern="HH:  mm"/>   ${order.orderPrice}</span></p>
+                    <div class="bsg-inside-1-3" >
+                        <span class="bsg-iside-left">${order.orderMoney}</span><span class="bsg-inside-right" >
+                        
+	                <c:if test="${order.orderStatic==1}">
+						已退票
+				</c:if>
+						<c:if test="${order.orderStatic==0}">
+						已购买
+				</c:if>       
+</span>
+                    </div>
+                    
+                    
+        			<a href="lists/listInfo/${order.orderId}" ><button type="submit" class="btn btn-default button">改签</button></a>
+					<a href="aviation/reception/personal/${order.orderId}"><button type="submit" class="btn btn-default button">退票</button></a>
+				
+        
+                </div>
+            
+        </li>
+    </ul>
+    </c:forEach>
+</div>
+
+
+    <!--未出行订单-->
+
 
 <div id="d1">
-<c:forEach items="${order}" var="order">
+<%-- <c:forEach items="${order}" var="order">
     <ul>
         <li style="list-style: none">
                 <div  class="bsg-inside-1" >
@@ -92,34 +130,16 @@
                     <div class="bsg-inside-1-3" >
                         <span class="bsg-iside-left">${order.moneyBodyPrice}</span><span class="bsg-inside-right" >已出票</span>
                     </div>
+                    <from></from>
+                  <input type="submit" value="退票">
+                    <input type="submit" value="改签">
                 </div>
         </li>
     </ul>
-    </c:forEach>
+    </c:forEach> --%>
 </div>
 
-</c:if>
-    <!--未出行订单-->
-<div id="d2">
-    <ul style="list-style: none">
-        <li style="list-style: none">
-            <div  class="bsg-inside-1" >
-                <div class="bsg-inside-1-1" >
-                    <div class="bsg-inside-1-2"></div>
-                </div>
-                <h2 >
-                    <span>南京</span> <span>---</span> <span>太原</span>
-                </h2>
-                <p>
-                    <span>2019-05-12 09:45</span>  <span>至</span> <span>11：40 UMB2135</span>
-                </p>
-                <div class="bsg-inside-1-3" >
-                    <span class="bsg-iside-left">￥470</span><span class="bsg-inside-right" >待出行</span>
-                </div>
-            </div>
-        </li>
-    </ul>
-</div>
+
     <!--待付款订单-->
 <div id="d3">
     <ul style="list-style: none">

@@ -38,7 +38,7 @@ public class AviationPointServiceImpl implements IAviationPointService {
 	//营业点的单个插入和修改实现类
 	@Override
 	public int ServicesaveOrUpdataOne(AviationPoint pointId) {
-	
+
 		// TODO Auto-generated method stub
 	  return aviationdao.saveOrUpdataOne(pointId);
 	

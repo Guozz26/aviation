@@ -25,5 +25,7 @@ public interface IAviationFlightDao {
 	int inertOrUpdateFlight(AviationFlight avFlight);
 	// -查询当前航班最大id
 	int fingFlightMaxId();
+	//根据id查 航班
+	int flightId(int Flightid);
 	
 }

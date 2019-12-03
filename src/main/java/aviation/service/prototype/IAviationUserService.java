@@ -15,6 +15,8 @@ public interface IAviationUserService {
 	int deleteUser (int id);
 	// - 根据用户名和密码查找用户
 	AviationUser findUser(String name,String password);
+	//根据用户名查id
+	AviationUser name(String name);
 	
 	
 }

@@ -43,4 +43,10 @@ public class AviationUserServiceImpl implements IAviationUserService{
 		return iaviationUserDao.fingUser(name, password);
 	}
 
+	@Override
+	public AviationUser name(String name) {
+		
+		return iaviationUserDao.name(name);
+	}
+
 }

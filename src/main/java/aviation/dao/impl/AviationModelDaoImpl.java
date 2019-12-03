@@ -52,7 +52,8 @@ public class AviationModelDaoImpl implements IAviationModelDao{
 	@Override
 	public List<AviationModel> findAll() {
 		
-		List<AviationModel> lists = jdbcTemplate.query("select * from aviation_model", new BeanPropertyRowMapper<AviationModel>(AviationModel.class));
+		List<AviationModel> lists = jdbcTemplate.query("select * from aviation_model", 
+				new BeanPropertyRowMapper<AviationModel>(AviationModel.class));
 		return lists;
 	}
 

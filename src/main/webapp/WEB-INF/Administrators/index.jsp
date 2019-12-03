@@ -38,12 +38,12 @@
                     <dd><a href="">安全设置</a></dd>
                 </dl>
             </li>
-            <li class="layui-nav-item"><a href="http://localhost:8888/aviation/reception/sgin">退出</a></li>
+            <li class="layui-nav-item"><a href="#" onclick="outlogin()">退出</a></li>
         </ul>
     </div>
     
     <!-- 管理员登录 -->
-      <c:if test="${role == 3}">
+ <c:if test="${role == 3}">
     <div class="layui-side layui-bg-black">
         <div class="layui-side-scroll">
             <!-- 左侧导航区域（可配合layui已有的垂直导航） -->
@@ -69,7 +69,7 @@
         
         
                 <li class="layui-nav-item"><a href="/aviation/order/lists" target="class">订单管理</a></li>
-                <li class = "layui-nav-item"><a href="/aviation/order/lists" target="class">购票管理</a></li>
+             
        
 
                  <li class="layui-nav-item">
@@ -92,9 +92,9 @@
             <!-- 左侧导航区域（可配合layui已有的垂直导航） -->
             <ul class="layui-nav layui-nav-tree"  lay-filter="test">
                 <li class="layui-nav-item layui-nav-itemed">
-                    <a class="" href="javascript:;">航班管理</a>
+                    <a class="" href="javascript:;">营业员管理</a>
                     <dl class="layui-nav-child">
-                        <dd><a href="/aviation/administrators/lists" target="class">查看所有航班信息</a></dd>
+                        <!-- <dd><a href="/aviation/administrators/lists" target="class">查看所有航班信息</a></dd> -->
                         <dd><a href="/aviation/administrators/selectFlight" target="class">查询航班</a></dd>
                         <li class="layui-nav-item"><a href="/aviation/order/lists" target="class">订单管理</a></li>
                     </dl>
@@ -115,7 +115,7 @@
                         <dd><a href="/aviation/volume/index" target="class">各营业点本月盈利</a></dd>
                         <dd><a href="/aviation/volume/index2" target="class">各营业点年盈利</a></dd>
                         <dd><a href="/aviation/volume/index3" target="class">总盈利信息</a></dd>
-                        <dd><a href="/aviation/volume/index4" target="class">各营业点月收入对比</a></dd>
+                    <!--     <dd><a href="/aviation/volume/index4" target="class">各营业点月收入对比</a></dd> -->
                     </dl>
                 </li>
   			 </ul>	
@@ -124,17 +124,25 @@
   </c:if>
 
     <div class="layui-body">
-        <iframe  frameborder="0" name="class" src="administrators/huan/index" height="100%" width = "100%"></iframe>
+        <iframe  frameborder="0" name="class" src="/aviation/administrators/huan/index" height="100%" width = "100%"></iframe>
     </div>
 
     <div class="layui-footer">
-        <!-- 底部固定区域 -->
+        <!-- 底部固定区域 -->	
+        
         © layui.com - 底部固定区域
     </div>
 </div>
 <script src="/aviation/assets/layui/layui.all.js"></script>
 <script>
-  
+function outlogin(){
+	var isDelete = confirm("您确定要退出吗？");
+	if(isDelete){
+	
+		window.location.href="/aviation/outlogin";
+		
+	}
+}
 </script>
 </body>
 </html>

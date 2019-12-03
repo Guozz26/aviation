@@ -18,7 +18,9 @@
 <body>
 	<h3 align="center"> 航班计划 </h3>
 	<hr color="red">
-	
+	<%
+	int role = Integer.parseInt(session.getAttribute("role").toString());
+%>
 	
 	<table class="table table-striped">
 		<tr>
@@ -32,6 +34,13 @@
 			<th>经济舱价格</th>
 			<th>头等舱剩余座位</th>
 			<th>头等舱价格</th>
+				<%
+				if(role==2){
+			%>
+			<th>操作</th>
+			<%
+				}
+			%>
 		</tr>
 		<c:forEach items="${lists}" var="lists">
 			<tr>
@@ -42,14 +51,29 @@
 				<td>${lists.flightToTime }</td>
 				<td>${lists.modelName }</td>
 				<td>${lists.flightHeadNum}</td>
-				<td>${lists.moneyHeadPrice }</td>
+				<td >${lists.moneyHeadPrice }</td>
 				<td>${lists.flightBodyNum}</td>
 				<td>${lists.moneyBodyPrice }</td>
+				
+				
+						<%
+					if(role==2){
+				%>
+						<td><form action="lists/aaa" methon="get">
+							<input type="submit" value="购买">
+				<input type="hidden" name="id" value="${lists.flightId}">
+				</form></td>
+				<%
+					}
+				%>
+		
+				
 			</tr>
+			
 				</c:forEach>
 	</table> 
 	<a href="/aviation/administrators/selectFlight">返回</a>
-		
+
 	
 <%-- 	<div class="container" align="center">
 		<c:forEach items="${lists}" var="lists">

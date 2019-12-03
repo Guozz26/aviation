@@ -21,6 +21,7 @@ public class AviationBossDaoImpl implements IAviationBossDao{
 	@Override
 	public AviationBoss fingBoss(String name, String password) {
 		
+		
 		return  jdbcTemplate.queryForObject("select * from aviation_boss where boss_name = ? and boss_pwd = ?",
 				new Object[] {name,password},
 				new BeanPropertyRowMapper<AviationBoss>(AviationBoss.class)

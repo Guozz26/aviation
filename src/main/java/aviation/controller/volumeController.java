@@ -80,8 +80,6 @@ public class volumeController {
 	
 	@RequestMapping("volume/index3")
 	public ModelAndView getIndex3() {
-		
-	
 		return new ModelAndView("volume/index3");
 	}
 	

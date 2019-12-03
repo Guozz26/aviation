@@ -7,7 +7,6 @@
 <title>Insert title here</title>
  <link rel="stylesheet" href="/aviation/assets/css/addpay.css">
  <link rel="stylesheet" href="/aviation/assets/css/bootstrap.css">
-
 </head>
 <body>
 
@@ -20,12 +19,10 @@
     <div class="slw-top-2"></div>
     <div class="slw-top-3">
 
-        <a href="">登录</a>
-        <a href="">个人中心</a>
     </div>
 </div>
    <!--乘客信息填写-->
-   <div class="slw-one">
+   <div class="slw-one" >
        <img src="https://newstatic.hnair.com/hainanair/ibe/theme/hainan/images/loading.jpg" alt="">
        <div class="slw-one-1">
            <div class="slw-one-2">
@@ -36,10 +33,7 @@
                <div class="slw-one-3-img"><img src="/aviation/assets/images/pay1.png" alt=""></div>
                <span class="slw-one-33">该航班预计在扣款成功后20分钟内完成出票，保证出行</span>
        </div>
-       <div class="slw-one-4">乘客：</div>
-       <div class="slw-one-5">
-           <button  id="slw-one-6"  type="button" class="btn btn-default"><a href="">苏大强</a></button>
-       </div>
+   
 
    </div>
    </div>
@@ -47,29 +41,29 @@
    <div class="slw-two">
 
         <div class="slw-two-1">
-            <input type="text" placeholder="姓名，请与登记证件姓名保持一致" class="slw-two-2" >
+      <input type="text" placeholder="姓名，请与登记证件姓名保持一致" class="slw-two-2"  name="name">
         </div>
        <div class="slw-two-3">
            <div class="slw-two-5">
                <div class="slw-two-6">身份证</div>
            </div>
-           <input type="text" placeholder="登记证件身份证" class="slw-two-4" >
+           <input type="text" name="idcard" placeholder="登记证件身份证" class="slw-two-4" >
        </div>
 
-       <div class="slw-two-7">
+  <!--      <div class="slw-two-7">
            <div class="slw-two-8">
                <div class="slw-two-9">中国区号86</div>
            </div>
-           <input type="text" placeholder="乘机人手机号码" class="slw-two-10" >
-       </div>
+           <input type="text" placeholder="乘机人手机号码" class="slw-two-10"   >
+       </div> -->
    </div>
-   <div class="slw-three">
+<!--    <div class="slw-three">
        <button class="slw-three-1">+添加乘客</button>
-   </div>
+   </div> -->
    <div class="slw-three-2">
        <input type="submit" class="slw-three-3" value="下一步">
    </div>
-   </form>
+  
 <!--飞机信息-->
   <div class="slw-five-1">
       <!--第一行-->
@@ -79,20 +73,28 @@
                 供应商
             </div>
             <div class="slw-five-2-2">
-                     <span class="slw-five-2-3">11-18&nbsp&nbsp</span>
-                     <span class="slw-five-2-3">周一&nbsp&nbsp</span>
-                     <span class="slw-five-2-3">北京&nbsp&nbsp</span>
+                     <span class="slw-five-2-3">&nbsp&nbsp</span>
+               
+                     <span class="slw-five-2-3" name="flightFrom">${lists.flightFrom}&nbsp&nbsp</span>
                       <span class="slw-five-2-3">→&nbsp&nbsp</span>
-                     <span class="slw-five-2-3">太原&nbsp&nbsp</span>
+                     <span class="slw-five-2-3" name="flightto">${lists.flightTo}&nbsp&nbsp</span>
             </div>
             <div class="slw-five-2-4">
                 <img src="//pic.c-ctrip.com/flight_intl/airline_logo/32/mu.png" alt="">
-                <span class="slw-five-2-5">东方航空&nbspMU5292</span>
+                <span class="slw-five-2-5" >东方航空&nbspMU5292</span>
                 <span class="slw-five-2-5">&nbsp&nbsp波音737</span>
-                <span class="slw-five-2-5">&nbsp&nbsp经济舱</span>
+                <span class="slw-five-2-5" name="seat">&nbsp&nbsp <%int zuo  = Integer.parseInt(request.getParameter("zuot"));
+                                                        if(zuo==1){
+                                                        	out.println("头等舱");
+                                                        }else{
+                                                        	out.println("经济舱");
+                                                        }
+                              	
+                                                        
+                                                       %></span>
             </div>
-            <div class="slw-five-2-6">16:35</div>
-            <div class="slw-five-2-7">20:30</div>
+            <div class="slw-five-2-6"><span style="font-size:10px" >${lists.flightFromTime.toString().substring(0,19)}</span></div>
+            <div class="slw-five-2-7"><span style="font-size:10px">${lists.flightToTime.toString().substring(0,19)}</span></div>
             <div class="slw-five-2-8">首都国际机场T2</div>
             <div class="slw-five-2-9"></div>
             <div class="slw-five-2-10"></div>
@@ -127,13 +129,19 @@
       <!--第三行-->
         <div class="slw-five-6">
             <span class="slw-five-6-1">￥</span>
-            <span class="slw-five-6-2">420</span>
+            <span class="slw-five-6-2" name ="price">${lists.moneyHeadPrice}</span>
         </div>
+      
 
+	<input type="hidden" name="seat" value="<%=zuo%>">
+	<input type="hidden" name="point" value="${lists.flightFrom}">
+	<input type="hidden" name="end" value="${lists.flightTo}">
+	<input type="hidden" name="time" value="${lists.flightFromTime.toString().substring(0,19)}">
+	<input type="hidden" name="Arrival" value="${lists.flightToTime.toString().substring(0,19)}">
+	<input type="hidden" name="money" value="${lists.moneyHeadPrice}">
+	  </div>
+ </form>
 
-
-
-</div>
 <!--尾巴-->
   <div class="slw-six">
       Copyright© 1999-2019, ctrip.com. all rights reserved.

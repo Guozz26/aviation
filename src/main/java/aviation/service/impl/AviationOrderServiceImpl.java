@@ -19,50 +19,76 @@ public class AviationOrderServiceImpl  implements IAviationOrderService{
 	@Autowired
 	private IAviationOrderDao aviationOrderDao;
 	
-	
-	
-	
-	
-//--查询一个订单
+	@Override
 	public AviationOrder chess(int OrderId) {
 		
 		return aviationOrderDao.chess(OrderId);
 	}
-
-//--根据用户id查询
-
-	public List<OrderInfo> userss(int UserId) {
-		
-		return aviationOrderDao.userss(UserId);
-	}
-//--查询订单多个
-
-	public List<AviationOrder> check(int pageNo, int pageSize) {
 	
-		return aviationOrderDao.check((pageNo-1)*pageSize, pageSize);
-	}
-//--查询订单所有信息
-
-	public OrderInfo findFlightInfoAll(int id) {
-		
-		return aviationOrderDao.findFlightInfoAll(id);
-	}
 	
-//--修改订单
 
-	public void ChageOrder(AviationOrder OrderId) {
+	@Override
+	public List<AviationOrder> userss(String name, String idcard) {
+		// TODO Auto-generated method stub
+		return aviationOrderDao.userss(name, idcard);
+	}
+
+	@Override
+	public List<AviationOrder> findFlightInfoAll() {
+		// TODO Auto-generated method stub
+		return aviationOrderDao.findFlightInfoAll();
+	}
+
+	@Override
+	public int ChageOrder(AviationOrder OrderId) {
 		
-		aviationOrderDao.ChageOrder(OrderId);
+		return aviationOrderDao.ChageOrder(OrderId);
 		
 	}
-	
-//--删除订单
 
+	@Override
 	public int daleteOrder(int id) {
-		
+		// TODO Auto-generated method stub
 		return aviationOrderDao.daleteOrder(id);
 	}
 
+
+
+	@Override
+	public List<AviationOrder> user(int UserId) {
+		// TODO Auto-generated method stub
+		return aviationOrderDao.user(UserId);
+	}
+
+
+
+	@Override
+	public int tuipoa(int OrderId, int statics) {
+		
+		return aviationOrderDao.tuipoa(OrderId, statics);
+	}
+
+
+
+	@Override
+	public List<AviationOrder> usernaem(String name) {
+	
+		return aviationOrderDao.usernaem(name);
+	}
+
+
+//更新
+	@Override
+	public AviationOrder changes(int OrderId) {
+		// TODO Auto-generated method stub
+	 
+	return aviationOrderDao.changes(OrderId);
+	}
+	
+	
+	
+	
+	
 
 	
 

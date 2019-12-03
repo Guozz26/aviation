@@ -27,54 +27,50 @@ public class testAviationOrderServiceImpl {
 	@Autowired
 	private IAviationOrderService iaviationorderservice;
 	
-	//--查询一个	
 	@Test
-		public void  orderdao() {
-			AviationOrder ao = iaviationorderservice.chess(1);
-			System.out.println(ao);
-	
-		}
-	//--查询多个
-	
+	public void  orderdao() {
+		AviationOrder ao = iaviationorderservice.chess(1);
+		System.out.println(ao);
+
+	}
+//--根据用户 和身份正证号查询
 @Test
-	public void orderss(){
-	 List<AviationOrder> pages = iaviationorderservice.check(0, 100);
-	 	for (AviationOrder aviationOrder : pages) {
-	 		
-	 			System.out.println(aviationOrder);
-		}
+public void usetTet() {
+	List<AviationOrder> ss  = iaviationorderservice.userss("李四","123456");
+	
+	System.out.println(ss);
+	
+}
+@Test
+public void findllTest() {
+	List<AviationOrder> aa  = iaviationorderservice.findFlightInfoAll();
+
+	  for (AviationOrder aviationOrder : aa) {
+		  System.out.println(aviationOrder);
+	}
+	
+	  }
+	  
+//更新和插入     
+@Test
+public void updataTest() {
+	 
+    	AviationOrder man = new AviationOrder(16,"123456",135.0, 
+        	DateUtil.toDate("yyyy-MM-dd hh:mm:ss","1997-01-08 23:03:20"),DateUtil.toDate("yyyy-MM-dd hh:mm:ss",  "1997-02-08 23:03:20"),"北京","上海","李四","经济舱");
+    	System.out.println(iaviationorderservice.ChageOrder(man));
 }
 
-
-
-//--根据用户查询
-	@Test
-	public void usetTet() {
-		List<OrderInfo> ss  = iaviationorderservice.userss(1);
-		
-		System.out.println(ss);
-	}
-	//--测试 订单查询
-	@Test
-	public void testFindAllOrderInfo() {
-		OrderInfo lists  = iaviationorderservice.findFlightInfoAll(1);
-		
-		System.out.println(lists);
-		
-	}
+//--删除订单
+@Test
+public void testdelet() {
+	iaviationorderservice.daleteOrder(8);
 	
-	//--测试订单插入
-		@Test
-		public void Testfes() {
-			 AviationOrder  se = new AviationOrder( "tt","s12123",DateUtil.toDate("yyyy-MM-dd hh:mm:ss", "1997-06-13 23:12:12"),3,4,5,5);
-			 iaviationorderservice.ChageOrder(se);
-		}
+}
+
+@Test
+public void testf() {
+	iaviationorderservice.tuipoa(2, 0);
 	
-		//--删除订单
-		@Test
-		public void testdelet() {
-			iaviationorderservice.daleteOrder(4);
-			
-			
-		}
+}
+
 }

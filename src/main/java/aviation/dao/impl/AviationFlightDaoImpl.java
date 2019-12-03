@@ -25,7 +25,7 @@ public class AviationFlightDaoImpl implements IAviationFlightDao{
 				new Object[] {offset , pageSize},
 				new BeanPropertyRowMapper<AviationFlight>(AviationFlight.class));
 	}
-	
+	 
 	
 	// -根据目的地和出发地查询航班
 	
@@ -96,5 +96,11 @@ public class AviationFlightDaoImpl implements IAviationFlightDao{
 	public int fingFlightMaxId() {
 		AviationFlight af = jdbcTemplate.queryForObject("select * from aviation_flight order by flight_id desc limit 1", new BeanPropertyRowMapper<AviationFlight>(AviationFlight.class));	
 		return af.getFlightId();
+	}
+//根据id查航班
+	@Override
+	public int flightId(int Flightid) {
+		
+		return 0;
 	}
 }

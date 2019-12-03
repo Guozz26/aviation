@@ -62,6 +62,14 @@ public class AviationUserDaoImpl implements IAviationUserDao{
 				new BeanPropertyRowMapper<AviationUser>(AviationUser.class)
 				);
 	}
+	//根据用户名查id
+	@Override
+	public AviationUser name(String name) {
+		
+		return jdbctemplate.queryForObject("SELECT user_id from aviation_user WHERE user_name=?;",new Object[] {name},
+				new BeanPropertyRowMapper<AviationUser>(AviationUser.class)
+				);
+	}
 	
 	
 }

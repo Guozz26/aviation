@@ -60,5 +60,12 @@ public class testAviationUserServiceImpl {
 		iAviationuserService.findUser("李四", "123");
 		
 	}
+	//--查询单个
+	@Test
+	public void userfd() {
+		AviationUser ss = iAviationuserService.name("李四");
+		System.out.println(ss);
+		
+	}
 	
 }
